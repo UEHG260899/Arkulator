@@ -12,6 +12,7 @@
 		A46B82AB2873E20F00E48202 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A46B82AA2873E20F00E48202 /* Preview Assets.xcassets */; };
 		A46B82B32873E23600E48202 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B22873E23600E48202 /* HomeView.swift */; };
 		A46B82B52873E34000E48202 /* DinosaurListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B42873E34000E48202 /* DinosaurListView.swift */; };
+		A46B82B82873E5EF00E48202 /* DinosaurCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B72873E5EF00E48202 /* DinosaurCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		A46B82AA2873E20F00E48202 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A46B82B22873E23600E48202 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A46B82B42873E34000E48202 /* DinosaurListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurListView.swift; sourceTree = "<group>"; };
+		A46B82B72873E5EF00E48202 /* DinosaurCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		A46B82A22873E20C00E48202 /* Arkulator */ = {
 			isa = PBXGroup;
 			children = (
+				A46B82B62873E5DF00E48202 /* Components */,
 				A46B82B12873E22B00E48202 /* Home */,
 				A46B82A32873E20C00E48202 /* ArkulatorApp.swift */,
 				A46B82A72873E20F00E48202 /* Assets.xcassets */,
@@ -76,6 +79,14 @@
 				A46B82B42873E34000E48202 /* DinosaurListView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		A46B82B62873E5DF00E48202 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A46B82B72873E5EF00E48202 /* DinosaurCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			files = (
 				A46B82A42873E20C00E48202 /* ArkulatorApp.swift in Sources */,
 				A46B82B32873E23600E48202 /* HomeView.swift in Sources */,
+				A46B82B82873E5EF00E48202 /* DinosaurCell.swift in Sources */,
 				A46B82B52873E34000E48202 /* DinosaurListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
