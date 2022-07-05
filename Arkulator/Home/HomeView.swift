@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  Arkulator
 //
 //  Created by Uriel Hernandez Gonzalez on 04/07/22.
@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            DinosaurListView()
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }
