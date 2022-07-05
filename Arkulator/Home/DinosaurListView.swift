@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct DinosaurListView: View {
-        
+    
     @State var searchString: String = ""
+    
     var body: some View {
+        
         GeometryReader { geometry in
             VStack {
-                TextField("Search a dino", text: $searchString)
-                    .padding()
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                RoundedTextField(placeholder: "Search a Dino",
+                                 text: $searchString,
+                                 height: 40)
+                .padding(.horizontal)
                 List {
                     ForEach(1..<11) { number in
                         DinosaurCell(cellNumber: number,

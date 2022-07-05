@@ -19,24 +19,32 @@ struct DinosaurStatsView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
-                TextField("Stamina", text: $stamina)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("Weight", text: $weight)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("Oxigen", text: $oxigen)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("Mele", text: $mele)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("Food", text: $food)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("Movement Speed", text: $movementSpeed)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                TextField("Health", text: $health)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            VStack(spacing: 20) {
+                RoundedTextField(placeholder: "Stamina",
+                                 text: $stamina)
+                RoundedTextField(placeholder: "Weight",
+                                 text: $weight)
+                RoundedTextField(placeholder: "Oxigen",
+                                 text: $oxigen)
+                RoundedTextField(placeholder: "Mele",
+                                 text: $mele)
+                RoundedTextField(placeholder: "Food",
+                                 text: $food)
+                RoundedTextField(placeholder: "Movement Speed",
+                                 text: $movementSpeed)
+                RoundedTextField(placeholder: "Health",
+                                 text: $health)
+                
                 Button("Save") {
                     print("Saved")
                 }
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(
+                    Capsule()
+                        .foregroundColor(.blue)
+                )
                 Spacer()
             }
             .navigationTitle("Dino stats")
