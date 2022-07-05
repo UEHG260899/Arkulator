@@ -28,12 +28,7 @@ class DinosaurStatsViewModel: ObservableObject {
     
     private var test: Results<Dinosaur>!
     
-    func fetchDinosaurs() {
-        let realm = try! Realm()
-        test = realm.objects(Dinosaur.self)
-        print(test)
-    }
-    
+
     func saveDinosaur() {
         let newDinosaur = Dinosaur(name: dinosaurName,
                                    stamina: Int(dinosaurStamina) ?? 0,
@@ -43,8 +38,6 @@ class DinosaurStatsViewModel: ObservableObject {
                                    food: Int(dinosaurFood) ?? 0,
                                    movementSpeed: Int(dinosaurMovementSpeed) ?? 0,
                                    health: Int(dinosaurHealth) ?? 0)
-//        newDinosaur.id = newDinosaur.incrementID()
-//        newDinosaur.expectedLevel = newDinosaur.requiredLevel
         newDinosaur.save()
     }
 }

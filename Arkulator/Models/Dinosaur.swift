@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class Dinosaur: Object {
+class Dinosaur: Object, Identifiable {
     @Persisted(primaryKey: true) var id: Int64
     @Persisted var name: String
     @Persisted var stamina: Int
@@ -20,7 +20,7 @@ class Dinosaur: Object {
     @Persisted var health: Int
     @Persisted var expectedLevel: Int
     
-    var requiredLevel: Int {
+    private var requiredLevel: Int {
         return stamina + weight + oxigen + mele + food + movementSpeed + health + 1
     }
     
@@ -57,7 +57,7 @@ class Dinosaur: Object {
         }
     }
     
-    func incrementID() -> Int64 {
+    private func incrementID() -> Int64 {
         let realm = try! Realm()
         return (realm.objects(Dinosaur.self).max(ofProperty: "id") as Int64? ?? 0) + 1
     }

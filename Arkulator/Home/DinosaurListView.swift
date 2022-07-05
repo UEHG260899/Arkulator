@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct DinosaurListView: View {
     
     @State var searchString: String = ""
+    @ObservedResults(Dinosaur.self) var dinosaurs
     
     var body: some View {
         
@@ -20,10 +22,10 @@ struct DinosaurListView: View {
                                  height: 40)
                 .padding(.horizontal)
                 List {
-                    ForEach(1..<11) { number in
-                        DinosaurCell(cellNumber: number,
-                                     dinosaurName: "Argentavis",
-                                     requiredLevel: 120,
+                    ForEach(dinosaurs) { dinosaur in
+                        DinosaurCell(cellNumber: Int(dinosaur.id),
+                                     dinosaurName: dinosaur.name,
+                                     requiredLevel: dinosaur.expectedLevel,
                                      width: geometry.size.width / 15)
                     }
                 }
