@@ -13,16 +13,26 @@ struct DinosaurListView: View {
     @State var searchString: String = ""
     @ObservedResults(Dinosaur.self) var dinosaurs
     
+    var filteredResults: Results<Dinosaur> {
+        if !searchString.isEmpty {
+            return dinosaurs.where {
+                $0.name.contains(searchString)
+            }
+        }
+        
+        return dinosaurs
+    }
+    
     var body: some View {
         
         GeometryReader { geometry in
             VStack {
-                RoundedTextField(placeholder: "Search a Dino",
+                RoundedTextField(placeholder: "Search a Dino".lowercased(),
                                  text: $searchString,
                                  height: 40)
                 .padding(.horizontal)
                 List {
-                    ForEach(dinosaurs) { dinosaur in
+                    ForEach(filteredResults) { dinosaur in
                         DinosaurCell(cellNumber: Int(dinosaur.id),
                                      dinosaurName: dinosaur.name,
                                      requiredLevel: dinosaur.expectedLevel,
