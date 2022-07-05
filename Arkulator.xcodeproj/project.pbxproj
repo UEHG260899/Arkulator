@@ -19,6 +19,7 @@
 		A4C61FF92874A2F900260646 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF82874A2F900260646 /* CustomBackButton.swift */; };
 		A4C61FFD2874A7E300260646 /* EnvironmentValues+Exensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */; };
 		A4C620002874A8E700260646 /* Dinosaur.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FFF2874A8E700260646 /* Dinosaur.swift */; };
+		A4C620022874B68A00260646 /* DinosaurStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		A4C61FF82874A2F900260646 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+Exensions.swift"; sourceTree = "<group>"; };
 		A4C61FFF2874A8E700260646 /* Dinosaur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dinosaur.swift; sourceTree = "<group>"; };
+		A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsViewModel.swift; sourceTree = "<group>"; };
 		D2FD24D19871C8843CF51C01 /* Pods_Arkulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Arkulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				A46B82B22873E23600E48202 /* HomeView.swift */,
 				A46B82B42873E34000E48202 /* DinosaurListView.swift */,
 				A4C61FF42874908700260646 /* DinosaurStatsView.swift */,
+				A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -149,7 +152,6 @@
 				3C383B74E6B57E30A8A4D419 /* Pods-Arkulator.debug.xcconfig */,
 				0C5A7DAD7C614FF3F27656D7 /* Pods-Arkulator.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -276,6 +278,7 @@
 				A46B82B82873E5EF00E48202 /* DinosaurCell.swift in Sources */,
 				A46B82B52873E34000E48202 /* DinosaurListView.swift in Sources */,
 				A4C620002874A8E700260646 /* Dinosaur.swift in Sources */,
+				A4C620022874B68A00260646 /* DinosaurStatsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,5 +6,5 @@ target 'Arkulator' do
   use_frameworks!
 
   # Pods for Arkulator
-  pod 'Realm', '10.28.2'
+  pod 'RealmSwift', '10.28.2'
 end

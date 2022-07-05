@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct HomeView: View {
     
     @State var shouldShowForm: Bool = false
+    
+    init() {
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+    }
     
     var body: some View {
         NavigationView {

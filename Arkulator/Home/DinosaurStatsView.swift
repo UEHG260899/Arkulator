@@ -9,41 +9,45 @@ import SwiftUI
 
 struct DinosaurStatsView: View {
     
-    @State var stamina: String = ""
-    @State var weight: String = ""
-    @State var oxigen: String = ""
-    @State var mele: String = ""
-    @State var food: String = ""
-    @State var movementSpeed: String = ""
-    @State var health: String = ""
+    @ObservedObject var viewModel = DinosaurStatsViewModel()
+
     
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
+                RoundedTextField(placeholder: "Dino name",
+                                 text: $viewModel.dinosaurName)
                 RoundedTextField(placeholder: "Stamina",
-                                 text: $stamina)
+                                 text: $viewModel.dinosaurStamina)
                 RoundedTextField(placeholder: "Weight",
-                                 text: $weight)
+                                 text: $viewModel.dinosaurWeight)
                 RoundedTextField(placeholder: "Oxigen",
-                                 text: $oxigen)
+                                 text: $viewModel.dinosaurOxigen)
                 RoundedTextField(placeholder: "Mele",
-                                 text: $mele)
+                                 text: $viewModel.dinosaurMele)
                 RoundedTextField(placeholder: "Food",
-                                 text: $food)
+                                 text: $viewModel.dinosaurFood)
                 RoundedTextField(placeholder: "Movement Speed",
-                                 text: $movementSpeed)
+                                 text: $viewModel.dinosaurMovementSpeed)
                 RoundedTextField(placeholder: "Health",
-                                 text: $health)
+                                 text: $viewModel.dinosaurHealth)
                 
-                Button("Save") {
-                    print("Saved")
-                }
+                Button(action: {
+                    viewModel.saveDinosaur()
+                }, label: {
+                    Text("Save")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                })
+                .disabled(!viewModel.isFormValid)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(
                     Capsule()
-                        .foregroundColor(.blue)
+                        .foregroundColor(
+                            viewModel.isFormValid ? .blue : .blue.opacity(0.5)
+                        )
                 )
                 Spacer()
             }
