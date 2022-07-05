@@ -47,6 +47,8 @@ struct DinosaurStatsView: View {
                 )
                 Spacer()
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: CustomBackButton())
             .navigationTitle("Dino stats")
             .padding()
         }

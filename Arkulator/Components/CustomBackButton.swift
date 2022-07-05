@@ -1,0 +1,30 @@
+//
+//  CustomBackButton.swift
+//  Arkulator
+//
+//  Created by Uriel Hernandez Gonzalez on 05/07/22.
+//
+
+import SwiftUI
+
+struct CustomBackButton: View {
+    
+    @Environment(\.dismiss) var dismiss
+
+    
+    var body: some View {
+        Button {
+            dismiss()
+        } label: {
+            Image(systemName: "arrow.left")
+                .foregroundColor(.black)
+        }
+
+    }
+}
+
+struct CustomBackButton_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomBackButton()
+    }
+}
