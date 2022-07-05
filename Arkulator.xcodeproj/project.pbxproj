@@ -13,6 +13,7 @@
 		A46B82B32873E23600E48202 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B22873E23600E48202 /* HomeView.swift */; };
 		A46B82B52873E34000E48202 /* DinosaurListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B42873E34000E48202 /* DinosaurListView.swift */; };
 		A46B82B82873E5EF00E48202 /* DinosaurCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B72873E5EF00E48202 /* DinosaurCell.swift */; };
+		A4C61FF52874908700260646 /* DinosaurStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF42874908700260646 /* DinosaurStatsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		A46B82B22873E23600E48202 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A46B82B42873E34000E48202 /* DinosaurListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurListView.swift; sourceTree = "<group>"; };
 		A46B82B72873E5EF00E48202 /* DinosaurCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurCell.swift; sourceTree = "<group>"; };
+		A4C61FF42874908700260646 /* DinosaurStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				A46B82B22873E23600E48202 /* HomeView.swift */,
 				A46B82B42873E34000E48202 /* DinosaurListView.swift */,
+				A4C61FF42874908700260646 /* DinosaurStatsView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			files = (
 				A46B82A42873E20C00E48202 /* ArkulatorApp.swift in Sources */,
 				A46B82B32873E23600E48202 /* HomeView.swift in Sources */,
+				A4C61FF52874908700260646 /* DinosaurStatsView.swift in Sources */,
 				A46B82B82873E5EF00E48202 /* DinosaurCell.swift in Sources */,
 				A46B82B52873E34000E48202 /* DinosaurListView.swift in Sources */,
 			);
