@@ -10,7 +10,23 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         NavigationView {
-            DinosaurListView()
+            ZStack(alignment: .bottom) {
+                DinosaurListView()
+                
+                HStack {
+                    Spacer()
+                    Button {
+                        print("Hola")
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                            .padding()
+                    }
+
+                }
+                
+            }
         }
     }
 }
