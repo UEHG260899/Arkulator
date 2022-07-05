@@ -17,6 +17,7 @@
 		A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF6287497DE00260646 /* RoundedTextField.swift */; };
 		A4C61FF92874A2F900260646 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF82874A2F900260646 /* CustomBackButton.swift */; };
 		A4C61FFD2874A7E300260646 /* EnvironmentValues+Exensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */; };
+		A4C620002874A8E700260646 /* Dinosaur.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FFF2874A8E700260646 /* Dinosaur.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A4C61FF6287497DE00260646 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		A4C61FF82874A2F900260646 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+Exensions.swift"; sourceTree = "<group>"; };
+		A4C61FFF2874A8E700260646 /* Dinosaur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dinosaur.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		A46B82A22873E20C00E48202 /* Arkulator */ = {
 			isa = PBXGroup;
 			children = (
+				A4C61FFE2874A8D100260646 /* Models */,
 				A4C61FFA2874A7BB00260646 /* Utils */,
 				A46B82B62873E5DF00E48202 /* Components */,
 				A46B82B12873E22B00E48202 /* Home */,
@@ -115,6 +118,14 @@
 				A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A4C61FFE2874A8D100260646 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A4C61FFF2874A8E700260646 /* Dinosaur.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +206,7 @@
 				A4C61FF92874A2F900260646 /* CustomBackButton.swift in Sources */,
 				A46B82B82873E5EF00E48202 /* DinosaurCell.swift in Sources */,
 				A46B82B52873E34000E48202 /* DinosaurListView.swift in Sources */,
+				A4C620002874A8E700260646 /* Dinosaur.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
