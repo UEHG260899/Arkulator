@@ -9,8 +9,10 @@ import SwiftUI
 
 struct DinosaurStatsView: View {
     
-    @ObservedObject var viewModel = DinosaurStatsViewModel()
-
+    @Environment(\.dismiss) var dismiss
+    @StateObject var viewModel = DinosaurStatsViewModel()
+    @State private var isAlertPresented = false
+    
     
     var body: some View {
         ScrollView {
@@ -32,23 +34,58 @@ struct DinosaurStatsView: View {
                 RoundedTextField(placeholder: "Health",
                                  text: $viewModel.dinosaurHealth)
                 
-                Button(action: {
-                    viewModel.saveDinosaur()
-                }, label: {
-                    Text("Save")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                })
-                .disabled(!viewModel.isFormValid)
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(
-                    Capsule()
-                        .foregroundColor(
-                            viewModel.isFormValid ? .blue : .blue.opacity(0.5)
-                        )
-                )
+                if #available(iOS 15.0, *) {
+                    Button(action: {
+                        isAlertPresented = true
+                    }, label: {
+                        Text("Save")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                    })
+                    .disabled(!viewModel.isFormValid)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(
+                        Capsule()
+                            .foregroundColor(
+                                viewModel.isFormValid ? .blue : .blue.opacity(0.5)
+                            )
+                    )
+                    .alert("Are you sure you want to save the data?", isPresented: $isAlertPresented) {
+                        Button("Yes", role: .none) {
+                            viewModel.saveDinosaur()
+                            dismiss()
+                        }
+                        Button("No", role: .cancel) {}
+                    }
+                } else {
+                    Button(action: {
+                        isAlertPresented = true
+                    }, label: {
+                        Text("Save")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                    })
+                    .disabled(!viewModel.isFormValid)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(
+                        Capsule()
+                            .foregroundColor(
+                                viewModel.isFormValid ? .blue : .blue.opacity(0.5)
+                            )
+                    )
+                    .alert(isPresented: $isAlertPresented) {
+                        Alert(title: Text("Are you sure you want to save the data?"),
+                              primaryButton: .default(Text("No"), action: {}),
+                              secondaryButton: .default(Text("Yes"), action: {
+                            viewModel.saveDinosaur()
+                            dismiss()
+                        }))
+                    }
+                }
                 Spacer()
             }
             .navigationBarBackButtonHidden(true)
