@@ -15,6 +15,7 @@
 		A46B82B52873E34000E48202 /* DinosaurListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B42873E34000E48202 /* DinosaurListView.swift */; };
 		A46B82B82873E5EF00E48202 /* DinosaurCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B72873E5EF00E48202 /* DinosaurCell.swift */; };
 		A490FE472879D24D00C29710 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A490FE462879D24D00C29710 /* LaunchScreen.storyboard */; };
+		A490FE4F2879ED6700C29710 /* ArkulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A490FE4E2879ED6700C29710 /* ArkulatorTests.swift */; };
 		A4C61FF52874908700260646 /* DinosaurStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF42874908700260646 /* DinosaurStatsView.swift */; };
 		A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF6287497DE00260646 /* RoundedTextField.swift */; };
 		A4C61FF92874A2F900260646 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF82874A2F900260646 /* CustomBackButton.swift */; };
@@ -22,6 +23,16 @@
 		A4C620002874A8E700260646 /* Dinosaur.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FFF2874A8E700260646 /* Dinosaur.swift */; };
 		A4C620022874B68A00260646 /* DinosaurStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A490FE502879ED6700C29710 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A46B82982873E20C00E48202 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A46B829F2873E20C00E48202;
+			remoteInfo = Arkulator;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0C5A7DAD7C614FF3F27656D7 /* Pods-Arkulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arkulator.release.xcconfig"; path = "Target Support Files/Pods-Arkulator/Pods-Arkulator.release.xcconfig"; sourceTree = "<group>"; };
@@ -34,6 +45,8 @@
 		A46B82B42873E34000E48202 /* DinosaurListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurListView.swift; sourceTree = "<group>"; };
 		A46B82B72873E5EF00E48202 /* DinosaurCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurCell.swift; sourceTree = "<group>"; };
 		A490FE462879D24D00C29710 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A490FE4C2879ED6700C29710 /* ArkulatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArkulatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A490FE4E2879ED6700C29710 /* ArkulatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkulatorTests.swift; sourceTree = "<group>"; };
 		A4C61FF42874908700260646 /* DinosaurStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsView.swift; sourceTree = "<group>"; };
 		A4C61FF6287497DE00260646 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		A4C61FF82874A2F900260646 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
@@ -52,6 +65,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A490FE492879ED6700C29710 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -67,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				A46B82A22873E20C00E48202 /* Arkulator */,
+				A490FE4D2879ED6700C29710 /* ArkulatorTests */,
 				A46B82A12873E20C00E48202 /* Products */,
 				D70F2115C17BC136C263074D /* Pods */,
 				690B5F40E8CDD392D2559B34 /* Frameworks */,
@@ -77,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				A46B82A02873E20C00E48202 /* Arkulator.app */,
+				A490FE4C2879ED6700C29710 /* ArkulatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,6 +153,14 @@
 				A490FE462879D24D00C29710 /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		A490FE4D2879ED6700C29710 /* ArkulatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				A490FE4E2879ED6700C29710 /* ArkulatorTests.swift */,
+			);
+			path = ArkulatorTests;
 			sourceTree = "<group>";
 		};
 		A4C61FFA2874A7BB00260646 /* Utils */ = {
@@ -188,6 +218,24 @@
 			productReference = A46B82A02873E20C00E48202 /* Arkulator.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A490FE4B2879ED6700C29710 /* ArkulatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A490FE522879ED6700C29710 /* Build configuration list for PBXNativeTarget "ArkulatorTests" */;
+			buildPhases = (
+				A490FE482879ED6700C29710 /* Sources */,
+				A490FE492879ED6700C29710 /* Frameworks */,
+				A490FE4A2879ED6700C29710 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A490FE512879ED6700C29710 /* PBXTargetDependency */,
+			);
+			name = ArkulatorTests;
+			productName = ArkulatorTests;
+			productReference = A490FE4C2879ED6700C29710 /* ArkulatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -200,6 +248,10 @@
 				TargetAttributes = {
 					A46B829F2873E20C00E48202 = {
 						CreatedOnToolsVersion = 13.3.1;
+					};
+					A490FE4B2879ED6700C29710 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = A46B829F2873E20C00E48202;
 					};
 				};
 			};
@@ -217,6 +269,7 @@
 			projectRoot = "";
 			targets = (
 				A46B829F2873E20C00E48202 /* Arkulator */,
+				A490FE4B2879ED6700C29710 /* ArkulatorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -229,6 +282,13 @@
 				A490FE472879D24D00C29710 /* LaunchScreen.storyboard in Resources */,
 				A46B82AB2873E20F00E48202 /* Preview Assets.xcassets in Resources */,
 				A46B82A82873E20F00E48202 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A490FE4A2879ED6700C29710 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +354,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A490FE482879ED6700C29710 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A490FE4F2879ED6700C29710 /* ArkulatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A490FE512879ED6700C29710 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A46B829F2873E20C00E48202 /* Arkulator */;
+			targetProxy = A490FE502879ED6700C29710 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A46B82AC2873E20F00E48202 /* Debug */ = {
@@ -477,6 +553,44 @@
 			};
 			name = Release;
 		};
+		A490FE532879ED6700C29710 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5P4JJDT7CR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.urielh.ArkulatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arkulator.app/Arkulator";
+			};
+			name = Debug;
+		};
+		A490FE542879ED6700C29710 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5P4JJDT7CR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.urielh.ArkulatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arkulator.app/Arkulator";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -494,6 +608,15 @@
 			buildConfigurations = (
 				A46B82AF2873E20F00E48202 /* Debug */,
 				A46B82B02873E20F00E48202 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A490FE522879ED6700C29710 /* Build configuration list for PBXNativeTarget "ArkulatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A490FE532879ED6700C29710 /* Debug */,
+				A490FE542879ED6700C29710 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

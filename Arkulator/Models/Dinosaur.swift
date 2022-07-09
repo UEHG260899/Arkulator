@@ -20,7 +20,7 @@ class Dinosaur: Object, Identifiable {
     @Persisted var health: Int
     @Persisted var expectedLevel: Int
     
-    private var requiredLevel: Int {
+    var requiredLevel: Int {
         return stamina + weight + oxigen + mele + food + movementSpeed + health + 1
     }
     
