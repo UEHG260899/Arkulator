@@ -38,7 +38,7 @@ class Dinosaur: Object, Identifiable {
          health: Int) {
         super.init()
         self.id = incrementID()
-        self.name = name
+        self.name = name.lowercased()
         self.stamina = stamina
         self.weight = weight
         self.oxigen = oxigen
