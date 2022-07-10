@@ -10,12 +10,14 @@ import SwiftUI
 struct RoundedTextField: View {
     
     let placeholder: String
+    let keyboardType: UIKeyboardType
     let height: CGFloat?
     @Binding var text: String
     
-    init(placeholder: String, text: Binding<String>, height: CGFloat? = nil) {
+    init(placeholder: String, text: Binding<String>, keyboardType: UIKeyboardType = .default, height: CGFloat? = nil) {
         self.placeholder = placeholder
         self.height = height
+        self.keyboardType = keyboardType
         self._text = text
     }
     
@@ -23,6 +25,7 @@ struct RoundedTextField: View {
     var body: some View {
         if let height = height {
             TextField(placeholder, text: $text)
+                .keyboardType(keyboardType)
                 .frame(height: height)
                 .padding(.horizontal)
                 .background(
@@ -33,6 +36,7 @@ struct RoundedTextField: View {
                 )
         } else {
             TextField(placeholder, text: $text)
+                .keyboardType(keyboardType)
                 .padding()
                 .background(
                     Capsule()
@@ -49,6 +53,7 @@ struct RoundedTextField_Previews: PreviewProvider {
     
     static var previews: some View {
         RoundedTextField(placeholder: "Stamina",
-                         text: $sampleText)
+                         text: $sampleText,
+                         keyboardType: .numberPad)
     }
 }
