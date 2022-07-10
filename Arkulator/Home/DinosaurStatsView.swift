@@ -20,19 +20,26 @@ struct DinosaurStatsView: View {
                 RoundedTextField(placeholder: "Dino name",
                                  text: $viewModel.dinosaurName)
                 RoundedTextField(placeholder: "Stamina",
-                                 text: $viewModel.dinosaurStamina)
+                                 text: $viewModel.dinosaurStamina,
+                                 keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Weight",
-                                 text: $viewModel.dinosaurWeight)
+                                 text: $viewModel.dinosaurWeight,
+                                 keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Oxigen",
-                                 text: $viewModel.dinosaurOxigen)
+                                 text: $viewModel.dinosaurOxigen,
+                                 keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Mele",
-                                 text: $viewModel.dinosaurMele)
+                                 text: $viewModel.dinosaurMele,
+                                 keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Food",
-                                 text: $viewModel.dinosaurFood)
+                                 text: $viewModel.dinosaurFood,
+                                 keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Movement Speed",
-                                 text: $viewModel.dinosaurMovementSpeed)
+                                 text: $viewModel.dinosaurMovementSpeed,
+                                 keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Health",
-                                 text: $viewModel.dinosaurHealth)
+                                 text: $viewModel.dinosaurHealth,
+                                 keyboardType: .numberPad)
                 
                 if #available(iOS 15.0, *) {
                     Button(action: {
