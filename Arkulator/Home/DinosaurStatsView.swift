@@ -40,7 +40,7 @@ struct DinosaurStatsView: View {
                 RoundedTextField(placeholder: "Health",
                                  text: $viewModel.dinosaurHealth,
                                  keyboardType: .numberPad)
-                
+
                 if #available(iOS 15.0, *) {
                     Button(action: {
                         isAlertPresented = true
@@ -48,10 +48,10 @@ struct DinosaurStatsView: View {
                         Text("Save")
                             .font(.title3)
                             .fontWeight(.bold)
+                            .frame(maxWidth: .infinity)
                     })
                     .disabled(!viewModel.isFormValid)
                     .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
                     .padding()
                     .background(
                         Capsule()
@@ -73,10 +73,10 @@ struct DinosaurStatsView: View {
                         Text("Save")
                             .font(.title3)
                             .fontWeight(.bold)
+                            .frame(maxWidth: .infinity)
                     })
                     .disabled(!viewModel.isFormValid)
                     .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
                     .padding()
                     .background(
                         Capsule()
