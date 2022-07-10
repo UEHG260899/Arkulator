@@ -22,6 +22,7 @@
 		A4C61FFD2874A7E300260646 /* EnvironmentValues+Exensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */; };
 		A4C620002874A8E700260646 /* Dinosaur.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FFF2874A8E700260646 /* Dinosaur.swift */; };
 		A4C620022874B68A00260646 /* DinosaurStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */; };
+		A4EB7439287B84A9008CF99E /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EB7438287B84A9008CF99E /* UIApplication+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+Exensions.swift"; sourceTree = "<group>"; };
 		A4C61FFF2874A8E700260646 /* Dinosaur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dinosaur.swift; sourceTree = "<group>"; };
 		A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsViewModel.swift; sourceTree = "<group>"; };
+		A4EB7438287B84A9008CF99E /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		D2FD24D19871C8843CF51C01 /* Pods_Arkulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Arkulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */,
+				A4EB7438287B84A9008CF99E /* UIApplication+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4EB7439287B84A9008CF99E /* UIApplication+Extensions.swift in Sources */,
 				A4C61FFD2874A7E300260646 /* EnvironmentValues+Exensions.swift in Sources */,
 				A46B82A42873E20C00E48202 /* ArkulatorApp.swift in Sources */,
 				A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */,
