@@ -99,6 +99,10 @@ struct DinosaurStatsView: View {
             .navigationBarItems(leading: CustomBackButton())
             .navigationTitle("Dino stats")
             .padding()
+            .onTapGesture {}
+            .onLongPressGesture {
+                UIApplication.shared.endEditing()
+            }
         }
     }
 }
