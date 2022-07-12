@@ -13,6 +13,13 @@ struct DinosaurStatsView: View {
     @StateObject var viewModel = DinosaurStatsViewModel()
     @State private var isAlertPresented = false
     
+    var buttonBackgroundColor: Color {
+        if viewModel.isFormValid {
+            return .blue
+        }
+        
+        return .blue.opacity(0.5)
+    }
     
     var body: some View {
         ScrollView {
@@ -40,57 +47,27 @@ struct DinosaurStatsView: View {
                 RoundedTextField(placeholder: "Health",
                                  text: $viewModel.dinosaurHealth,
                                  keyboardType: .numberPad)
-
+                
                 if #available(iOS 15.0, *) {
-                    Button(action: {
-                        isAlertPresented = true
-                    }, label: {
+                    Button(action: showAlert){
                         Text("Save")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .frame(maxWidth: .infinity)
-                    })
+                            .principalButtonStyle()
+                    }
                     .disabled(!viewModel.isFormValid)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(
-                        Capsule()
-                            .foregroundColor(
-                                viewModel.isFormValid ? .blue : .blue.opacity(0.5)
-                            )
-                    )
+                    .buttonStyle(RoundedPillButtonStyle(color: buttonBackgroundColor))
                     .alert("Are you sure you want to save the data?", isPresented: $isAlertPresented) {
-                        Button("Yes", role: .none) {
-                            viewModel.saveDinosaur()
-                            dismiss()
-                        }
+                        Button("Yes", role: .none) {saveDinosaur()}
                         Button("No", role: .cancel) {}
                     }
                 } else {
-                    Button(action: {
-                        isAlertPresented = true
-                    }, label: {
+                    Button(action: showAlert) {
                         Text("Save")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .frame(maxWidth: .infinity)
-                    })
+                            .principalButtonStyle()
+                    }
                     .disabled(!viewModel.isFormValid)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(
-                        Capsule()
-                            .foregroundColor(
-                                viewModel.isFormValid ? .blue : .blue.opacity(0.5)
-                            )
-                    )
+                    .buttonStyle(RoundedPillButtonStyle(color: buttonBackgroundColor))
                     .alert(isPresented: $isAlertPresented) {
-                        Alert(title: Text("Are you sure you want to save the data?"),
-                              primaryButton: .default(Text("No"), action: {}),
-                              secondaryButton: .default(Text("Yes"), action: {
-                            viewModel.saveDinosaur()
-                            dismiss()
-                        }))
+                        confirmationAlert
                     }
                 }
                 Spacer()
@@ -104,6 +81,25 @@ struct DinosaurStatsView: View {
                 UIApplication.shared.endEditing()
             }
         }
+    }
+    
+    var confirmationAlert: Alert {
+        Alert(title: Text("Are you sure you want to save the data?"),
+              primaryButton: .default(Text("No"), action: {}),
+              secondaryButton: .default(Text("Yes"), action: {saveDinosaur()}))
+    }
+}
+
+// MARK: - Helper functions
+extension DinosaurStatsView {
+    
+    func showAlert() {
+        isAlertPresented = true
+    }
+    
+    func saveDinosaur() {
+        viewModel.saveDinosaur()
+        dismiss()
     }
 }
 

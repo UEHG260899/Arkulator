@@ -16,6 +16,8 @@
 		A46B82B82873E5EF00E48202 /* DinosaurCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B72873E5EF00E48202 /* DinosaurCell.swift */; };
 		A490FE472879D24D00C29710 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A490FE462879D24D00C29710 /* LaunchScreen.storyboard */; };
 		A490FE4F2879ED6700C29710 /* ArkulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A490FE4E2879ED6700C29710 /* ArkulatorTests.swift */; };
+		A4A72A57287CED6200610C89 /* RoundendPillButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A72A56287CED6200610C89 /* RoundendPillButtonStyle.swift */; };
+		A4A72A59287CF55400610C89 /* Text+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A72A58287CF55400610C89 /* Text+Extensions.swift */; };
 		A4C61FF52874908700260646 /* DinosaurStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF42874908700260646 /* DinosaurStatsView.swift */; };
 		A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF6287497DE00260646 /* RoundedTextField.swift */; };
 		A4C61FF92874A2F900260646 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF82874A2F900260646 /* CustomBackButton.swift */; };
@@ -48,6 +50,8 @@
 		A490FE462879D24D00C29710 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A490FE4C2879ED6700C29710 /* ArkulatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArkulatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A490FE4E2879ED6700C29710 /* ArkulatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkulatorTests.swift; sourceTree = "<group>"; };
+		A4A72A56287CED6200610C89 /* RoundendPillButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundendPillButtonStyle.swift; sourceTree = "<group>"; };
+		A4A72A58287CF55400610C89 /* Text+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extensions.swift"; sourceTree = "<group>"; };
 		A4C61FF42874908700260646 /* DinosaurStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsView.swift; sourceTree = "<group>"; };
 		A4C61FF6287497DE00260646 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		A4C61FF82874A2F900260646 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
@@ -165,9 +169,18 @@
 			path = ArkulatorTests;
 			sourceTree = "<group>";
 		};
+		A4A72A55287CED4600610C89 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				A4A72A56287CED6200610C89 /* RoundendPillButtonStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		A4C61FFA2874A7BB00260646 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A4A72A55287CED4600610C89 /* Styles */,
 				A4C61FFB2874A7C300260646 /* Extensions */,
 			);
 			path = Utils;
@@ -178,6 +191,7 @@
 			children = (
 				A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */,
 				A4EB7438287B84A9008CF99E /* UIApplication+Extensions.swift */,
+				A4A72A58287CF55400610C89 /* Text+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -348,6 +362,7 @@
 				A4C61FFD2874A7E300260646 /* EnvironmentValues+Exensions.swift in Sources */,
 				A46B82A42873E20C00E48202 /* ArkulatorApp.swift in Sources */,
 				A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */,
+				A4A72A59287CF55400610C89 /* Text+Extensions.swift in Sources */,
 				A46B82B32873E23600E48202 /* HomeView.swift in Sources */,
 				A4C61FF52874908700260646 /* DinosaurStatsView.swift in Sources */,
 				A4C61FF92874A2F900260646 /* CustomBackButton.swift in Sources */,
@@ -355,6 +370,7 @@
 				A46B82B52873E34000E48202 /* DinosaurListView.swift in Sources */,
 				A4C620002874A8E700260646 /* Dinosaur.swift in Sources */,
 				A4C620022874B68A00260646 /* DinosaurStatsViewModel.swift in Sources */,
+				A4A72A57287CED6200610C89 /* RoundendPillButtonStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
