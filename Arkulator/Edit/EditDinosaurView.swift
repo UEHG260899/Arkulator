@@ -20,6 +20,7 @@ struct EditDinosaurView: View {
     @State var health: String = ""
     
     let title: String
+    let dinosaur: Dinosaur
     
     
     var body: some View {
@@ -109,8 +110,17 @@ extension EditDinosaurView {
 
 struct EditDinosaurView_Previews: PreviewProvider {
     static var previews: some View {
+        let dinosaur = Dinosaur(name: "",
+                                stamina: 0,
+                                weight: 0,
+                                oxigen: 0,
+                                mele: 0,
+                                food: 0,
+                                movementSpeed: 0,
+                                health: 0)
+        
         NavigationView {
-            EditDinosaurView(title: "Argentavis")
+            EditDinosaurView(title: "Argentavis", dinosaur: dinosaur)
         }
     }
 }
