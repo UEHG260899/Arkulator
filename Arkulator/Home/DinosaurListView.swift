@@ -34,7 +34,7 @@ struct DinosaurListView: View {
                 List {
                     ForEach(filteredResults) { dinosaur in
                         NavigationLink {
-                            EditDinosaurView()
+                            EditDinosaurView(title: dinosaur.name)
                         } label: {
                             DinosaurCell(cellNumber: Int(dinosaur.id),
                                          dinosaurName: dinosaur.name.capitalized,
