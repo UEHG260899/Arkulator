@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E0B5133654A79ED5E399E03 /* Pods_Arkulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FD24D19871C8843CF51C01 /* Pods_Arkulator.framework */; };
+		A42D54292883736F00F4FB05 /* EditDinosaurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D54282883736F00F4FB05 /* EditDinosaurView.swift */; };
 		A46B82A42873E20C00E48202 /* ArkulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82A32873E20C00E48202 /* ArkulatorApp.swift */; };
 		A46B82A82873E20F00E48202 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A46B82A72873E20F00E48202 /* Assets.xcassets */; };
 		A46B82AB2873E20F00E48202 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A46B82AA2873E20F00E48202 /* Preview Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		0C5A7DAD7C614FF3F27656D7 /* Pods-Arkulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arkulator.release.xcconfig"; path = "Target Support Files/Pods-Arkulator/Pods-Arkulator.release.xcconfig"; sourceTree = "<group>"; };
 		3C383B74E6B57E30A8A4D419 /* Pods-Arkulator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arkulator.debug.xcconfig"; path = "Target Support Files/Pods-Arkulator/Pods-Arkulator.debug.xcconfig"; sourceTree = "<group>"; };
+		A42D54282883736F00F4FB05 /* EditDinosaurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDinosaurView.swift; sourceTree = "<group>"; };
 		A46B82A02873E20C00E48202 /* Arkulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arkulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46B82A32873E20C00E48202 /* ArkulatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkulatorApp.swift; sourceTree = "<group>"; };
 		A46B82A72873E20F00E48202 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A42D54272883735900F4FB05 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				A42D54282883736F00F4FB05 /* EditDinosaurView.swift */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
 		A46B82972873E20C00E48202 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 				A4C61FFA2874A7BB00260646 /* Utils */,
 				A46B82B62873E5DF00E48202 /* Components */,
 				A46B82B12873E22B00E48202 /* Home */,
+				A42D54272883735900F4FB05 /* Edit */,
 				A46B82A92873E20F00E48202 /* Preview Content */,
 			);
 			path = Arkulator;
@@ -361,6 +372,7 @@
 				A4EB7439287B84A9008CF99E /* UIApplication+Extensions.swift in Sources */,
 				A4C61FFD2874A7E300260646 /* EnvironmentValues+Exensions.swift in Sources */,
 				A46B82A42873E20C00E48202 /* ArkulatorApp.swift in Sources */,
+				A42D54292883736F00F4FB05 /* EditDinosaurView.swift in Sources */,
 				A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */,
 				A4A72A59287CF55400610C89 /* Text+Extensions.swift in Sources */,
 				A46B82B32873E23600E48202 /* HomeView.swift in Sources */,

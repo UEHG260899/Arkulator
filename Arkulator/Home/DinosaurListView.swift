@@ -33,10 +33,15 @@ struct DinosaurListView: View {
                 .padding(.horizontal)
                 List {
                     ForEach(filteredResults) { dinosaur in
-                        DinosaurCell(cellNumber: Int(dinosaur.id),
-                                     dinosaurName: dinosaur.name.capitalized,
-                                     requiredLevel: dinosaur.expectedLevel,
-                                     width: geometry.size.width / 15)
+                        NavigationLink {
+                            EditDinosaurView()
+                        } label: {
+                            DinosaurCell(cellNumber: Int(dinosaur.id),
+                                         dinosaurName: dinosaur.name.capitalized,
+                                         requiredLevel: dinosaur.expectedLevel,
+                                         width: geometry.size.width / 15)
+                        }
+
                     }
                 }
                 .listStyle(PlainListStyle())
