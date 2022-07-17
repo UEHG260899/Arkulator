@@ -34,8 +34,8 @@ struct DinosaurListView: View {
                 List {
                     ForEach(filteredResults) { dinosaur in
                         NavigationLink {
-                            EditDinosaurView(title: dinosaur.name,
-                                             dinosaur: dinosaur)
+                            let editViewModel = EditDinosaurViewModel(dinosaur: dinosaur)
+                            EditDinosaurView(viewModel: editViewModel)
                         } label: {
                             DinosaurCell(cellNumber: Int(dinosaur.id),
                                          dinosaurName: dinosaur.name.capitalized,

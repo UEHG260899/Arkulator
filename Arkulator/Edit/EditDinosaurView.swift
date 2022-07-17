@@ -10,44 +10,33 @@ import SwiftUI
 struct EditDinosaurView: View {
     
     @State private var isAlertPresented = false
-    @State var name: String = ""
-    @State var stamina: String = ""
-    @State var weight: String = ""
-    @State var oxigen: String = ""
-    @State var mele: String = ""
-    @State var food: String = ""
-    @State var speed: String = ""
-    @State var health: String = ""
-    
-    let title: String
-    let dinosaur: Dinosaur
-    
+    @ObservedObject var viewModel: EditDinosaurViewModel
     
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
                 RoundedTextField(placeholder: "Dino name",
-                                 text: $name)
+                                 text: $viewModel.dinosaurName)
                 RoundedTextField(placeholder: "Stamina",
-                                 text: $stamina,
+                                 text: $viewModel.dinosaurStamina,
                                  keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Weight",
-                                 text: $weight,
+                                 text: $viewModel.dinosaurWeight,
                                  keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Oxigen",
-                                 text: $oxigen,
+                                 text: $viewModel.dinosaurOxigen,
                                  keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Mele",
-                                 text: $mele,
+                                 text: $viewModel.dinosaurMele,
                                  keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Food",
-                                 text: $food,
+                                 text: $viewModel.dinosaurFood,
                                  keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Movement Speed",
-                                 text: $speed,
+                                 text: $viewModel.dinosaurMovementSpeed,
                                  keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Health",
-                                 text: $health,
+                                 text: $viewModel.dinosaurHealth,
                                  keyboardType: .numberPad)
                 
                 if #available(iOS 15.0, *) {
@@ -55,7 +44,7 @@ struct EditDinosaurView: View {
                         Text("Save")
                             .principalButtonStyle()
                     }
-                    .disabled(true)
+                    .disabled(!viewModel.isFormValid)
                     .buttonStyle(RoundedPillButtonStyle(color: buttonBackgroundColor))
                     .alert("Are you sure you want to save the data?", isPresented: $isAlertPresented) {
                         Button("Yes", role: .none) {saveDinosaur()}
@@ -66,7 +55,7 @@ struct EditDinosaurView: View {
                         Text("Save")
                             .principalButtonStyle()
                     }
-                    .disabled(true)
+                    .disabled(!viewModel.isFormValid)
                     .buttonStyle(RoundedPillButtonStyle(color: buttonBackgroundColor))
                     .alert(isPresented: $isAlertPresented) {
                         confirmationAlert
@@ -77,7 +66,7 @@ struct EditDinosaurView: View {
             }
             .padding()
         }
-        .navigationTitle(title.capitalized)
+        .navigationTitle(viewModel.dinosaurName.capitalized)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: CustomBackButton())
     }
@@ -89,13 +78,13 @@ struct EditDinosaurView: View {
     }
     
     var buttonBackgroundColor: Color {
-//        if viewModel.isFormValid {
-//            return .blue
-//        }
-//
-//        return .blue.opacity(0.5)
+        if viewModel.isFormValid {
+            return .blue
+        }
+
         return .blue.opacity(0.5)
     }
+    
 }
 
 extension EditDinosaurView {
@@ -120,7 +109,7 @@ struct EditDinosaurView_Previews: PreviewProvider {
                                 health: 0)
         
         NavigationView {
-            EditDinosaurView(title: "Argentavis", dinosaur: dinosaur)
+            EditDinosaurView(viewModel: EditDinosaurViewModel(dinosaur: dinosaur))
         }
     }
 }
