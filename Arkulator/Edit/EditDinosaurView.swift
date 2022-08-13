@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditDinosaurView: View {
     
+    @Environment(\.dismiss) var dismiss
     @State private var isAlertPresented = false
     @ObservedObject var viewModel: EditDinosaurViewModel
     
@@ -93,7 +94,8 @@ extension EditDinosaurView {
     }
     
     func saveDinosaur() {
-        
+        viewModel.updateDinosaur()
+        dismiss()
     }
 }
 
