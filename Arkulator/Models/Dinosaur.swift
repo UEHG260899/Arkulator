@@ -57,6 +57,23 @@ class Dinosaur: Object, Identifiable {
         }
     }
     
+    func update(id: Int64) {
+        let realm = try! Realm()
+        let realmDinosaur = realm.objects(Dinosaur.self).where { $0.id == id }.first!
+        
+        try! realm.write({
+            realmDinosaur.name = self.name
+            realmDinosaur.stamina = self.stamina
+            realmDinosaur.weight = self.weight
+            realmDinosaur.oxigen = self.oxigen
+            realmDinosaur.mele = self.mele
+            realmDinosaur.food = self.food
+            realmDinosaur.movementSpeed = self.movementSpeed
+            realmDinosaur.health = self.health
+            realmDinosaur.expectedLevel = self.requiredLevel
+        })
+    }
+    
     private func incrementID() -> Int64 {
         let realm = try! Realm()
         return (realm.objects(Dinosaur.self).max(ofProperty: "id") as Int64? ?? 0) + 1

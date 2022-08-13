@@ -33,11 +33,18 @@ struct DinosaurListView: View {
                 .padding(.horizontal)
                 List {
                     ForEach(filteredResults) { dinosaur in
-                        DinosaurCell(cellNumber: Int(dinosaur.id),
-                                     dinosaurName: dinosaur.name.capitalized,
-                                     requiredLevel: dinosaur.expectedLevel,
-                                     width: geometry.size.width / 15)
+                        NavigationLink {
+                            let editViewModel = EditDinosaurViewModel(dinosaur: dinosaur)
+                            EditDinosaurView(viewModel: editViewModel)
+                        } label: {
+                            DinosaurCell(cellNumber: Int(dinosaur.id),
+                                         dinosaurName: dinosaur.name.capitalized,
+                                         requiredLevel: dinosaur.expectedLevel,
+                                         width: geometry.size.width / 15)
+                        }
+
                     }
+                    .onDelete(perform: $dinosaurs.remove)
                 }
                 .listStyle(PlainListStyle())
             }

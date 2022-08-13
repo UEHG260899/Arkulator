@@ -1,25 +1,17 @@
 //
-//  DinosaurStatsView.swift
+//  EditDinosaurView.swift
 //  Arkulator
 //
-//  Created by Uriel Hernandez Gonzalez on 05/07/22.
+//  Created by Uriel Hernandez Gonzalez on 16/07/22.
 //
 
 import SwiftUI
 
-struct DinosaurStatsView: View {
+struct EditDinosaurView: View {
     
     @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel = DinosaurStatsViewModel()
     @State private var isAlertPresented = false
-    
-    var buttonBackgroundColor: Color {
-        if viewModel.isFormValid {
-            return .blue
-        }
-        
-        return .blue.opacity(0.5)
-    }
+    @ObservedObject var viewModel: EditDinosaurViewModel
     
     var body: some View {
         ScrollView {
@@ -70,17 +62,14 @@ struct DinosaurStatsView: View {
                         confirmationAlert
                     }
                 }
+                
                 Spacer()
             }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: CustomBackButton())
-            .navigationTitle("Dino stats")
             .padding()
-            .onTapGesture {}
-            .onLongPressGesture {
-                UIApplication.shared.endEditing()
-            }
         }
+        .navigationTitle(viewModel.dinosaurName.capitalized)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: CustomBackButton())
     }
     
     var confirmationAlert: Alert {
@@ -88,25 +77,41 @@ struct DinosaurStatsView: View {
               primaryButton: .default(Text("No"), action: {}),
               secondaryButton: .default(Text("Yes"), action: {saveDinosaur()}))
     }
+    
+    var buttonBackgroundColor: Color {
+        if viewModel.isFormValid {
+            return .blue
+        }
+
+        return .blue.opacity(0.5)
+    }
+    
 }
 
-// MARK: - Helper functions
-extension DinosaurStatsView {
-    
+extension EditDinosaurView {
     func showAlert() {
         isAlertPresented = true
     }
     
     func saveDinosaur() {
-        viewModel.saveDinosaur()
+        viewModel.updateDinosaur()
         dismiss()
     }
 }
 
-struct DinosaurStatsView_Previews: PreviewProvider {
+struct EditDinosaurView_Previews: PreviewProvider {
     static var previews: some View {
+        let dinosaur = Dinosaur(name: "",
+                                stamina: 0,
+                                weight: 0,
+                                oxigen: 0,
+                                mele: 0,
+                                food: 0,
+                                movementSpeed: 0,
+                                health: 0)
+        
         NavigationView {
-            DinosaurStatsView()
+            EditDinosaurView(viewModel: EditDinosaurViewModel(dinosaur: dinosaur))
         }
     }
 }
