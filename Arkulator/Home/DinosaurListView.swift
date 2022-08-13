@@ -44,6 +44,7 @@ struct DinosaurListView: View {
                         }
 
                     }
+                    .onDelete(perform: $dinosaurs.remove)
                 }
                 .listStyle(PlainListStyle())
             }
