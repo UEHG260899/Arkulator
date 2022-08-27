@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DinosaurStatsView: View {
+struct DinosaurStatsScreen: View {
     
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = DinosaurStatsViewModel()
@@ -91,7 +91,7 @@ struct DinosaurStatsView: View {
 }
 
 // MARK: - Helper functions
-extension DinosaurStatsView {
+extension DinosaurStatsScreen {
     
     func showAlert() {
         isAlertPresented = true
@@ -106,7 +106,7 @@ extension DinosaurStatsView {
 struct DinosaurStatsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DinosaurStatsView()
+            DinosaurStatsScreen()
         }
     }
 }

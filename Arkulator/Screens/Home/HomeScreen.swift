@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-struct HomeView: View {
+struct HomeScreen: View {
     
     @State var shouldShowForm: Bool = false
     
@@ -23,7 +23,7 @@ struct HomeView: View {
                 DinosaurListView()
                 
                 NavigationLink(
-                  destination: DinosaurStatsView(),
+                  destination: DinosaurStatsScreen(),
                   isActive: $shouldShowForm ){}
                 
                 HStack {
@@ -46,6 +46,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeScreen()
     }
 }

@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		3E0B5133654A79ED5E399E03 /* Pods_Arkulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FD24D19871C8843CF51C01 /* Pods_Arkulator.framework */; };
-		A42D54292883736F00F4FB05 /* EditDinosaurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D54282883736F00F4FB05 /* EditDinosaurView.swift */; };
+		A42D54292883736F00F4FB05 /* EditDinosaurScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D54282883736F00F4FB05 /* EditDinosaurScreen.swift */; };
 		A42D542C2883806300F4FB05 /* DinosaurStatsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D542B2883806300F4FB05 /* DinosaurStatsViewModelTests.swift */; };
 		A42D54302883813E00F4FB05 /* EditDinosaurViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D542F2883813E00F4FB05 /* EditDinosaurViewModelTests.swift */; };
 		A42D5432288381A300F4FB05 /* EditDinosaurViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D5431288381A300F4FB05 /* EditDinosaurViewModel.swift */; };
 		A46B82A42873E20C00E48202 /* ArkulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82A32873E20C00E48202 /* ArkulatorApp.swift */; };
 		A46B82A82873E20F00E48202 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A46B82A72873E20F00E48202 /* Assets.xcassets */; };
 		A46B82AB2873E20F00E48202 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A46B82AA2873E20F00E48202 /* Preview Assets.xcassets */; };
-		A46B82B32873E23600E48202 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B22873E23600E48202 /* HomeView.swift */; };
+		A46B82B32873E23600E48202 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B22873E23600E48202 /* HomeScreen.swift */; };
 		A46B82B52873E34000E48202 /* DinosaurListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B42873E34000E48202 /* DinosaurListView.swift */; };
 		A46B82B82873E5EF00E48202 /* DinosaurCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B72873E5EF00E48202 /* DinosaurCell.swift */; };
 		A490FE472879D24D00C29710 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A490FE462879D24D00C29710 /* LaunchScreen.storyboard */; };
 		A4A72A57287CED6200610C89 /* RoundendPillButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A72A56287CED6200610C89 /* RoundendPillButtonStyle.swift */; };
 		A4A72A59287CF55400610C89 /* Text+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A72A58287CF55400610C89 /* Text+Extensions.swift */; };
-		A4C61FF52874908700260646 /* DinosaurStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF42874908700260646 /* DinosaurStatsView.swift */; };
+		A4C61FF52874908700260646 /* DinosaurStatsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF42874908700260646 /* DinosaurStatsScreen.swift */; };
 		A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF6287497DE00260646 /* RoundedTextField.swift */; };
 		A4C61FF92874A2F900260646 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF82874A2F900260646 /* CustomBackButton.swift */; };
 		A4C61FFD2874A7E300260646 /* EnvironmentValues+Exensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */; };
@@ -43,7 +43,7 @@
 /* Begin PBXFileReference section */
 		0C5A7DAD7C614FF3F27656D7 /* Pods-Arkulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arkulator.release.xcconfig"; path = "Target Support Files/Pods-Arkulator/Pods-Arkulator.release.xcconfig"; sourceTree = "<group>"; };
 		3C383B74E6B57E30A8A4D419 /* Pods-Arkulator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arkulator.debug.xcconfig"; path = "Target Support Files/Pods-Arkulator/Pods-Arkulator.debug.xcconfig"; sourceTree = "<group>"; };
-		A42D54282883736F00F4FB05 /* EditDinosaurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDinosaurView.swift; sourceTree = "<group>"; };
+		A42D54282883736F00F4FB05 /* EditDinosaurScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDinosaurScreen.swift; sourceTree = "<group>"; };
 		A42D542B2883806300F4FB05 /* DinosaurStatsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsViewModelTests.swift; sourceTree = "<group>"; };
 		A42D542F2883813E00F4FB05 /* EditDinosaurViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDinosaurViewModelTests.swift; sourceTree = "<group>"; };
 		A42D5431288381A300F4FB05 /* EditDinosaurViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDinosaurViewModel.swift; sourceTree = "<group>"; };
@@ -51,14 +51,14 @@
 		A46B82A32873E20C00E48202 /* ArkulatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkulatorApp.swift; sourceTree = "<group>"; };
 		A46B82A72873E20F00E48202 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A46B82AA2873E20F00E48202 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A46B82B22873E23600E48202 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A46B82B22873E23600E48202 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		A46B82B42873E34000E48202 /* DinosaurListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurListView.swift; sourceTree = "<group>"; };
 		A46B82B72873E5EF00E48202 /* DinosaurCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurCell.swift; sourceTree = "<group>"; };
 		A490FE462879D24D00C29710 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A490FE4C2879ED6700C29710 /* ArkulatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArkulatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A72A56287CED6200610C89 /* RoundendPillButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundendPillButtonStyle.swift; sourceTree = "<group>"; };
 		A4A72A58287CF55400610C89 /* Text+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extensions.swift"; sourceTree = "<group>"; };
-		A4C61FF42874908700260646 /* DinosaurStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsView.swift; sourceTree = "<group>"; };
+		A4C61FF42874908700260646 /* DinosaurStatsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsScreen.swift; sourceTree = "<group>"; };
 		A4C61FF6287497DE00260646 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		A4C61FF82874A2F900260646 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+Exensions.swift"; sourceTree = "<group>"; };
@@ -93,15 +93,6 @@
 				D2FD24D19871C8843CF51C01 /* Pods_Arkulator.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A42D54272883735900F4FB05 /* Edit */ = {
-			isa = PBXGroup;
-			children = (
-				A42D54282883736F00F4FB05 /* EditDinosaurView.swift */,
-				A42D5431288381A300F4FB05 /* EditDinosaurViewModel.swift */,
-			);
-			path = Edit;
 			sourceTree = "<group>";
 		};
 		A42D542A2883802900F4FB05 /* Cases */ = {
@@ -152,12 +143,13 @@
 		A46B82A22873E20C00E48202 /* Arkulator */ = {
 			isa = PBXGroup;
 			children = (
+				A4A7977528BADCC100613D42 /* ViewModels */,
+				A4A7977228BADC3A00613D42 /* Screens */,
+				A4A7977128BADC3300613D42 /* Views */,
 				A490FE452879D22800C29710 /* SupportingFiles */,
 				A4C61FFE2874A8D100260646 /* Models */,
 				A4C61FFA2874A7BB00260646 /* Utils */,
 				A46B82B62873E5DF00E48202 /* Components */,
-				A46B82B12873E22B00E48202 /* Home */,
-				A42D54272883735900F4FB05 /* Edit */,
 				A46B82A92873E20F00E48202 /* Preview Content */,
 			);
 			path = Arkulator;
@@ -169,17 +161,6 @@
 				A46B82AA2873E20F00E48202 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		A46B82B12873E22B00E48202 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				A46B82B22873E23600E48202 /* HomeView.swift */,
-				A46B82B42873E34000E48202 /* DinosaurListView.swift */,
-				A4C61FF42874908700260646 /* DinosaurStatsView.swift */,
-				A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		A46B82B62873E5DF00E48202 /* Components */ = {
@@ -216,6 +197,65 @@
 				A4A72A56287CED6200610C89 /* RoundendPillButtonStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		A4A7977128BADC3300613D42 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4A7977328BADC6900613D42 /* Home */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A4A7977228BADC3A00613D42 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A4A7977828BADD3100613D42 /* Edit Dinosaur */,
+				A4A7977728BADD0300613D42 /* Add Dinosaur */,
+				A4A7977428BADC6E00613D42 /* Home */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		A4A7977328BADC6900613D42 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A46B82B42873E34000E48202 /* DinosaurListView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A4A7977428BADC6E00613D42 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A46B82B22873E23600E48202 /* HomeScreen.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A4A7977528BADCC100613D42 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */,
+				A42D5431288381A300F4FB05 /* EditDinosaurViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A4A7977728BADD0300613D42 /* Add Dinosaur */ = {
+			isa = PBXGroup;
+			children = (
+				A4C61FF42874908700260646 /* DinosaurStatsScreen.swift */,
+			);
+			path = "Add Dinosaur";
+			sourceTree = "<group>";
+		};
+		A4A7977828BADD3100613D42 /* Edit Dinosaur */ = {
+			isa = PBXGroup;
+			children = (
+				A42D54282883736F00F4FB05 /* EditDinosaurScreen.swift */,
+			);
+			path = "Edit Dinosaur";
 			sourceTree = "<group>";
 		};
 		A4C61FFA2874A7BB00260646 /* Utils */ = {
@@ -402,12 +442,12 @@
 				A4EB7439287B84A9008CF99E /* UIApplication+Extensions.swift in Sources */,
 				A4C61FFD2874A7E300260646 /* EnvironmentValues+Exensions.swift in Sources */,
 				A46B82A42873E20C00E48202 /* ArkulatorApp.swift in Sources */,
-				A42D54292883736F00F4FB05 /* EditDinosaurView.swift in Sources */,
+				A42D54292883736F00F4FB05 /* EditDinosaurScreen.swift in Sources */,
 				A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */,
 				A4A72A59287CF55400610C89 /* Text+Extensions.swift in Sources */,
 				A42D5432288381A300F4FB05 /* EditDinosaurViewModel.swift in Sources */,
-				A46B82B32873E23600E48202 /* HomeView.swift in Sources */,
-				A4C61FF52874908700260646 /* DinosaurStatsView.swift in Sources */,
+				A46B82B32873E23600E48202 /* HomeScreen.swift in Sources */,
+				A4C61FF52874908700260646 /* DinosaurStatsScreen.swift in Sources */,
 				A4C61FF92874A2F900260646 /* CustomBackButton.swift in Sources */,
 				A46B82B82873E5EF00E48202 /* DinosaurCell.swift in Sources */,
 				A46B82B52873E34000E48202 /* DinosaurListView.swift in Sources */,

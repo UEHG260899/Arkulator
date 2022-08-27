@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EditDinosaurView: View {
+struct EditDinosaurScreen: View {
     
     @Environment(\.dismiss) var dismiss
     @State private var isAlertPresented = false
@@ -88,7 +88,7 @@ struct EditDinosaurView: View {
     
 }
 
-extension EditDinosaurView {
+extension EditDinosaurScreen {
     func showAlert() {
         isAlertPresented = true
     }
@@ -111,7 +111,7 @@ struct EditDinosaurView_Previews: PreviewProvider {
                                 health: 0)
         
         NavigationView {
-            EditDinosaurView(viewModel: EditDinosaurViewModel(dinosaur: dinosaur))
+            EditDinosaurScreen(viewModel: EditDinosaurViewModel(dinosaur: dinosaur))
         }
     }
 }
