@@ -9,9 +9,21 @@ import SwiftUI
 
 @main
 struct ArkulatorApp: App {
+    
+    @AppStorage("colorScheme") private var colorScheme: Constants.ColorSchemes = .light
+    
+    var systemColorScheme: ColorScheme? {
+        if colorScheme == .light {
+            return .light
+        }
+                
+        return .dark
+    }
+    
     var body: some Scene {
         WindowGroup {
-            HomeScreen()
+            TabsScreen()
+                .preferredColorScheme(systemColorScheme)
         }
     }
 }
