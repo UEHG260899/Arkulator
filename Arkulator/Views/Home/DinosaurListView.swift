@@ -35,7 +35,7 @@ struct DinosaurListView: View {
                     ForEach(filteredResults) { dinosaur in
                         NavigationLink {
                             let editViewModel = EditDinosaurViewModel(dinosaur: dinosaur)
-                            EditDinosaurView(viewModel: editViewModel)
+                            EditDinosaurScreen(viewModel: editViewModel)
                         } label: {
                             DinosaurCell(cellNumber: Int(dinosaur.id),
                                          dinosaurName: dinosaur.name.capitalized,
@@ -49,6 +49,11 @@ struct DinosaurListView: View {
                 .listStyle(PlainListStyle())
             }
             .navigationTitle("Dinosaur List")
+        }
+        .onAppear {
+            // TODO: Fix state management for Realm
+            searchString = "a"
+            searchString = ""
         }
     }
 }

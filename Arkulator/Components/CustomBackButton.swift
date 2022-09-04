@@ -17,7 +17,6 @@ struct CustomBackButton: View {
             dismiss()
         } label: {
             Image(systemName: "arrow.left")
-                .foregroundColor(.black)
         }
 
     }
