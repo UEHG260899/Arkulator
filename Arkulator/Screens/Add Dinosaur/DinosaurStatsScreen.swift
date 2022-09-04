@@ -15,10 +15,10 @@ struct DinosaurStatsScreen: View {
     
     var buttonBackgroundColor: Color {
         if viewModel.isFormValid {
-            return .blue
+            return Constants.UIColors.uiAccentColor
         }
         
-        return .blue.opacity(0.5)
+        return Constants.UIColors.uiAccentColor.opacity(0.5)
     }
     
     var body: some View {

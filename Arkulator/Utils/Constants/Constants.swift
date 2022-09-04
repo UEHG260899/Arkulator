@@ -5,7 +5,7 @@
 //  Created by Uriel Hernandez Gonzalez on 27/08/22.
 //
 
-import Foundation
+import SwiftUI
 
 struct Constants {
     
@@ -16,5 +16,10 @@ struct Constants {
         var id: Self {
             self
         }
+    }
+    
+    enum UIColors {
+        static let uiAccentColor: Color = Color("UIAccentColor")
+        static let textFieldColor: Color = Color("TextFieldColor")
     }
 }

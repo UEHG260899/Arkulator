@@ -50,6 +50,11 @@ struct DinosaurListView: View {
             }
             .navigationTitle("Dinosaur List")
         }
+        .onAppear {
+            // TODO: Fix state management for Realm
+            searchString = "a"
+            searchString = ""
+        }
     }
 }
 

@@ -31,7 +31,7 @@ struct RoundedTextField: View {
                 .background(
                     Capsule()
                         .stroke(lineWidth: 1)
-                        .foregroundColor(.gray.opacity(0.5))
+                        .foregroundColor(Constants.UIColors.textFieldColor)
                         .shadow(color: .black, radius: 10, x: 3, y: 5)
                 )
         } else {
@@ -41,7 +41,7 @@ struct RoundedTextField: View {
                 .background(
                     Capsule()
                         .stroke(lineWidth: 1)
-                        .foregroundColor(.gray.opacity(0.5))
+                        .foregroundColor(Constants.UIColors.textFieldColor)
                         .shadow(color: .black, radius: 10, x: 3, y: 5)
                 )
         }

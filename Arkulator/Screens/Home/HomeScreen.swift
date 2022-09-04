@@ -11,6 +11,7 @@ import RealmSwift
 struct HomeScreen: View {
     
     @State var shouldShowForm: Bool = false
+    @State var test = false
     
     init() {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
