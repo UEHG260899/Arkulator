@@ -10,8 +10,8 @@ import RealmSwift
 
 struct HomeScreen: View {
     
+    @StateObject private var viewModel = HomeScreenViewModel()
     @State var shouldShowForm: Bool = false
-    @State var test = false
     
     init() {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
@@ -21,7 +21,7 @@ struct HomeScreen: View {
         NavigationView {
             
             ZStack(alignment: .bottom) {
-                DinosaurListView()
+                DinosaurListView(viewModel: viewModel)
                 
                 NavigationLink(
                   destination: DinosaurStatsScreen(),
