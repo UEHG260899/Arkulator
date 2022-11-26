@@ -10,8 +10,19 @@ import RealmSwift
 
 struct DinosaurListView: View {
     
-    @ObservedResults(Dinosaur.self) private var dinosaurs
+    @ObservedResults(Dinosaur.self) var dinosaurs
     @ObservedObject var viewModel: HomeScreenViewModel
+    
+    
+    var filteredResults: Results<Dinosaur> {
+        if !viewModel.queryString.isEmpty {
+            return dinosaurs.where {
+                $0.name.contains(viewModel.queryString.lowercased())
+            }
+        }
+        
+        return dinosaurs
+    }
     
     var body: some View {
         
@@ -22,7 +33,7 @@ struct DinosaurListView: View {
                                  height: 40)
                 .padding(.horizontal)
                 List {
-                    ForEach(viewModel.filteredResults) { dinosaur in
+                    ForEach(filteredResults) { dinosaur in
                         NavigationLink {
                             let editViewModel = EditDinosaurViewModel(dinosaur: dinosaur)
                             EditDinosaurScreen(viewModel: editViewModel)
