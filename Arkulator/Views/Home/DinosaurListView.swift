@@ -12,6 +12,7 @@ struct DinosaurListView: View {
     
     @ObservedResults(Dinosaur.self) var dinosaurs
     @ObservedObject var viewModel: HomeScreenViewModel
+    @FocusState var isFocused: Bool
     
     
     var filteredResults: Results<Dinosaur> {
@@ -30,6 +31,7 @@ struct DinosaurListView: View {
             VStack {
                 RoundedTextField(placeholder: "Search a Dino",
                                  text: $viewModel.queryString,
+                                 isFocused: _isFocused,
                                  height: 40)
                 .padding(.horizontal)
                 List {
@@ -43,7 +45,7 @@ struct DinosaurListView: View {
                                          requiredLevel: dinosaur.expectedLevel,
                                          width: geometry.size.width / 15)
                         }
-
+                        
                     }
                     .onDelete(perform: $dinosaurs.remove)
                 }
@@ -53,6 +55,16 @@ struct DinosaurListView: View {
         }
         .onAppear {
             viewModel.shouldRefresh = true
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button {
+                    isFocused = false
+                } label: {
+                    Text("Done")
+                }
+            }
         }
     }
 }
