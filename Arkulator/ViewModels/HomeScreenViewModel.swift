@@ -12,5 +12,6 @@ class HomeScreenViewModel: ObservableObject {
 
     @Published var queryString = ""
     @Published var shouldRefresh = false
+    @Published var shouldShowForm = false
     
 }

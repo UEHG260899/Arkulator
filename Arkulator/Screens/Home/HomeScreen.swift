@@ -11,7 +11,6 @@ import RealmSwift
 struct HomeScreen: View {
     
     @StateObject private var viewModel = HomeScreenViewModel()
-    @State var shouldShowForm: Bool = false
     
     init() {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
@@ -25,12 +24,12 @@ struct HomeScreen: View {
                 
                 NavigationLink(
                   destination: DinosaurStatsScreen(),
-                  isActive: $shouldShowForm ){}
+                  isActive: $viewModel.shouldShowForm ){}
                 
                 HStack {
                     Spacer()
                     Button {
-                        shouldShowForm = true
+                        viewModel.shouldShowForm = true
                     } label: {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
