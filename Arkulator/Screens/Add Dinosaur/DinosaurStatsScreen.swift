@@ -12,6 +12,7 @@ struct DinosaurStatsScreen: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = DinosaurStatsViewModel()
     @State private var isAlertPresented = false
+    @FocusState var isFocused: Bool
     
     var buttonBackgroundColor: Color {
         if viewModel.isFormValid {
@@ -25,27 +26,35 @@ struct DinosaurStatsScreen: View {
         ScrollView {
             VStack(spacing: 20) {
                 RoundedTextField(placeholder: "Dino name",
-                                 text: $viewModel.dinosaurName)
+                                 text: $viewModel.dinosaurName,
+                                 isFocused: _isFocused)
                 RoundedTextField(placeholder: "Stamina",
                                  text: $viewModel.dinosaurStamina,
+                                 isFocused: _isFocused,
                                  keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Weight",
                                  text: $viewModel.dinosaurWeight,
+                                 isFocused: _isFocused,
                                  keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Oxigen",
                                  text: $viewModel.dinosaurOxigen,
+                                 isFocused: _isFocused,
                                  keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Mele",
                                  text: $viewModel.dinosaurMele,
+                                 isFocused: _isFocused,
                                  keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Food",
                                  text: $viewModel.dinosaurFood,
+                                 isFocused: _isFocused,
                                  keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Movement Speed",
                                  text: $viewModel.dinosaurMovementSpeed,
+                                 isFocused: _isFocused,
                                  keyboardType: .numberPad)
                 RoundedTextField(placeholder: "Health",
                                  text: $viewModel.dinosaurHealth,
+                                 isFocused: _isFocused,
                                  keyboardType: .numberPad)
                 
                 if #available(iOS 15.0, *) {
@@ -76,9 +85,15 @@ struct DinosaurStatsScreen: View {
             .navigationBarItems(leading: CustomBackButton())
             .navigationTitle("Dino stats")
             .padding()
-            .onTapGesture {}
-            .onLongPressGesture {
-                UIApplication.shared.endEditing()
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button {
+                        isFocused = false
+                    } label: {
+                        Text("Done")
+                    }
+                }
             }
         }
     }

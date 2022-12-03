@@ -10,13 +10,15 @@ import RealmSwift
 
 struct DinosaurListView: View {
     
-    @State var searchString: String = ""
     @ObservedResults(Dinosaur.self) var dinosaurs
+    @ObservedObject var viewModel: HomeScreenViewModel
+    @FocusState var isFocused: Bool
+    
     
     var filteredResults: Results<Dinosaur> {
-        if !searchString.isEmpty {
+        if !viewModel.queryString.isEmpty {
             return dinosaurs.where {
-                $0.name.contains(searchString.lowercased())
+                $0.name.contains(viewModel.queryString.lowercased())
             }
         }
         
@@ -28,7 +30,8 @@ struct DinosaurListView: View {
         GeometryReader { geometry in
             VStack {
                 RoundedTextField(placeholder: "Search a Dino",
-                                 text: $searchString,
+                                 text: $viewModel.queryString,
+                                 isFocused: _isFocused,
                                  height: 40)
                 .padding(.horizontal)
                 List {
@@ -42,26 +45,35 @@ struct DinosaurListView: View {
                                          requiredLevel: dinosaur.expectedLevel,
                                          width: geometry.size.width / 15)
                         }
-
                     }
                     .onDelete(perform: $dinosaurs.remove)
                 }
-                .listStyle(PlainListStyle())
+                .listStyle(.plain)
             }
             .navigationTitle("Dinosaur List")
         }
         .onAppear {
-            // TODO: Fix state management for Realm
-            searchString = "a"
-            searchString = ""
+            viewModel.shouldRefresh = true
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button {
+                    isFocused = false
+                } label: {
+                    Text("Done")
+                }
+            }
         }
     }
 }
 
 struct DinosaurListView_Previews: PreviewProvider {
     static var previews: some View {
+        let viewModel = HomeScreenViewModel()
+        
         NavigationView {
-            DinosaurListView()
+            DinosaurListView(viewModel: viewModel)
         }
     }
 }

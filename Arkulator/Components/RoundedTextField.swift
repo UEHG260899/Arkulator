@@ -13,12 +13,14 @@ struct RoundedTextField: View {
     let keyboardType: UIKeyboardType
     let height: CGFloat?
     @Binding var text: String
+    @FocusState var isFocused: Bool
     
-    init(placeholder: String, text: Binding<String>, keyboardType: UIKeyboardType = .default, height: CGFloat? = nil) {
+    init(placeholder: String, text: Binding<String>, isFocused: FocusState<Bool>, keyboardType: UIKeyboardType = .default, height: CGFloat? = nil) {
         self.placeholder = placeholder
         self.height = height
         self.keyboardType = keyboardType
         self._text = text
+        self._isFocused = isFocused
     }
     
     @ViewBuilder
@@ -26,6 +28,7 @@ struct RoundedTextField: View {
         if let height = height {
             TextField(placeholder, text: $text)
                 .keyboardType(keyboardType)
+                .focused($isFocused)
                 .frame(height: height)
                 .padding(.horizontal)
                 .background(
@@ -37,6 +40,7 @@ struct RoundedTextField: View {
         } else {
             TextField(placeholder, text: $text)
                 .keyboardType(keyboardType)
+                .focused($isFocused)
                 .padding()
                 .background(
                     Capsule()
@@ -54,6 +58,7 @@ struct RoundedTextField_Previews: PreviewProvider {
     static var previews: some View {
         RoundedTextField(placeholder: "Stamina",
                          text: $sampleText,
+                         isFocused: .init(),
                          keyboardType: .numberPad)
     }
 }
