@@ -25,6 +25,7 @@
 		A4A7977D28BADF7B00613D42 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A7977C28BADF7B00613D42 /* SettingsScreen.swift */; };
 		A4A7978028BAE01B00613D42 /* SettingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A7977F28BAE01B00613D42 /* SettingsListView.swift */; };
 		A4B0F3E928BAE1BA00CF26CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F3E828BAE1BA00CF26CE /* Constants.swift */; };
+
 		A4B3073F28C640730051456D /* HomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3073E28C640730051456D /* HomeScreenViewModelTests.swift */; };
 		A4B3074128C640CF0051456D /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3074028C640CF0051456D /* HomeScreenViewModel.swift */; };
 		A4C61FF52874908700260646 /* DinosaurStatsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF42874908700260646 /* DinosaurStatsScreen.swift */; };

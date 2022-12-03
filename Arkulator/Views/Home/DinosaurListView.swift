@@ -45,7 +45,6 @@ struct DinosaurListView: View {
                                          requiredLevel: dinosaur.expectedLevel,
                                          width: geometry.size.width / 15)
                         }
-                        
                     }
                     .onDelete(perform: $dinosaurs.remove)
                 }
