@@ -18,27 +18,18 @@ struct HomeScreen: View {
 
     var body: some View {
         NavigationView {
-
             ZStack(alignment: .bottom) {
                 DinosaurListView(viewModel: viewModel)
 
                 NavigationLink(
-                  destination: DinosaurStatsScreen(),
-                  isActive: $viewModel.shouldShowForm ) {}
+                    destination: DinosaurStatsScreen(),
+                    isActive: $viewModel.shouldShowForm,
+                    label: {}
+                )
 
-                HStack {
-                    Spacer()
-                    Button {
-                        viewModel.shouldShowForm = true
-                    } label: {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .frame(width: 60, height: 60)
-                            .padding()
-                    }
-
+                FloatingButton {
+                    viewModel.shouldShowForm = true
                 }
-
             }
         }
     }
