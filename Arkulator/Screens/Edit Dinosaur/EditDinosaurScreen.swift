@@ -9,45 +9,79 @@ import SwiftUI
 
 struct EditDinosaurScreen: View {
 
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) var dismiss
     @State private var isAlertPresented = false
     @ObservedObject var viewModel: EditDinosaurViewModel
     @FocusState var isFocused: Bool
 
+    var textFieldShadowColor: Color {
+        if colorScheme == .light {
+            return .black
+        }
+
+        return .white
+    }
+
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                RoundedTextField(placeholder: "Dino name",
-                                 text: $viewModel.dinosaurName,
-                                 isFocused: _isFocused)
-                RoundedTextField(placeholder: "Stamina",
-                                 text: $viewModel.dinosaurStamina,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
-                RoundedTextField(placeholder: "Weight",
-                                 text: $viewModel.dinosaurWeight,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
-                RoundedTextField(placeholder: "Oxigen",
-                                 text: $viewModel.dinosaurOxigen,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
-                RoundedTextField(placeholder: "Mele",
-                                 text: $viewModel.dinosaurMele,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
-                RoundedTextField(placeholder: "Food",
-                                 text: $viewModel.dinosaurFood,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
-                RoundedTextField(placeholder: "Movement Speed",
-                                 text: $viewModel.dinosaurMovementSpeed,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
-                RoundedTextField(placeholder: "Health",
-                                 text: $viewModel.dinosaurHealth,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurName,
+                    isFocused: _isFocused,
+                    placeholder: "Dino name",
+                    scheme: .init(shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurStamina,
+                    isFocused: _isFocused,
+                    placeholder: "Stamina",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurWeight,
+                    isFocused: _isFocused,
+                    placeholder: "Weight",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurOxigen,
+                    isFocused: _isFocused,
+                    placeholder: "Oxigen",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurMele,
+                    isFocused: _isFocused,
+                    placeholder: "Mele",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurFood,
+                    isFocused: _isFocused,
+                    placeholder: "Food",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurMovementSpeed,
+                    isFocused: _isFocused,
+                    placeholder: "Movement Speed",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurHealth,
+                    isFocused: _isFocused,
+                    placeholder: "Health",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
 
                 RoundedButton(
                     text: "Save",
@@ -100,14 +134,14 @@ extension EditDinosaurScreen {
 
 struct EditDinosaurView_Previews: PreviewProvider {
     static var previews: some View {
-        let dinosaur = Dinosaur(name: "",
-                                stamina: 0,
-                                weight: 0,
-                                oxigen: 0,
-                                mele: 0,
-                                food: 0,
-                                movementSpeed: 0,
-                                health: 0)
+        let dinosaur = Dinosaur(name: "Hola",
+                                stamina: 1,
+                                weight: 2,
+                                oxigen: 3,
+                                mele: 4,
+                                food: 5,
+                                movementSpeed: 6,
+                                health: 7)
 
         NavigationView {
             EditDinosaurScreen(viewModel: EditDinosaurViewModel(dinosaur: dinosaur))

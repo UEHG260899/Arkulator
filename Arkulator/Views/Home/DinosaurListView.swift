@@ -28,11 +28,15 @@ struct DinosaurListView: View {
 
         GeometryReader { geometry in
             VStack {
-                RoundedTextField(placeholder: "Search a Dino",
-                                 text: $viewModel.queryString,
-                                 isFocused: _isFocused,
-                                 height: 40)
+                
+                RoundedTextField(
+                    text: $viewModel.queryString,
+                    isFocused: _isFocused,
+                    placeholder: "Search a Dino",
+                    scheme: .init(height: 10)
+                )
                 .padding(.horizontal)
+
                 List {
                     ForEach(filteredResults) { dinosaur in
                         NavigationLink {

@@ -9,46 +9,30 @@ import SwiftUI
 
 struct RoundedTextField: View {
 
-    let placeholder: String
-    let keyboardType: UIKeyboardType
-    let height: CGFloat?
     @Binding var text: String
     @FocusState var isFocused: Bool
+    let placeholder: String
+    var scheme = RoundedTextFieldScheme()
 
-    init(placeholder: String, text: Binding<String>, isFocused: FocusState<Bool>, keyboardType: UIKeyboardType = .default, height: CGFloat? = nil) {
-        self.placeholder = placeholder
-        self.height = height
-        self.keyboardType = keyboardType
-        self._text = text
-        self._isFocused = isFocused
-    }
-
-    @ViewBuilder
     var body: some View {
-        if let height = height {
-            TextField(placeholder, text: $text)
-                .keyboardType(keyboardType)
-                .focused($isFocused)
-                .frame(height: height)
-                .padding(.horizontal)
-                .background(
-                    Capsule()
-                        .stroke(lineWidth: 1)
-                        .foregroundColor(Constants.UIColors.textFieldColor)
-                        .shadow(color: .black, radius: 10, x: 3, y: 5)
-                )
-        } else {
-            TextField(placeholder, text: $text)
-                .keyboardType(keyboardType)
-                .focused($isFocused)
-                .padding()
-                .background(
-                    Capsule()
-                        .stroke(lineWidth: 1)
-                        .foregroundColor(Constants.UIColors.textFieldColor)
-                        .shadow(color: .black, radius: 10, x: 3, y: 5)
-                )
-        }
+        TextField(placeholder, text: $text)
+            .keyboardType(scheme.keyboardType)
+            .focused($isFocused)
+            .if(scheme.height != nil, content: { view in
+                view.frame(height: scheme.height)
+            })
+            .padding()
+            .background {
+                Capsule()
+                    .stroke(lineWidth: scheme.strokeWidth)
+                    .foregroundColor(scheme.capsuleForegroundColor)
+                    .shadow(
+                        color: scheme.shadow.color,
+                        radius: scheme.shadow.radius,
+                        x: scheme.shadow.xOffset,
+                        y: scheme.shadow.yOffset
+                    )
+            }
     }
 }
 
@@ -56,9 +40,38 @@ struct RoundedTextField_Previews: PreviewProvider {
     @State static var sampleText: String = ""
 
     static var previews: some View {
-        RoundedTextField(placeholder: "Stamina",
-                         text: $sampleText,
-                         isFocused: .init(),
-                         keyboardType: .numberPad)
+        VStack {
+            RoundedTextField(
+                text: $sampleText,
+                isFocused: .init(),
+                placeholder: "Stamina"
+            )
+
+            RoundedTextField(
+                text: $sampleText,
+                isFocused: .init(),
+                placeholder: "Health",
+                scheme: .init(height: 20, shadow: .init(color: .white))
+            )
+        }
     }
+}
+
+struct RoundedTextFieldScheme {
+    // Textfield
+    var keyboardType: UIKeyboardType = .default
+    var height: CGFloat?
+    var horizontalPadding: CGFloat?
+
+    // Background capsule
+    var strokeWidth: CGFloat = 1
+    var capsuleForegroundColor = Constants.UIColors.textFieldColor
+    var shadow = Shadow()
+}
+
+struct Shadow {
+    var color = Color.black
+    var radius: CGFloat = 10
+    var xOffset: CGFloat = 3
+    var yOffset: CGFloat = 5
 }
