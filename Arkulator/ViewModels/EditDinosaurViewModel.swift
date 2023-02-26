@@ -8,7 +8,7 @@
 import Foundation
 
 class EditDinosaurViewModel: ObservableObject {
-    
+
     @Published var dinosaurName: String
     @Published var dinosaurStamina: String
     @Published var dinosaurWeight: String
@@ -18,18 +18,17 @@ class EditDinosaurViewModel: ObservableObject {
     @Published var dinosaurMovementSpeed: String
     @Published var dinosaurHealth: String
     private let dinosaurId: Int64
-    
+
     var isFormValid: Bool {
         if !dinosaurName.isEmpty, !dinosaurStamina.isEmpty, !dinosaurWeight.isEmpty,
            !dinosaurOxigen.isEmpty, !dinosaurMele.isEmpty, !dinosaurFood.isEmpty,
            !dinosaurMovementSpeed.isEmpty, !dinosaurHealth.isEmpty {
             return true
         }
-        
+
         return false
     }
-    
-    
+
     init(dinosaur: Dinosaur) {
         self.dinosaurId = dinosaur.id
         self.dinosaurName = dinosaur.name.capitalized
@@ -41,7 +40,7 @@ class EditDinosaurViewModel: ObservableObject {
         self.dinosaurMovementSpeed = String(dinosaur.movementSpeed)
         self.dinosaurHealth = String(dinosaur.health)
     }
-    
+
     func updateDinosaur() {
         let updatedDinosaur = Dinosaur(name: dinosaurName,
                                        stamina: Int(dinosaurStamina) ?? 0,
@@ -51,7 +50,7 @@ class EditDinosaurViewModel: ObservableObject {
                                        food: Int(dinosaurFood) ?? 0,
                                        movementSpeed: Int(dinosaurMovementSpeed) ?? 0,
                                        health: Int(dinosaurHealth) ?? 0)
-        
+
         updatedDinosaur.update(id: dinosaurId)
     }
 }

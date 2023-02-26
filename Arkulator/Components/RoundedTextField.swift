@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct RoundedTextField: View {
-    
+
     let placeholder: String
     let keyboardType: UIKeyboardType
     let height: CGFloat?
     @Binding var text: String
     @FocusState var isFocused: Bool
-    
+
     init(placeholder: String, text: Binding<String>, isFocused: FocusState<Bool>, keyboardType: UIKeyboardType = .default, height: CGFloat? = nil) {
         self.placeholder = placeholder
         self.height = height
@@ -22,7 +22,7 @@ struct RoundedTextField: View {
         self._text = text
         self._isFocused = isFocused
     }
-    
+
     @ViewBuilder
     var body: some View {
         if let height = height {
@@ -54,7 +54,7 @@ struct RoundedTextField: View {
 
 struct RoundedTextField_Previews: PreviewProvider {
     @State static var sampleText: String = ""
-    
+
     static var previews: some View {
         RoundedTextField(placeholder: "Stamina",
                          text: $sampleText,

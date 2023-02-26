@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct EditDinosaurScreen: View {
-    
+
     @Environment(\.dismiss) var dismiss
     @State private var isAlertPresented = false
     @ObservedObject var viewModel: EditDinosaurViewModel
     @FocusState var isFocused: Bool
-    
+
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -48,9 +48,9 @@ struct EditDinosaurScreen: View {
                                  text: $viewModel.dinosaurHealth,
                                  isFocused: _isFocused,
                                  keyboardType: .numberPad)
-                
+
                 if #available(iOS 15.0, *) {
-                    Button(action: showAlert){
+                    Button(action: showAlert) {
                         Text("Save")
                             .principalButtonStyle()
                     }
@@ -71,7 +71,7 @@ struct EditDinosaurScreen: View {
                         confirmationAlert
                     }
                 }
-                
+
                 Spacer()
             }
             .padding()
@@ -90,13 +90,13 @@ struct EditDinosaurScreen: View {
             }
         }
     }
-    
+
     var confirmationAlert: Alert {
         Alert(title: Text("Are you sure you want to save the data?"),
               primaryButton: .default(Text("No"), action: {}),
               secondaryButton: .default(Text("Yes"), action: {saveDinosaur()}))
     }
-    
+
     var buttonBackgroundColor: Color {
         if viewModel.isFormValid {
             return Constants.UIColors.uiAccentColor
@@ -104,14 +104,14 @@ struct EditDinosaurScreen: View {
 
         return Constants.UIColors.uiAccentColor.opacity(0.5)
     }
-    
+
 }
 
 extension EditDinosaurScreen {
     func showAlert() {
         isAlertPresented = true
     }
-    
+
     func saveDinosaur() {
         viewModel.updateDinosaur()
         dismiss()
@@ -128,7 +128,7 @@ struct EditDinosaurView_Previews: PreviewProvider {
                                 food: 0,
                                 movementSpeed: 0,
                                 health: 0)
-        
+
         NavigationView {
             EditDinosaurScreen(viewModel: EditDinosaurViewModel(dinosaur: dinosaur))
         }

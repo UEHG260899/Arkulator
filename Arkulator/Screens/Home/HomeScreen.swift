@@ -9,23 +9,23 @@ import SwiftUI
 import RealmSwift
 
 struct HomeScreen: View {
-    
+
     @StateObject private var viewModel = HomeScreenViewModel()
-    
+
     init() {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
-    
+
     var body: some View {
         NavigationView {
-            
+
             ZStack(alignment: .bottom) {
                 DinosaurListView(viewModel: viewModel)
-                
+
                 NavigationLink(
                   destination: DinosaurStatsScreen(),
-                  isActive: $viewModel.shouldShowForm ){}
-                
+                  isActive: $viewModel.shouldShowForm ) {}
+
                 HStack {
                     Spacer()
                     Button {
@@ -38,7 +38,7 @@ struct HomeScreen: View {
                     }
 
                 }
-                
+
             }
         }
     }

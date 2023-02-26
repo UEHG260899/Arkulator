@@ -9,24 +9,23 @@ import SwiftUI
 import RealmSwift
 
 struct DinosaurListView: View {
-    
+
     @ObservedResults(Dinosaur.self) var dinosaurs
     @ObservedObject var viewModel: HomeScreenViewModel
     @FocusState var isFocused: Bool
-    
-    
+
     var filteredResults: Results<Dinosaur> {
         if !viewModel.queryString.isEmpty {
             return dinosaurs.where {
                 $0.name.contains(viewModel.queryString.lowercased())
             }
         }
-        
+
         return dinosaurs
     }
-    
+
     var body: some View {
-        
+
         GeometryReader { geometry in
             VStack {
                 RoundedTextField(placeholder: "Search a Dino",
@@ -71,7 +70,7 @@ struct DinosaurListView: View {
 struct DinosaurListView_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = HomeScreenViewModel()
-        
+
         NavigationView {
             DinosaurListView(viewModel: viewModel)
         }

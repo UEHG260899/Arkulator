@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct DinosaurCell: View {
-    
+
     let cellNumber: Int
     let dinosaurName: String
     let requiredLevel: Int
     let width: CGFloat
-    
+
     var body: some View {
         HStack(alignment: .center) {
             Image(systemName: "\(cellNumber).circle.fill")
@@ -21,7 +21,7 @@ struct DinosaurCell: View {
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: width)
                 .foregroundColor(Constants.UIColors.uiAccentColor)
-            
+
             VStack(alignment: .leading) {
                 Text("Dino: \(dinosaurName)")
                     .font(.title2)
@@ -29,7 +29,7 @@ struct DinosaurCell: View {
                     .font(.caption)
             }
         }
-        
+
     }
 }
 

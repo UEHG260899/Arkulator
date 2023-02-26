@@ -25,7 +25,6 @@
 		A4A7977D28BADF7B00613D42 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A7977C28BADF7B00613D42 /* SettingsScreen.swift */; };
 		A4A7978028BAE01B00613D42 /* SettingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A7977F28BAE01B00613D42 /* SettingsListView.swift */; };
 		A4B0F3E928BAE1BA00CF26CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F3E828BAE1BA00CF26CE /* Constants.swift */; };
-
 		A4B3073F28C640730051456D /* HomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3073E28C640730051456D /* HomeScreenViewModelTests.swift */; };
 		A4B3074128C640CF0051456D /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3074028C640CF0051456D /* HomeScreenViewModel.swift */; };
 		A4C61FF52874908700260646 /* DinosaurStatsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF42874908700260646 /* DinosaurStatsScreen.swift */; };
@@ -352,6 +351,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A46B82AE2873E20F00E48202 /* Build configuration list for PBXNativeTarget "Arkulator" */;
 			buildPhases = (
+				A4C9225D29AAE042003142CD /* SwiftLint */,
 				775EB6D92ABACE8CBCDDD086 /* [CP] Check Pods Manifest.lock */,
 				A46B829C2873E20C00E48202 /* Sources */,
 				A46B829D2873E20C00E48202 /* Frameworks */,
@@ -482,6 +482,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A4C9225D29AAE042003142CD /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct DinosaurStatsScreen: View {
-    
+
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = DinosaurStatsViewModel()
     @State private var isAlertPresented = false
     @FocusState var isFocused: Bool
-    
+
     var buttonBackgroundColor: Color {
         if viewModel.isFormValid {
             return Constants.UIColors.uiAccentColor
         }
-        
+
         return Constants.UIColors.uiAccentColor.opacity(0.5)
     }
-    
+
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -56,9 +56,9 @@ struct DinosaurStatsScreen: View {
                                  text: $viewModel.dinosaurHealth,
                                  isFocused: _isFocused,
                                  keyboardType: .numberPad)
-                
+
                 if #available(iOS 15.0, *) {
-                    Button(action: showAlert){
+                    Button(action: showAlert) {
                         Text("Save")
                             .principalButtonStyle()
                     }
@@ -97,7 +97,7 @@ struct DinosaurStatsScreen: View {
             }
         }
     }
-    
+
     var confirmationAlert: Alert {
         Alert(title: Text("Are you sure you want to save the data?"),
               primaryButton: .default(Text("No"), action: {}),
@@ -107,11 +107,11 @@ struct DinosaurStatsScreen: View {
 
 // MARK: - Helper functions
 extension DinosaurStatsScreen {
-    
+
     func showAlert() {
         isAlertPresented = true
     }
-    
+
     func saveDinosaur() {
         viewModel.saveDinosaur()
         dismiss()
