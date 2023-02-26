@@ -34,6 +34,7 @@
 		A4C620002874A8E700260646 /* Dinosaur.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FFF2874A8E700260646 /* Dinosaur.swift */; };
 		A4C620022874B68A00260646 /* DinosaurStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */; };
 		A4C64C7C28C5122A00ED89F7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C64C7B28C5122A00ED89F7 /* View+Extensions.swift */; };
+		A4C9225F29AAE439003142CD /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9225E29AAE439003142CD /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		A4C61FFF2874A8E700260646 /* Dinosaur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dinosaur.swift; sourceTree = "<group>"; };
 		A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsViewModel.swift; sourceTree = "<group>"; };
 		A4C64C7B28C5122A00ED89F7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		A4C9225E29AAE439003142CD /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		D2FD24D19871C8843CF51C01 /* Pods_Arkulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Arkulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -182,6 +184,7 @@
 				A46B82B72873E5EF00E48202 /* DinosaurCell.swift */,
 				A4C61FF6287497DE00260646 /* RoundedTextField.swift */,
 				A4C61FF82874A2F900260646 /* CustomBackButton.swift */,
+				A4C9225E29AAE439003142CD /* RoundedButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				A4C61FFD2874A7E300260646 /* EnvironmentValues+Exensions.swift in Sources */,
 				A46B82A42873E20C00E48202 /* ArkulatorApp.swift in Sources */,
 				A42D54292883736F00F4FB05 /* EditDinosaurScreen.swift in Sources */,
+				A4C9225F29AAE439003142CD /* RoundedButton.swift in Sources */,
 				A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */,
 				A4A7977A28BADE0900613D42 /* TabsScreen.swift in Sources */,
 				A4A72A59287CF55400610C89 /* Text+Extensions.swift in Sources */,

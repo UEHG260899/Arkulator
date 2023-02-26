@@ -49,27 +49,15 @@ struct EditDinosaurScreen: View {
                                  isFocused: _isFocused,
                                  keyboardType: .numberPad)
 
-                if #available(iOS 15.0, *) {
-                    Button(action: showAlert) {
-                        Text("Save")
-                            .principalButtonStyle()
-                    }
-                    .disabled(!viewModel.isFormValid)
-                    .buttonStyle(RoundedPillButtonStyle(color: buttonBackgroundColor))
-                    .alert("Are you sure you want to save the data?", isPresented: $isAlertPresented) {
-                        Button("Yes", role: .none) {saveDinosaur()}
-                        Button("No", role: .cancel) {}
-                    }
-                } else {
-                    Button(action: showAlert) {
-                        Text("Save")
-                            .principalButtonStyle()
-                    }
-                    .disabled(!viewModel.isFormValid)
-                    .buttonStyle(RoundedPillButtonStyle(color: buttonBackgroundColor))
-                    .alert(isPresented: $isAlertPresented) {
-                        confirmationAlert
-                    }
+                RoundedButton(
+                    text: "Save",
+                    isDisabled: !viewModel.isFormValid,
+                    action: showAlert,
+                    scheme: .init(backgroundColor: buttonBackgroundColor)
+                )
+                .alert("Are you sure you want to save the data?", isPresented: $isAlertPresented) {
+                    Button("Yes", role: .none, action: saveDinosaur)
+                    Button("No", role: .cancel, action: {})
                 }
 
                 Spacer()
@@ -82,19 +70,11 @@ struct EditDinosaurScreen: View {
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
-                Button {
-                    isFocused = false
-                } label: {
+                Button(action: { isFocused = false  }, label: {
                     Text("Done")
-                }
+                })
             }
         }
-    }
-
-    var confirmationAlert: Alert {
-        Alert(title: Text("Are you sure you want to save the data?"),
-              primaryButton: .default(Text("No"), action: {}),
-              secondaryButton: .default(Text("Yes"), action: {saveDinosaur()}))
     }
 
     var buttonBackgroundColor: Color {
