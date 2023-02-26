@@ -20,7 +20,7 @@ struct DinosaurCell: View {
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: width)
-                .foregroundColor(Constants.UIColors.uiAccentColor)
+                .foregroundColor(.uiAccentColor)
 
             VStack(alignment: .leading) {
                 Text("Dino: \(dinosaurName)")

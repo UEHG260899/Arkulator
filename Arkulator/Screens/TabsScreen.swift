@@ -24,7 +24,7 @@ struct TabsScreen: View {
                 .tag(1)
 
         }
-        .accentColor(Constants.UIColors.uiAccentColor)
+        .accentColor(.uiAccentColor)
     }
 }
 

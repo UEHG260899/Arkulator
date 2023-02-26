@@ -28,7 +28,7 @@ struct DinosaurListView: View {
 
         GeometryReader { geometry in
             VStack {
-                
+
                 RoundedTextField(
                     text: $viewModel.queryString,
                     isFocused: _isFocused,

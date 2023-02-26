@@ -100,7 +100,6 @@ struct EditDinosaurScreen: View {
         }
         .navigationTitle(viewModel.dinosaurName.capitalized)
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: CustomBackButton())
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
@@ -108,15 +107,19 @@ struct EditDinosaurScreen: View {
                     Text("Done")
                 })
             }
+
+            ToolbarItem(placement: .navigationBarLeading) {
+                CustomBackButton()
+            }
         }
     }
 
     var buttonBackgroundColor: Color {
         if viewModel.isFormValid {
-            return Constants.UIColors.uiAccentColor
+            return .uiAccentColor
         }
 
-        return Constants.UIColors.uiAccentColor.opacity(0.5)
+        return .uiAccentColor.opacity(0.5)
     }
 
 }

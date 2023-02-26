@@ -42,7 +42,7 @@ struct RoundedButton_Previews: PreviewProvider {
 
 struct RoundedButtonScheme {
     // Button Styles
-    var backgroundColor: Color = Constants.UIColors.uiAccentColor
+    var backgroundColor: Color = .uiAccentColor
     var horizontalPadding: CGFloat?
 
     // Label Styles

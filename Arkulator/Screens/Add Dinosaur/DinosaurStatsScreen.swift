@@ -17,10 +17,10 @@ struct DinosaurStatsScreen: View {
 
     var buttonBackgroundColor: Color {
         if viewModel.isFormValid {
-            return Constants.UIColors.uiAccentColor
+            return .uiAccentColor
         }
 
-        return Constants.UIColors.uiAccentColor.opacity(0.5)
+        return .uiAccentColor.opacity(0.5)
     }
 
     var textFieldShadowColor: Color {
@@ -105,7 +105,6 @@ struct DinosaurStatsScreen: View {
                 Spacer()
             }
             .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: CustomBackButton())
             .navigationTitle("Dino stats")
             .padding()
             .toolbar {
@@ -114,6 +113,10 @@ struct DinosaurStatsScreen: View {
                     Button(action: { isFocused = false }, label: {
                         Text("Done")
                     })
+                }
+
+                ToolbarItem(placement: .navigationBarLeading) {
+                    CustomBackButton()
                 }
             }
         }

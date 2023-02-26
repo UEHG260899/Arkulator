@@ -18,8 +18,4 @@ struct Constants {
         }
     }
 
-    enum UIColors {
-        static let uiAccentColor: Color = Color("UIAccentColor")
-        static let textFieldColor: Color = Color("TextFieldColor")
-    }
 }

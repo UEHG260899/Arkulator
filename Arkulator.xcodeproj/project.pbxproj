@@ -27,6 +27,7 @@
 		A4B0F3E928BAE1BA00CF26CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0F3E828BAE1BA00CF26CE /* Constants.swift */; };
 		A4B3073F28C640730051456D /* HomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3073E28C640730051456D /* HomeScreenViewModelTests.swift */; };
 		A4B3074128C640CF0051456D /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3074028C640CF0051456D /* HomeScreenViewModel.swift */; };
+		A4B994BC29AB0476000C5B6F /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B994BB29AB0476000C5B6F /* Color+Extensions.swift */; };
 		A4C61FF52874908700260646 /* DinosaurStatsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF42874908700260646 /* DinosaurStatsScreen.swift */; };
 		A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF6287497DE00260646 /* RoundedTextField.swift */; };
 		A4C61FF92874A2F900260646 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF82874A2F900260646 /* CustomBackButton.swift */; };
@@ -71,6 +72,7 @@
 		A4B0F3E828BAE1BA00CF26CE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A4B3073E28C640730051456D /* HomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModelTests.swift; sourceTree = "<group>"; };
 		A4B3074028C640CF0051456D /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
+		A4B994BB29AB0476000C5B6F /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		A4C61FF42874908700260646 /* DinosaurStatsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsScreen.swift; sourceTree = "<group>"; };
 		A4C61FF6287497DE00260646 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		A4C61FF82874A2F900260646 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
@@ -161,10 +163,10 @@
 				A4A7977528BADCC100613D42 /* ViewModels */,
 				A4A7977228BADC3A00613D42 /* Screens */,
 				A4A7977128BADC3300613D42 /* Views */,
-				A490FE452879D22800C29710 /* SupportingFiles */,
 				A4C61FFE2874A8D100260646 /* Models */,
-				A4C61FFA2874A7BB00260646 /* Utils */,
 				A46B82B62873E5DF00E48202 /* Components */,
+				A4C61FFA2874A7BB00260646 /* Utils */,
+				A490FE452879D22800C29710 /* SupportingFiles */,
 				A46B82A92873E20F00E48202 /* Preview Content */,
 			);
 			path = Arkulator;
@@ -183,8 +185,8 @@
 			children = (
 				A46B82B72873E5EF00E48202 /* DinosaurCell.swift */,
 				A4C61FF6287497DE00260646 /* RoundedTextField.swift */,
-				A4C61FF82874A2F900260646 /* CustomBackButton.swift */,
 				A4C9225E29AAE439003142CD /* RoundedButton.swift */,
+				A4C61FF82874A2F900260646 /* CustomBackButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -326,6 +328,7 @@
 				A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */,
 				A4A72A58287CF55400610C89 /* Text+Extensions.swift */,
 				A4C64C7B28C5122A00ED89F7 /* View+Extensions.swift */,
+				A4B994BB29AB0476000C5B6F /* Color+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				A4A7977A28BADE0900613D42 /* TabsScreen.swift in Sources */,
 				A4A72A59287CF55400610C89 /* Text+Extensions.swift in Sources */,
 				A42D5432288381A300F4FB05 /* EditDinosaurViewModel.swift in Sources */,
+				A4B994BC29AB0476000C5B6F /* Color+Extensions.swift in Sources */,
 				A46B82B32873E23600E48202 /* HomeScreen.swift in Sources */,
 				A4C61FF52874908700260646 /* DinosaurStatsScreen.swift in Sources */,
 				A4C61FF92874A2F900260646 /* CustomBackButton.swift in Sources */,

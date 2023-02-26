@@ -65,7 +65,7 @@ struct RoundedTextFieldScheme {
 
     // Background capsule
     var strokeWidth: CGFloat = 1
-    var capsuleForegroundColor = Constants.UIColors.textFieldColor
+    var capsuleForegroundColor: Color = .textFieldColor
     var shadow = Shadow()
 }
 
