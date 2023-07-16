@@ -22,12 +22,11 @@ class DinosaurStatsViewModel: ObservableObject {
         if dinosaurName.isEmpty || dinosaurStamina.isEmpty || dinosaurWeight.isEmpty || dinosaurOxigen.isEmpty || dinosaurMele.isEmpty || dinosaurFood.isEmpty || dinosaurMovementSpeed.isEmpty || dinosaurHealth.isEmpty {
             return false
         }
-        
+
         return true
     }
-    
+
     private var test: Results<Dinosaur>!
-    
 
     func saveDinosaur() {
         let newDinosaur = Dinosaur(name: dinosaurName,

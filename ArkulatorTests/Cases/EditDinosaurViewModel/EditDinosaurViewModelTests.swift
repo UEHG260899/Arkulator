@@ -9,10 +9,10 @@ import XCTest
 @testable import Arkulator
 
 class EditDinosaurViewModelTests: XCTestCase {
-    
+
     var sut: EditDinosaurViewModel!
     var dinosaur: Dinosaur!
-    
+
     override func setUp() {
         super.setUp()
         dinosaur = Dinosaur(name: "Argentavis",
@@ -25,25 +25,25 @@ class EditDinosaurViewModelTests: XCTestCase {
                             health: 10)
         sut = EditDinosaurViewModel(dinosaur: dinosaur)
     }
-    
+
     override func tearDown() {
         sut = nil
         dinosaur = nil
         super.tearDown()
     }
-    
+
     func testEditDinosaurViewModelCanBeInstanciatedWithDinosaur() {
         XCTAssertNotNil(sut)
     }
-    
+
     func testIfDinosaurNameIsAssignedWhenInstanciated() {
         // given
         let expectedValue = dinosaur.name.capitalized
-        
+
         // then
         XCTAssertEqual(sut.dinosaurName, expectedValue)
     }
-    
+
     func testIfDinosaurStatsAreAssignedWhenInstanciated() {
         // given
         let expectedStamina = String(dinosaur.stamina)
@@ -53,7 +53,7 @@ class EditDinosaurViewModelTests: XCTestCase {
         let expectedFood = String(dinosaur.food)
         let expectedMovementSpeed = String(dinosaur.movementSpeed)
         let expectedHealth = String(dinosaur.health)
-        
+
         // then
         XCTAssertEqual(sut.dinosaurStamina, expectedStamina)
         XCTAssertEqual(sut.dinosaurWeight, expectedWeight)
@@ -63,18 +63,17 @@ class EditDinosaurViewModelTests: XCTestCase {
         XCTAssertEqual(sut.dinosaurMovementSpeed, expectedMovementSpeed)
         XCTAssertEqual(sut.dinosaurHealth, expectedHealth)
     }
-    
+
     func testIfFormIsValidWhenInstanciated() {
         XCTAssertTrue(sut.isFormValid)
     }
-    
+
     func testIfFormIsNotValidWhenNotAllStatsAreSet() {
         // given
         sut.dinosaurName = ""
-        
+
         // then
         XCTAssertFalse(sut.isFormValid)
     }
-    
 
 }

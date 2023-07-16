@@ -8,110 +8,129 @@
 import SwiftUI
 
 struct DinosaurStatsScreen: View {
-    
+
     @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
     @StateObject var viewModel = DinosaurStatsViewModel()
     @State private var isAlertPresented = false
     @FocusState var isFocused: Bool
-    
+
     var buttonBackgroundColor: Color {
         if viewModel.isFormValid {
-            return Constants.UIColors.uiAccentColor
+            return .uiAccentColor
         }
-        
-        return Constants.UIColors.uiAccentColor.opacity(0.5)
+
+        return .uiAccentColor.opacity(0.5)
     }
-    
+
+    var textFieldShadowColor: Color {
+        if colorScheme == .light {
+            return .black
+        }
+
+        return .white
+    }
+
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                RoundedTextField(placeholder: "Dino name",
-                                 text: $viewModel.dinosaurName,
-                                 isFocused: _isFocused)
-                RoundedTextField(placeholder: "Stamina",
-                                 text: $viewModel.dinosaurStamina,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
-                RoundedTextField(placeholder: "Weight",
-                                 text: $viewModel.dinosaurWeight,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
-                RoundedTextField(placeholder: "Oxigen",
-                                 text: $viewModel.dinosaurOxigen,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
-                RoundedTextField(placeholder: "Mele",
-                                 text: $viewModel.dinosaurMele,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
-                RoundedTextField(placeholder: "Food",
-                                 text: $viewModel.dinosaurFood,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
-                RoundedTextField(placeholder: "Movement Speed",
-                                 text: $viewModel.dinosaurMovementSpeed,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
-                RoundedTextField(placeholder: "Health",
-                                 text: $viewModel.dinosaurHealth,
-                                 isFocused: _isFocused,
-                                 keyboardType: .numberPad)
-                
-                if #available(iOS 15.0, *) {
-                    Button(action: showAlert){
-                        Text("Save")
-                            .principalButtonStyle()
-                    }
-                    .disabled(!viewModel.isFormValid)
-                    .buttonStyle(RoundedPillButtonStyle(color: buttonBackgroundColor))
-                    .alert("Are you sure you want to save the data?", isPresented: $isAlertPresented) {
-                        Button("Yes", role: .none) {saveDinosaur()}
-                        Button("No", role: .cancel) {}
-                    }
-                } else {
-                    Button(action: showAlert) {
-                        Text("Save")
-                            .principalButtonStyle()
-                    }
-                    .disabled(!viewModel.isFormValid)
-                    .buttonStyle(RoundedPillButtonStyle(color: buttonBackgroundColor))
-                    .alert(isPresented: $isAlertPresented) {
-                        confirmationAlert
-                    }
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurName,
+                    isFocused: _isFocused,
+                    placeholder: "Dino name",
+                    scheme: .init(shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurStamina,
+                    isFocused: _isFocused,
+                    placeholder: "Stamina",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurWeight,
+                    isFocused: _isFocused,
+                    placeholder: "Weight",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurOxigen,
+                    isFocused: _isFocused,
+                    placeholder: "Oxigen",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurMele,
+                    isFocused: _isFocused,
+                    placeholder: "Mele",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurFood,
+                    isFocused: _isFocused,
+                    placeholder: "Food",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurMovementSpeed,
+                    isFocused: _isFocused,
+                    placeholder: "Movement Speed",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedTextField(
+                    text: $viewModel.dinosaurHealth,
+                    isFocused: _isFocused,
+                    placeholder: "Health",
+                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
+                )
+
+                RoundedButton(
+                    text: "Save",
+                    isDisabled: !viewModel.isFormValid,
+                    action: showAlert,
+                    scheme: .init(backgroundColor: buttonBackgroundColor)
+                )
+                .alert("Are you sure you want to save the data?", isPresented: $isAlertPresented) {
+                    Button("Yes", role: .none, action: saveDinosaur)
+                    Button("No", role: .cancel, action: {})
                 }
+
                 Spacer()
             }
             .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: CustomBackButton())
             .navigationTitle("Dino stats")
             .padding()
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
-                    Button {
-                        isFocused = false
-                    } label: {
+                    Button(action: { isFocused = false }, label: {
                         Text("Done")
-                    }
+                    })
+                }
+
+                ToolbarItem(placement: .navigationBarLeading) {
+                    CustomBackButton()
                 }
             }
         }
     }
-    
-    var confirmationAlert: Alert {
-        Alert(title: Text("Are you sure you want to save the data?"),
-              primaryButton: .default(Text("No"), action: {}),
-              secondaryButton: .default(Text("Yes"), action: {saveDinosaur()}))
-    }
+
 }
 
 // MARK: - Helper functions
 extension DinosaurStatsScreen {
-    
+
     func showAlert() {
         isAlertPresented = true
     }
-    
+
     func saveDinosaur() {
         viewModel.saveDinosaur()
         dismiss()

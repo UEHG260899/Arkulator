@@ -19,15 +19,15 @@ class Dinosaur: Object, Identifiable {
     @Persisted var movementSpeed: Int
     @Persisted var health: Int
     @Persisted var expectedLevel: Int
-    
+
     var requiredLevel: Int {
         return stamina + weight + oxigen + mele + food + movementSpeed + health + 1
     }
-    
+
     override init() {
-        
+
     }
-    
+
     init(name: String,
          stamina: Int,
          weight: Int,
@@ -48,19 +48,19 @@ class Dinosaur: Object, Identifiable {
         self.health = health
         self.expectedLevel = requiredLevel
     }
-    
+
     func save() {
         let realm = try! Realm()
-        
+
         try! realm.write {
             realm.add(self)
         }
     }
-    
+
     func update(id: Int64) {
         let realm = try! Realm()
         let realmDinosaur = realm.objects(Dinosaur.self).where { $0.id == id }.first!
-        
+
         try! realm.write({
             realmDinosaur.name = self.name
             realmDinosaur.stamina = self.stamina
@@ -73,7 +73,7 @@ class Dinosaur: Object, Identifiable {
             realmDinosaur.expectedLevel = self.requiredLevel
         })
     }
-    
+
     private func incrementID() -> Int64 {
         let realm = try! Realm()
         return (realm.objects(Dinosaur.self).max(ofProperty: "id") as Int64? ?? 0) + 1
