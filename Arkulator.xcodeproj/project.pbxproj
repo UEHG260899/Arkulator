@@ -37,6 +37,8 @@
 		A4C620022874B68A00260646 /* DinosaurStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */; };
 		A4C64C7C28C5122A00ED89F7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C64C7B28C5122A00ED89F7 /* View+Extensions.swift */; };
 		A4C9225F29AAE439003142CD /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9225E29AAE439003142CD /* RoundedButton.swift */; };
+		A4CDFCE72A6493AC008D29B2 /* RealmManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CDFCE62A6493AC008D29B2 /* RealmManagerProtocol.swift */; };
+		A4CDFCE92A6493C4008D29B2 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CDFCE82A6493C4008D29B2 /* RealmManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsViewModel.swift; sourceTree = "<group>"; };
 		A4C64C7B28C5122A00ED89F7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		A4C9225E29AAE439003142CD /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		A4CDFCE62A6493AC008D29B2 /* RealmManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerProtocol.swift; sourceTree = "<group>"; };
+		A4CDFCE82A6493C4008D29B2 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		D2FD24D19871C8843CF51C01 /* Pods_Arkulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Arkulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -162,6 +166,7 @@
 		A46B82A22873E20C00E48202 /* Arkulator */ = {
 			isa = PBXGroup;
 			children = (
+				A4CDFCE52A64939E008D29B2 /* Managers */,
 				A4A7977528BADCC100613D42 /* ViewModels */,
 				A4A7977228BADC3A00613D42 /* Screens */,
 				A4A7977128BADC3300613D42 /* Views */,
@@ -352,6 +357,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		A4CDFCE52A64939E008D29B2 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A4CDFCE62A6493AC008D29B2 /* RealmManagerProtocol.swift */,
+				A4CDFCE82A6493C4008D29B2 /* RealmManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		D70F2115C17BC136C263074D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +542,7 @@
 				A4B0F3E928BAE1BA00CF26CE /* Constants.swift in Sources */,
 				A4C61FFD2874A7E300260646 /* EnvironmentValues+Exensions.swift in Sources */,
 				A46B82A42873E20C00E48202 /* ArkulatorApp.swift in Sources */,
+				A4CDFCE72A6493AC008D29B2 /* RealmManagerProtocol.swift in Sources */,
 				A42D54292883736F00F4FB05 /* EditDinosaurScreen.swift in Sources */,
 				A4C9225F29AAE439003142CD /* RoundedButton.swift in Sources */,
 				A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */,
@@ -546,6 +561,7 @@
 				A4C620002874A8E700260646 /* Dinosaur.swift in Sources */,
 				A4C620022874B68A00260646 /* DinosaurStatsViewModel.swift in Sources */,
 				A4B5228829AB0D50006C1407 /* FloatingButton.swift in Sources */,
+				A4CDFCE92A6493C4008D29B2 /* RealmManager.swift in Sources */,
 				A4C64C7C28C5122A00ED89F7 /* View+Extensions.swift in Sources */,
 				A4A72A57287CED6200610C89 /* RoundendPillButtonStyle.swift in Sources */,
 			);
