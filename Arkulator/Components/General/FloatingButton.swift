@@ -15,12 +15,12 @@ struct FloatingButton: View {
         HStack {
             Spacer()
 
-            Button(action: self.action, label: {
+            Button(action: self.action) {
                 Image(systemName: "plus.circle.fill")
                     .resizable()
                     .frame(width: 60, height: 60)
                     .padding()
-            })
+            }
         }
     }
 }
