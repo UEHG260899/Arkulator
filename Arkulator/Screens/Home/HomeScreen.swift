@@ -8,35 +8,48 @@
 import SwiftUI
 import RealmSwift
 
-struct HomeScreen: View {
+struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
 
-    @StateObject private var viewModel = HomeScreenViewModel()
-
-    init() {
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
-    }
+    @StateObject var vm: ViewModel
 
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-                DinosaurListView(viewModel: viewModel)
+                DinosaurListView(dinosaurs: vm.dinosaurs)
 
                 NavigationLink(
                     destination: DinosaurStatsScreen(),
-                    isActive: $viewModel.shouldShowForm,
+                    isActive: $vm.shouldShowForm,
                     label: {}
                 )
 
                 FloatingButton {
-                    viewModel.shouldShowForm = true
+                    vm.shouldShowForm = true
                 }
             }
+            .onAppear {
+                vm.fetchDinosaurs()
+            }
+        }
+        .searchable(text: $vm.queryString, prompt: Text("Search a Dino"))
+        .onChange(of: vm.queryString) { query in
+            vm.filterDinosaurs(query: query)
         }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
+
+    class MockVM: HomeScreenViewModelProtocol {
+        var dinosaurs = [Dinosaur]()
+        var queryString = ""
+        var shouldShowForm = false
+
+        func fetchDinosaurs() {}
+        func filterDinosaurs(query: String) {}
+    }
+
     static var previews: some View {
-        HomeScreen()
+        HomeScreen(vm: MockVM())
     }
 }

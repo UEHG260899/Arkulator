@@ -11,7 +11,7 @@ struct TabsScreen: View {
     var body: some View {
         TabView {
 
-            HomeScreen()
+            HomeScreenFactory.make()
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
