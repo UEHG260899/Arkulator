@@ -11,6 +11,7 @@ import SwiftUI
 struct ArkulatorApp: App {
 
     @AppStorage("colorScheme") private var colorScheme: Constants.ColorSchemes = .light
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     var systemColorScheme: ColorScheme? {
         if colorScheme == .light {

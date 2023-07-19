@@ -7,4 +7,8 @@ target 'Arkulator' do
 
   # Pods for Arkulator
   pod 'RealmSwift', '10.30.0'
+  
+  target 'ArkulatorTests' do
+    inherit! :search_paths
+  end
 end

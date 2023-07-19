@@ -11,13 +11,22 @@ import XCTest
 class HomeScreenViewModelTests: XCTestCase {
 
     var sut: HomeScreenViewModel!
+    var mockRealmManager: MockRealmManager!
+
+    let mockDinosaurs: [Dinosaur] = [
+        .init(id: 1, name: "Argie", stamina: 10, weight: 10, oxigen: 10, mele: 10, food: 10, movementSpeed: 10, health: 10),
+        .init(id: 2, name: "Spyino", stamina: 20, weight: 20, oxigen: 20, mele: 20, food: 20, movementSpeed: 20, health: 20),
+        .init(id: 3, name: "Anky", stamina: 39, weight: 39, oxigen: 39, mele: 39, food: 39, movementSpeed: 39, health: 39)
+    ]
 
     override func setUp() {
         super.setUp()
-        sut = HomeScreenViewModel()
+        mockRealmManager = MockRealmManager(taskName: self.name)
+        sut = HomeScreenViewModel(realmManager: mockRealmManager)
     }
 
     override func tearDown() {
+        mockRealmManager = nil
         sut = nil
         super.tearDown()
     }
@@ -28,6 +37,59 @@ class HomeScreenViewModelTests: XCTestCase {
 
     func testIfQueryStringIsInitializedWithEmptyValue() {
         XCTAssertEqual(sut.queryString, "")
+    }
+
+    func test_onInit_dinosaursArray_isEmpty() {
+        XCTAssertTrue(sut.dinosaurs.isEmpty)
+    }
+
+    func test_whenFetchDinosaursIsCalled_itCallsFetch_onRealmManager() {
+        // when
+        sut.fetchDinosaurs()
+
+        // then
+        XCTAssertTrue(mockRealmManager.calledMethods.contains(.fetch))
+    }
+
+    func test_whenFetchDinosaursIsCalled_andThereAreDinosaursInCache_vmDinosaursGetUpdated() {
+        // given
+        let mockDinosaur = Dinosaur(name: "Argie", stamina: 10, weight: 10, oxigen: 10, mele: 10, food: 10, movementSpeed: 10, health: 10)
+        mockRealmManager.save(mockDinosaur)
+
+        // when
+        sut.fetchDinosaurs()
+
+        // then
+        XCTAssertEqual(sut.dinosaurs.count, 1)
+    }
+
+    func test_whenFilterDinosaursIsCalled_andQueryStringIsEmpty_setsAllDinosaurs_andCallsFetchOnRealManager() {
+        // given
+        let testQuery = ""
+
+        mockRealmManager.saveObjects(mockDinosaurs)
+
+        // when
+        sut.filterDinosaurs(query: testQuery)
+
+        // then
+        XCTAssertTrue(mockRealmManager.calledMethods.contains(.fetch))
+        XCTAssertEqual(sut.dinosaurs.count, mockDinosaurs.count)
+    }
+
+    func test_whenFilterDinosaursIsCalled_andQueryStringIsNotEmpty_setsFilteredDinos() {
+        // given
+        let testQuery = "Arg"
+
+        mockRealmManager.saveObjects(mockDinosaurs)
+        sut.fetchDinosaurs()
+
+        // when
+        sut.filterDinosaurs(query: testQuery)
+
+        // then
+        XCTAssertEqual(sut.dinosaurs.count, 1)
+        XCTAssertEqual(sut.dinosaurs.first?.name, mockDinosaurs.first?.name)
     }
 
 }
