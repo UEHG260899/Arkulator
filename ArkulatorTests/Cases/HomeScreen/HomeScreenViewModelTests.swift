@@ -13,6 +13,12 @@ class HomeScreenViewModelTests: XCTestCase {
     var sut: HomeScreenViewModel!
     var mockRealmManager: MockRealmManager!
 
+    let mockDinosaurs: [Dinosaur] = [
+        .init(id: 1, name: "Argie", stamina: 10, weight: 10, oxigen: 10, mele: 10, food: 10, movementSpeed: 10, health: 10),
+        .init(id: 2, name: "Spyino", stamina: 20, weight: 20, oxigen: 20, mele: 20, food: 20, movementSpeed: 20, health: 20),
+        .init(id: 3, name: "Anky", stamina: 39, weight: 39, oxigen: 39, mele: 39, food: 39, movementSpeed: 39, health: 39)
+    ]
+
     override func setUp() {
         super.setUp()
         mockRealmManager = MockRealmManager(taskName: self.name)
@@ -60,11 +66,6 @@ class HomeScreenViewModelTests: XCTestCase {
     func test_whenFilterDinosaursIsCalled_andQueryStringIsEmpty_setsAllDinosaurs_andCallsFetchOnRealManager() {
         // given
         let testQuery = ""
-        let mockDinosaurs: [Dinosaur] = [
-            .init(id: 1, name: "Argie", stamina: 10, weight: 10, oxigen: 10, mele: 10, food: 10, movementSpeed: 10, health: 10),
-            .init(id: 2, name: "Spyino", stamina: 20, weight: 20, oxigen: 20, mele: 20, food: 20, movementSpeed: 20, health: 20),
-            .init(id: 3, name: "Anky", stamina: 39, weight: 39, oxigen: 39, mele: 39, food: 39, movementSpeed: 39, health: 39)
-        ]
 
         mockRealmManager.saveObjects(mockDinosaurs)
 
@@ -79,11 +80,6 @@ class HomeScreenViewModelTests: XCTestCase {
     func test_whenFilterDinosaursIsCalled_andQueryStringIsNotEmpty_setsFilteredDinos() {
         // given
         let testQuery = "Arg"
-        let mockDinosaurs: [Dinosaur] = [
-            .init(id: 1, name: "Argie", stamina: 10, weight: 10, oxigen: 10, mele: 10, food: 10, movementSpeed: 10, health: 10),
-            .init(id: 2, name: "Spyino", stamina: 20, weight: 20, oxigen: 20, mele: 20, food: 20, movementSpeed: 20, health: 20),
-            .init(id: 3, name: "Anky", stamina: 39, weight: 39, oxigen: 39, mele: 39, food: 39, movementSpeed: 39, health: 39)
-        ]
 
         mockRealmManager.saveObjects(mockDinosaurs)
         sut.fetchDinosaurs()
