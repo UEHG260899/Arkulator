@@ -27,6 +27,8 @@ struct RealmManager: RealmManagerProtocol {
     }
 
     func delete<T: Object>(_ object: T) {
-        realm.delete(object)
+        try! realm.write {
+            realm.delete(object)
+        }
     }
 }

@@ -12,6 +12,7 @@
 		A42D542C2883806300F4FB05 /* DinosaurStatsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D542B2883806300F4FB05 /* DinosaurStatsViewModelTests.swift */; };
 		A42D54302883813E00F4FB05 /* EditDinosaurViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D542F2883813E00F4FB05 /* EditDinosaurViewModelTests.swift */; };
 		A42D5432288381A300F4FB05 /* EditDinosaurViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D5431288381A300F4FB05 /* EditDinosaurViewModel.swift */; };
+		A45143822A68BF090073E266 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45143812A68BF090073E266 /* Array+Extensions.swift */; };
 		A46B82A42873E20C00E48202 /* ArkulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82A32873E20C00E48202 /* ArkulatorApp.swift */; };
 		A46B82A82873E20F00E48202 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A46B82A72873E20F00E48202 /* Assets.xcassets */; };
 		A46B82AB2873E20F00E48202 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A46B82AA2873E20F00E48202 /* Preview Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		A42D542B2883806300F4FB05 /* DinosaurStatsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsViewModelTests.swift; sourceTree = "<group>"; };
 		A42D542F2883813E00F4FB05 /* EditDinosaurViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDinosaurViewModelTests.swift; sourceTree = "<group>"; };
 		A42D5431288381A300F4FB05 /* EditDinosaurViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDinosaurViewModel.swift; sourceTree = "<group>"; };
+		A45143812A68BF090073E266 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		A46B82A02873E20C00E48202 /* Arkulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arkulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46B82A32873E20C00E48202 /* ArkulatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkulatorApp.swift; sourceTree = "<group>"; };
 		A46B82A72873E20F00E48202 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				A4A72A58287CF55400610C89 /* Text+Extensions.swift */,
 				A4C64C7B28C5122A00ED89F7 /* View+Extensions.swift */,
 				A4B994BB29AB0476000C5B6F /* Color+Extensions.swift */,
+				A45143812A68BF090073E266 /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				A4B0F3E928BAE1BA00CF26CE /* Constants.swift in Sources */,
 				A4C61FFD2874A7E300260646 /* EnvironmentValues+Exensions.swift in Sources */,
 				A46B82A42873E20C00E48202 /* ArkulatorApp.swift in Sources */,
+				A45143822A68BF090073E266 /* Array+Extensions.swift in Sources */,
 				A4CDFCE72A6493AC008D29B2 /* RealmManagerProtocol.swift in Sources */,
 				A42D54292883736F00F4FB05 /* EditDinosaurScreen.swift in Sources */,
 				A4C9225F29AAE439003142CD /* RoundedButton.swift in Sources */,

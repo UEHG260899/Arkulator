@@ -12,9 +12,11 @@ protocol HomeScreenViewModelProtocol: ObservableObject {
     var dinosaurs: [Dinosaur] { get set }
     var queryString: String { get set }
     var shouldShowForm: Bool { get set }
+    var showError: Bool { get set }
 
     func fetchDinosaurs()
     func filterDinosaurs(query: String)
+    func deleteDinosaur(at index: IndexSet)
 }
 
 class HomeScreenViewModel: HomeScreenViewModelProtocol {
@@ -22,6 +24,7 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol {
     @Published var dinosaurs = [Dinosaur]()
     @Published var queryString = ""
     @Published var shouldShowForm = false
+    @Published var showError = false
 
     private let realmManager: RealmManagerProtocol
 
@@ -46,6 +49,17 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol {
     private func setDinosaurs() {
         let cachedDinosaurs = realmManager.fetch(type: Dinosaur.self)
         dinosaurs = Array(cachedDinosaurs)
+    }
+
+    func deleteDinosaur(at index: IndexSet) {
+        guard let dinosaur = dinosaurs[safe: index.first ?? 0] else {
+            showError = true
+            fetchDinosaurs()
+            return
+        }
+
+        realmManager.delete(dinosaur)
+        fetchDinosaurs()
     }
 
 }
