@@ -15,7 +15,7 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-                DinosaurListView(dinosaurs: vm.dinosaurs)
+                DinosaurListView(dinosaurs: vm.dinosaurs, onDelete: vm.deleteDinosaur(at:))
 
                 NavigationLink(
                     destination: DinosaurStatsScreen(),
@@ -35,6 +35,9 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
         .onChange(of: vm.queryString) { query in
             vm.filterDinosaurs(query: query)
         }
+        .alert("Something went wrong when trying to delete", isPresented: $vm.showError) {
+            Button("Ok", role: .none, action: {})
+        }
     }
 }
 
@@ -44,9 +47,11 @@ struct HomeView_Previews: PreviewProvider {
         var dinosaurs = [Dinosaur]()
         var queryString = ""
         var shouldShowForm = false
+        var showError = false
 
         func fetchDinosaurs() {}
         func filterDinosaurs(query: String) {}
+        func deleteDinosaur(at index: IndexSet) {}
     }
 
     static var previews: some View {

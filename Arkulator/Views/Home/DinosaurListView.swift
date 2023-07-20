@@ -12,6 +12,7 @@ struct DinosaurListView: View {
 
     @FocusState var isFocused: Bool
     let dinosaurs: [Dinosaur]
+    let onDelete: ((IndexSet) -> Void)
 
     var body: some View {
 
@@ -29,8 +30,7 @@ struct DinosaurListView: View {
                                          width: geometry.size.width / 15)
                         }
                     }
-                    //.onDelete(perform: $dinosaurs.remove)
-                    // TODO: Update deleting
+                    .onDelete(perform: onDelete)
                 }
                 .listStyle(.plain)
             }
@@ -52,7 +52,7 @@ struct DinosaurListView: View {
 struct DinosaurListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DinosaurListView(dinosaurs: [Dinosaur]())
+            DinosaurListView(dinosaurs: [Dinosaur](), onDelete: { _ in })
         }
     }
 }

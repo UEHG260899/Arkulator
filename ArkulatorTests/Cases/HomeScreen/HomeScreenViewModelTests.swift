@@ -43,6 +43,10 @@ class HomeScreenViewModelTests: XCTestCase {
         XCTAssertTrue(sut.dinosaurs.isEmpty)
     }
 
+    func test_onInit_showError_isSetToFalse() {
+        XCTAssertFalse(sut.showError)
+    }
+
     func test_whenFetchDinosaursIsCalled_itCallsFetch_onRealmManager() {
         // when
         sut.fetchDinosaurs()
@@ -92,4 +96,55 @@ class HomeScreenViewModelTests: XCTestCase {
         XCTAssertEqual(sut.dinosaurs.first?.name, mockDinosaurs.first?.name)
     }
 
+    func test_whenDeleteDinosaurIsCalled_andNoDinosaurIsFoundAtIndex_itDoesntCallDelete_onRealmManager() {
+        // given
+        let testIndex = IndexSet(integer: 4)
+        mockRealmManager.saveObjects(mockDinosaurs)
+        sut.fetchDinosaurs()
+
+        // when
+        sut.deleteDinosaur(at: testIndex)
+
+        // then
+        XCTAssertFalse(mockRealmManager.calledMethods.contains(.delete))
+    }
+
+    func test_whenDeletewhenDeleteDinosaurIsCalled_andNoDinosaurIsFoundAtIndex_callsFetchOnRealmManager() {
+        // given
+        let testIndex = IndexSet(integer: 4)
+        mockRealmManager.saveObjects(mockDinosaurs)
+        sut.fetchDinosaurs()
+
+        // when
+        sut.deleteDinosaur(at: testIndex)
+
+        // then
+        XCTAssertTrue(mockRealmManager.calledMethods.contains(.fetch))
+    }
+
+    func test_whenDeleteDinosaurIsCalled_andNoDinosaurIsFoundAtIndex_changesShowError_toTrue() {
+        // given
+        let testIndex = IndexSet(integer: 4)
+        mockRealmManager.saveObjects(mockDinosaurs)
+        sut.fetchDinosaurs()
+
+        // when
+        sut.deleteDinosaur(at: testIndex)
+
+        // then
+        XCTAssertTrue(sut.showError)
+    }
+
+    func test_whenDeleteDinosaurIsCalled_andDinosaurIsFoundAtIndex_callsDeleteAndFetchOnRealmManager() {
+        let testIndex = IndexSet(integer: 2)
+        mockRealmManager.saveObjects(mockDinosaurs)
+        sut.fetchDinosaurs()
+
+        // when
+        sut.deleteDinosaur(at: testIndex)
+
+        // then
+        XCTAssertTrue(mockRealmManager.calledMethods.contains(.delete))
+        XCTAssertTrue(mockRealmManager.calledMethods.contains(.fetch))
+    }
 }
