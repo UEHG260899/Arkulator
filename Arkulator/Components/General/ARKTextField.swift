@@ -62,8 +62,14 @@ private extension ARKTextField {
 
 #if DEBUG
 struct ARKTextField_Previews: PreviewProvider {
+    static let devices = ["iPhone SE (3rd generation)", "iPhone 11", "iPhone 14 Pro Max"]
+
     static var previews: some View {
-        ARKTextField(text: .constant(""), placeholder: "Stamina")
+        ForEach(devices, id: \.self) { device in
+            ARKTextField(text: .constant(""), placeholder: "Stamina", scheme: .init(horizontalPadding: 12))
+                .previewDevice(PreviewDevice(rawValue: device))
+                .previewDisplayName(device)
+        }
     }
 }
 #endif
