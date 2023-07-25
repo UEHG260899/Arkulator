@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct DinosaurStatsScreen: View {
+struct DinosaurStatsScreen<ViewModel: DinosaurStatsScreenViewModelProtocol>: View {
 
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
-    @StateObject var viewModel = DinosaurStatsViewModel()
+    @StateObject var vm: ViewModel
     @State private var isAlertPresented = false
     @FocusState var isFocused: Bool
 
     var buttonBackgroundColor: Color {
-        if viewModel.isFormValid {
+        if vm.isFormValid {
             return .uiAccentColor
         }
 
@@ -36,56 +36,56 @@ struct DinosaurStatsScreen: View {
             VStack(spacing: 20) {
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurName,
+                    text: $vm.dinosaurName,
                     isFocused: _isFocused,
                     placeholder: "Dino name",
                     scheme: .init(shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurStamina,
+                    text: $vm.dinosaurStamina,
                     isFocused: _isFocused,
                     placeholder: "Stamina",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurWeight,
+                    text: $vm.dinosaurWeight,
                     isFocused: _isFocused,
                     placeholder: "Weight",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurOxigen,
+                    text: $vm.dinosaurOxigen,
                     isFocused: _isFocused,
                     placeholder: "Oxigen",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurMele,
+                    text: $vm.dinosaurMele,
                     isFocused: _isFocused,
                     placeholder: "Mele",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurFood,
+                    text: $vm.dinosaurFood,
                     isFocused: _isFocused,
                     placeholder: "Food",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurMovementSpeed,
+                    text: $vm.dinosaurMovementSpeed,
                     isFocused: _isFocused,
                     placeholder: "Movement Speed",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurHealth,
+                    text: $vm.dinosaurHealth,
                     isFocused: _isFocused,
                     placeholder: "Health",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
@@ -93,7 +93,7 @@ struct DinosaurStatsScreen: View {
 
                 RoundedButton(
                     text: "Save",
-                    isDisabled: !viewModel.isFormValid,
+                    isDisabled: !vm.isFormValid,
                     action: showAlert,
                     scheme: .init(backgroundColor: buttonBackgroundColor)
                 )
@@ -132,15 +132,30 @@ extension DinosaurStatsScreen {
     }
 
     func saveDinosaur() {
-        viewModel.saveDinosaur()
+        vm.saveDinosaur()
         dismiss()
     }
 }
 
 struct DinosaurStatsView_Previews: PreviewProvider {
+
+    class MockVM: DinosaurStatsScreenViewModelProtocol {
+        var dinosaurName: String = ""
+        var dinosaurStamina: String = ""
+        var dinosaurWeight: String = ""
+        var dinosaurOxigen: String = ""
+        var dinosaurMele: String = ""
+        var dinosaurFood: String = ""
+        var dinosaurMovementSpeed: String = ""
+        var dinosaurHealth: String = ""
+        var isFormValid: Bool = false
+
+        func saveDinosaur() {}
+
+    }
     static var previews: some View {
         NavigationView {
-            DinosaurStatsScreen()
+            DinosaurStatsScreen(vm: MockVM())
         }
     }
 }

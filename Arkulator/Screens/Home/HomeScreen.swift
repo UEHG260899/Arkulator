@@ -18,7 +18,7 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
                 DinosaurListView(dinosaurs: vm.dinosaurs, onDelete: vm.deleteDinosaur(at:))
 
                 NavigationLink(
-                    destination: DinosaurStatsScreen(),
+                    destination: DinosaurStatsScreenFactory.make(),
                     isActive: $vm.shouldShowForm,
                     label: {}
                 )

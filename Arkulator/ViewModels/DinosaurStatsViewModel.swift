@@ -8,7 +8,21 @@
 import Foundation
 import RealmSwift
 
-class DinosaurStatsViewModel: ObservableObject {
+protocol DinosaurStatsScreenViewModelProtocol: ObservableObject {
+    var dinosaurName: String { get set }
+    var dinosaurStamina: String { get set }
+    var dinosaurWeight: String { get set }
+    var dinosaurOxigen: String { get set }
+    var dinosaurMele: String { get set }
+    var dinosaurFood: String { get set }
+    var dinosaurMovementSpeed: String { get set }
+    var dinosaurHealth: String { get set }
+    var isFormValid: Bool { get }
+
+    func saveDinosaur()
+}
+
+class DinosaurStatsViewModel: DinosaurStatsScreenViewModelProtocol {
     @Published var dinosaurName: String = ""
     @Published var dinosaurStamina: String = ""
     @Published var dinosaurWeight: String = ""
@@ -26,7 +40,12 @@ class DinosaurStatsViewModel: ObservableObject {
         return true
     }
 
+    private let realmManager: RealmManagerProtocol
     private var test: Results<Dinosaur>!
+
+    init(realmManager: RealmManagerProtocol) {
+        self.realmManager = realmManager
+    }
 
     func saveDinosaur() {
         let newDinosaur = Dinosaur(name: dinosaurName,

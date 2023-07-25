@@ -22,6 +22,7 @@
 		A46B82B52873E34000E48202 /* DinosaurListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B42873E34000E48202 /* DinosaurListView.swift */; };
 		A46B82B82873E5EF00E48202 /* DinosaurCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82B72873E5EF00E48202 /* DinosaurCell.swift */; };
 		A490FE472879D24D00C29710 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A490FE462879D24D00C29710 /* LaunchScreen.storyboard */; };
+		A49D405E2A6F724000C7C2BF /* DinosaurStatsScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49D405D2A6F724000C7C2BF /* DinosaurStatsScreenFactory.swift */; };
 		A4A72A57287CED6200610C89 /* RoundendPillButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A72A56287CED6200610C89 /* RoundendPillButtonStyle.swift */; };
 		A4A72A59287CF55400610C89 /* Text+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A72A58287CF55400610C89 /* Text+Extensions.swift */; };
 		A4A7977A28BADE0900613D42 /* TabsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A7977928BADE0900613D42 /* TabsScreen.swift */; };
@@ -79,6 +80,7 @@
 		A46B82B72873E5EF00E48202 /* DinosaurCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurCell.swift; sourceTree = "<group>"; };
 		A490FE462879D24D00C29710 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A490FE4C2879ED6700C29710 /* ArkulatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArkulatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A49D405D2A6F724000C7C2BF /* DinosaurStatsScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsScreenFactory.swift; sourceTree = "<group>"; };
 		A4A72A56287CED6200610C89 /* RoundendPillButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundendPillButtonStyle.swift; sourceTree = "<group>"; };
 		A4A72A58287CF55400610C89 /* Text+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extensions.swift"; sourceTree = "<group>"; };
 		A4A7977928BADE0900613D42 /* TabsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsScreen.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				A4BF811E2A677165006ADAC2 /* HomeScreenFactory.swift */,
+				A49D405D2A6F724000C7C2BF /* DinosaurStatsScreenFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				A4A7978028BAE01B00613D42 /* SettingsListView.swift in Sources */,
 				A46B82B52873E34000E48202 /* DinosaurListView.swift in Sources */,
 				A4B3074128C640CF0051456D /* HomeScreenViewModel.swift in Sources */,
+				A49D405E2A6F724000C7C2BF /* DinosaurStatsScreenFactory.swift in Sources */,
 				A4C620002874A8E700260646 /* Dinosaur.swift in Sources */,
 				A4C620022874B68A00260646 /* DinosaurStatsViewModel.swift in Sources */,
 				A4BF81222A677431006ADAC2 /* AppDelegate.swift in Sources */,
