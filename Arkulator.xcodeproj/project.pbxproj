@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E0B5133654A79ED5E399E03 /* Pods_Arkulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FD24D19871C8843CF51C01 /* Pods_Arkulator.framework */; };
+		A40DA8B42A70A90500191DEE /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40DA8B32A70A90500191DEE /* Field.swift */; };
 		A42D54292883736F00F4FB05 /* EditDinosaurScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D54282883736F00F4FB05 /* EditDinosaurScreen.swift */; };
 		A42D542C2883806300F4FB05 /* DinosaurStatsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D542B2883806300F4FB05 /* DinosaurStatsViewModelTests.swift */; };
 		A42D54302883813E00F4FB05 /* EditDinosaurViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42D542F2883813E00F4FB05 /* EditDinosaurViewModelTests.swift */; };
@@ -64,6 +65,7 @@
 		0AF9E2E5918C6E8611BD96C1 /* Pods-ArkulatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArkulatorTests.debug.xcconfig"; path = "Target Support Files/Pods-ArkulatorTests/Pods-ArkulatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0C5A7DAD7C614FF3F27656D7 /* Pods-Arkulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arkulator.release.xcconfig"; path = "Target Support Files/Pods-Arkulator/Pods-Arkulator.release.xcconfig"; sourceTree = "<group>"; };
 		3C383B74E6B57E30A8A4D419 /* Pods-Arkulator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arkulator.debug.xcconfig"; path = "Target Support Files/Pods-Arkulator/Pods-Arkulator.debug.xcconfig"; sourceTree = "<group>"; };
+		A40DA8B32A70A90500191DEE /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		A42D54282883736F00F4FB05 /* EditDinosaurScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDinosaurScreen.swift; sourceTree = "<group>"; };
 		A42D542B2883806300F4FB05 /* DinosaurStatsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsViewModelTests.swift; sourceTree = "<group>"; };
 		A42D542F2883813E00F4FB05 /* EditDinosaurViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDinosaurViewModelTests.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				A4B0F3E728BAE1AA00CF26CE /* Constants */,
 				A4A72A55287CED4600610C89 /* Styles */,
 				A4C61FFB2874A7C300260646 /* Extensions */,
+				A40DA8B32A70A90500191DEE /* Field.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */,
 				A4A7977A28BADE0900613D42 /* TabsScreen.swift in Sources */,
 				A4A72A59287CF55400610C89 /* Text+Extensions.swift in Sources */,
+				A40DA8B42A70A90500191DEE /* Field.swift in Sources */,
 				A42D5432288381A300F4FB05 /* EditDinosaurViewModel.swift in Sources */,
 				A4B994BC29AB0476000C5B6F /* Color+Extensions.swift in Sources */,
 				A46B82B32873E23600E48202 /* HomeScreen.swift in Sources */,

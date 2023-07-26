@@ -10,13 +10,14 @@ import SwiftUI
 struct ARKTextField: View {
 
     @Binding var text: String
-    @FocusState var isFocused: Bool
+    @FocusState var isFocused: Field?
+    let fieldType: Field
     let placeholder: String
     var scheme: ARKTextFieldScheme = .init()
     var keyboardType: UIKeyboardType = .default
 
     var yOffset: CGFloat {
-        switch (isFocused, text.isEmpty) {
+        switch (isFocused == fieldType, text.isEmpty) {
         case (true, _):
             return -28
         case (false, false):
@@ -29,7 +30,7 @@ struct ARKTextField: View {
     var body: some View {
         ZStack(alignment: scheme.zStackAlignment) {
             TextField("", text: $text)
-                .focused($isFocused)
+                .focused($isFocused, equals: fieldType)
                 .keyboardType(keyboardType)
 
             Text(placeholder)
@@ -56,7 +57,7 @@ private extension ARKTextField {
             return
         }
 
-        isFocused = true
+        isFocused = fieldType
     }
 }
 
@@ -66,9 +67,14 @@ struct ARKTextField_Previews: PreviewProvider {
 
     static var previews: some View {
         ForEach(devices, id: \.self) { device in
-            ARKTextField(text: .constant(""), placeholder: "Stamina", scheme: .init(horizontalPadding: 12))
-                .previewDevice(PreviewDevice(rawValue: device))
-                .previewDisplayName(device)
+            ARKTextField(
+                text: .constant(""),
+                fieldType: .dinoName,
+                placeholder: "Stamina",
+                scheme: .init(horizontalPadding: 12)
+            )
+            .previewDevice(PreviewDevice(rawValue: device))
+            .previewDisplayName(device)
         }
     }
 }
