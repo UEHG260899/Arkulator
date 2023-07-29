@@ -10,54 +10,67 @@ import XCTest
 
 class DinosaurStatsViewModelTests: XCTestCase {
 
+    var mockRealmManager: MockRealmManager!
     var sut: DinosaurStatsViewModel!
 
     override func setUp() {
         super.setUp()
-        sut = DinosaurStatsViewModel()
+        mockRealmManager = MockRealmManager(taskName: self.name)
+        sut = DinosaurStatsViewModel(realmManager: mockRealmManager)
     }
 
     override func tearDown() {
+        mockRealmManager = nil
         sut = nil
         super.tearDown()
     }
 
-    func testFormIsNotValidWhenAllDinosaurPropertiesAreEmpty() {
-        XCTAssert(sut.isFormValid == false, "isFormValid should be false at the start")
+    func test_onInit_formDataValues_areEmpty() {
+        sut.formFields.forEach { XCTAssertTrue($0.fieldText.isEmpty) }
     }
 
-    func testFormIsNotValidWhenSomeDinosaurPropertiesAreSet() {
-        sut.dinosaurName = "Argentavis"
-        sut.dinosaurStamina = "10"
-        sut.dinosaurWeight = "10"
-
-        XCTAssert(sut.isFormValid == false, "isFormValid should be false if not all properties are set")
+    func test_onInit_isFormValid_isSetToFalse() {
+        XCTAssertFalse(sut.isFormValid)
     }
 
-    func testFormIsValidWhenAllDinosaurPropertiesAreSet() {
-        sut.dinosaurName = "Argentavis"
-        sut.dinosaurStamina = "10"
-        sut.dinosaurWeight = "10"
-        sut.dinosaurOxigen = "10"
-        sut.dinosaurMele = "10"
-        sut.dinosaurFood = "10"
-        sut.dinosaurMovementSpeed = "10"
-        sut.dinosaurHealth = "10"
-
-        XCTAssert(sut.isFormValid == true, "isFormValid should be true when all properties are set")
+    func test_onInit_shouldShowAlert_isSetToFalse() {
+        XCTAssertFalse(sut.shouldShowAlert)
     }
 
-    func testDinosaurExpectedLevelShouldBeStatsSumPlusOne() {
-        let dinosaur = Dinosaur(name: "Argentavis",
-                                stamina: 10,
-                                weight: 10,
-                                oxigen: 10,
-                                mele: 10,
-                                food: 10,
-                                movementSpeed: 10,
-                                health: 10)
+    func test_whenSomeFormFieldsAreEmpty_isFormValidStillReturnsFalse() {
+        // when
+        let mockData: [FormField] = [
+            .init(fieldType: .dinoHealth, fieldLabel: "", fieldText: "Some"),
+            .init(fieldType: .dinoHealth, fieldLabel: "", fieldText: "Text"),
+            .init(fieldType: .dinoHealth, fieldLabel: "", fieldText: "")
+        ]
 
-        XCTAssert(dinosaur.requiredLevel == 71, "requiredLevel should be equals to stats summatory plus one")
+        sut.formFields = mockData
+
+        // then
+        XCTAssertFalse(sut.isFormValid)
+    }
+
+    func test_whenAllFormFieldsAreEmpty_isFormValidReturnsTrue() {
+        // when
+        let mockData: [FormField] = [
+            .init(fieldType: .dinoHealth, fieldLabel: "", fieldText: "Some"),
+            .init(fieldType: .dinoHealth, fieldLabel: "", fieldText: "Text"),
+            .init(fieldType: .dinoHealth, fieldLabel: "", fieldText: "Test")
+        ]
+
+        sut.formFields = mockData
+
+        // then
+        XCTAssertTrue(sut.isFormValid)
+    }
+
+    func test_whenSaveDinosaurIsCalled_callsSave_onRealmManager() {
+        // when
+        sut.saveDinosaur()
+
+        // then
+        XCTAssertTrue(mockRealmManager.calledMethods.contains(.save))
     }
 
 }

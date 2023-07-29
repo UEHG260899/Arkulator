@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Field: Hashable {
+enum Field: Hashable, CaseIterable {
     case dinoName
     case dinoStamina
     case dinoWeight
