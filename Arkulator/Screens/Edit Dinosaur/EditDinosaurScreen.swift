@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct EditDinosaurScreen: View {
+struct EditDinosaurScreen<ViewModel: EditDinosaurViewModelProtocol>: View {
 
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) var dismiss
     @State private var isAlertPresented = false
-    @ObservedObject var viewModel: EditDinosaurViewModel
+    @StateObject var vm: ViewModel
     @FocusState var isFocused: Bool
 
     var textFieldShadowColor: Color {
@@ -28,56 +28,56 @@ struct EditDinosaurScreen: View {
             VStack(spacing: 20) {
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurName,
+                    text: $vm.dinosaurName,
                     isFocused: _isFocused,
                     placeholder: "Dino name",
                     scheme: .init(shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurStamina,
+                    text: $vm.dinosaurStamina,
                     isFocused: _isFocused,
                     placeholder: "Stamina",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurWeight,
+                    text: $vm.dinosaurWeight,
                     isFocused: _isFocused,
                     placeholder: "Weight",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurOxigen,
+                    text: $vm.dinosaurOxigen,
                     isFocused: _isFocused,
                     placeholder: "Oxigen",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurMele,
+                    text: $vm.dinosaurMele,
                     isFocused: _isFocused,
                     placeholder: "Mele",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurFood,
+                    text: $vm.dinosaurFood,
                     isFocused: _isFocused,
                     placeholder: "Food",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurMovementSpeed,
+                    text: $vm.dinosaurMovementSpeed,
                     isFocused: _isFocused,
                     placeholder: "Movement Speed",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
                 )
 
                 RoundedTextField(
-                    text: $viewModel.dinosaurHealth,
+                    text: $vm.dinosaurHealth,
                     isFocused: _isFocused,
                     placeholder: "Health",
                     scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
@@ -85,7 +85,7 @@ struct EditDinosaurScreen: View {
 
                 RoundedButton(
                     text: "Save",
-                    isDisabled: !viewModel.isFormValid,
+                    isDisabled: !vm.isFormValid,
                     action: showAlert,
                     scheme: .init(backgroundColor: buttonBackgroundColor)
                 )
@@ -98,7 +98,7 @@ struct EditDinosaurScreen: View {
             }
             .padding()
         }
-        .navigationTitle(viewModel.dinosaurName.capitalized)
+        .navigationTitle(vm.dinosaurName.capitalized)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
@@ -115,7 +115,7 @@ struct EditDinosaurScreen: View {
     }
 
     var buttonBackgroundColor: Color {
-        if viewModel.isFormValid {
+        if vm.isFormValid {
             return .uiAccentColor
         }
 
@@ -130,24 +130,31 @@ extension EditDinosaurScreen {
     }
 
     func saveDinosaur() {
-        viewModel.updateDinosaur()
+        vm.updateDinosaur()
         dismiss()
     }
 }
 
 struct EditDinosaurView_Previews: PreviewProvider {
+    
+    class MockVM: EditDinosaurViewModelProtocol {
+        var dinosaurName: String = ""
+        var dinosaurStamina: String = ""
+        var dinosaurWeight: String = ""
+        var dinosaurOxigen: String = ""
+        var dinosaurMele: String = ""
+        var dinosaurFood: String = ""
+        var dinosaurMovementSpeed: String = ""
+        var dinosaurHealth: String = ""
+        var isFormValid: Bool = false
+        
+        func updateDinosaur() {}
+    }
+    
+    
     static var previews: some View {
-        let dinosaur = Dinosaur(name: "Hola",
-                                stamina: 1,
-                                weight: 2,
-                                oxigen: 3,
-                                mele: 4,
-                                food: 5,
-                                movementSpeed: 6,
-                                health: 7)
-
         NavigationView {
-            EditDinosaurScreen(viewModel: EditDinosaurViewModel(dinosaur: dinosaur))
+            EditDinosaurScreen(vm: MockVM())
         }
     }
 }

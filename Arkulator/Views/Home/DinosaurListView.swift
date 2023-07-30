@@ -6,23 +6,19 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct DinosaurListView: View {
 
-    @FocusState var isFocused: Bool
     let dinosaurs: [Dinosaur]
     let onDelete: ((IndexSet) -> Void)
 
     var body: some View {
-
         GeometryReader { geometry in
             VStack {
                 List {
                     ForEach(dinosaurs) { dinosaur in
                         NavigationLink {
-                            let editViewModel = EditDinosaurViewModel(dinosaur: dinosaur)
-                            EditDinosaurScreen(viewModel: editViewModel)
+                            EditDinosaurScreenFactory.make(with: dinosaur)
                         } label: {
                             DinosaurCell(cellNumber: Int(dinosaur.id),
                                          dinosaurName: dinosaur.name.capitalized,
@@ -34,18 +30,8 @@ struct DinosaurListView: View {
                 }
                 .listStyle(.plain)
             }
-            .navigationTitle("Dinosaur List")
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button {
-                    isFocused = false
-                } label: {
-                    Text("Done")
-                }
-            }
-        }
+        .navigationTitle("Dinosaur List")
     }
 }
 

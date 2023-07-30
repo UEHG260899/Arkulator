@@ -7,7 +7,21 @@
 
 import Foundation
 
-class EditDinosaurViewModel: ObservableObject {
+protocol EditDinosaurViewModelProtocol: ObservableObject {
+    var dinosaurName: String { get set }
+    var dinosaurStamina: String { get set }
+    var dinosaurWeight: String { get set }
+    var dinosaurOxigen: String { get set }
+    var dinosaurMele: String { get set }
+    var dinosaurFood: String { get set }
+    var dinosaurMovementSpeed: String { get set }
+    var dinosaurHealth: String { get set }
+    var isFormValid: Bool { get }
+
+    func updateDinosaur()
+}
+
+class EditDinosaurViewModel: EditDinosaurViewModelProtocol {
 
     @Published var dinosaurName: String
     @Published var dinosaurStamina: String
@@ -18,6 +32,7 @@ class EditDinosaurViewModel: ObservableObject {
     @Published var dinosaurMovementSpeed: String
     @Published var dinosaurHealth: String
     private let dinosaurId: Int64
+    private let realmManager: RealmManagerProtocol
 
     var isFormValid: Bool {
         if !dinosaurName.isEmpty, !dinosaurStamina.isEmpty, !dinosaurWeight.isEmpty,
@@ -29,7 +44,7 @@ class EditDinosaurViewModel: ObservableObject {
         return false
     }
 
-    init(dinosaur: Dinosaur) {
+    init(dinosaur: Dinosaur, realmManager: RealmManagerProtocol) {
         self.dinosaurId = dinosaur.id
         self.dinosaurName = dinosaur.name.capitalized
         self.dinosaurStamina = String(dinosaur.stamina)
@@ -39,6 +54,7 @@ class EditDinosaurViewModel: ObservableObject {
         self.dinosaurFood = String(dinosaur.food)
         self.dinosaurMovementSpeed = String(dinosaur.movementSpeed)
         self.dinosaurHealth = String(dinosaur.health)
+        self.realmManager = realmManager
     }
 
     func updateDinosaur() {
