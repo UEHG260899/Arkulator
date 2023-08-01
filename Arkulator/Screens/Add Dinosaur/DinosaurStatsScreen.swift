@@ -10,10 +10,8 @@ import SwiftUI
 struct DinosaurStatsScreen<ViewModel: DinosaurStatsScreenViewModelProtocol>: View {
 
     @Environment(\.dismiss) var dismiss
-    @Environment(\.colorScheme) var colorScheme
     @StateObject var vm: ViewModel
-    @State private var isAlertPresented = false
-    @FocusState var isFocused: Bool
+    @FocusState var isFocused: Field?
 
     var buttonBackgroundColor: Color {
         if vm.isFormValid {
@@ -23,113 +21,53 @@ struct DinosaurStatsScreen<ViewModel: DinosaurStatsScreenViewModelProtocol>: Vie
         return .uiAccentColor.opacity(0.5)
     }
 
-    var textFieldShadowColor: Color {
-        if colorScheme == .light {
-            return .black
-        }
-
-        return .white
-    }
-
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-
-                RoundedTextField(
-                    text: $vm.dinosaurName,
-                    isFocused: _isFocused,
-                    placeholder: "Dino name",
-                    scheme: .init(shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $vm.dinosaurStamina,
-                    isFocused: _isFocused,
-                    placeholder: "Stamina",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $vm.dinosaurWeight,
-                    isFocused: _isFocused,
-                    placeholder: "Weight",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $vm.dinosaurOxigen,
-                    isFocused: _isFocused,
-                    placeholder: "Oxigen",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $vm.dinosaurMele,
-                    isFocused: _isFocused,
-                    placeholder: "Mele",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $vm.dinosaurFood,
-                    isFocused: _isFocused,
-                    placeholder: "Food",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $vm.dinosaurMovementSpeed,
-                    isFocused: _isFocused,
-                    placeholder: "Movement Speed",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $vm.dinosaurHealth,
-                    isFocused: _isFocused,
-                    placeholder: "Health",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
+                ForEach(vm.formFields) { formField in
+                    ARKTextField(
+                        text: $vm.formFields.first { $0.id == formField.id }!.fieldText,
+                        isFocused: _isFocused,
+                        fieldType: formField.fieldType,
+                        placeholder: formField.fieldLabel,
+                        scheme: formField.scheme,
+                        keyboardType: formField.keyboardType
+                    )
+                }
 
                 RoundedButton(
                     text: "Save",
                     isDisabled: !vm.isFormValid,
-                    action: showAlert,
+                    action: { vm.shouldShowAlert = true },
                     scheme: .init(backgroundColor: buttonBackgroundColor)
                 )
-                .alert("Are you sure you want to save the data?", isPresented: $isAlertPresented) {
-                    Button("Yes", role: .none, action: saveDinosaur)
-                    Button("No", role: .cancel, action: {})
-                }
-
-                Spacer()
             }
-            .navigationBarBackButtonHidden(true)
-            .navigationTitle("Dino stats")
             .padding()
-            .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
-                    Spacer()
-                    Button(action: { isFocused = false }, label: {
-                        Text("Done")
-                    })
-                }
-
-                ToolbarItem(placement: .navigationBarLeading) {
-                    CustomBackButton()
-                }
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationTitle("Dino stats")
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button(action: { isFocused = nil }, label: {
+                    Text("Done")
+                })
             }
+
+            ToolbarItem(placement: .navigationBarLeading) {
+                CustomBackButton()
+            }
+        }
+        .alert("Are you sure you want to save the data?", isPresented: $vm.shouldShowAlert) {
+            Button("Yes", role: .none, action: saveDinosaur)
+            Button("No", role: .cancel, action: {})
         }
     }
 
 }
 
 // MARK: - Helper functions
-extension DinosaurStatsScreen {
-
-    func showAlert() {
-        isAlertPresented = true
-    }
+private extension DinosaurStatsScreen {
 
     func saveDinosaur() {
         vm.saveDinosaur()
@@ -140,19 +78,13 @@ extension DinosaurStatsScreen {
 struct DinosaurStatsView_Previews: PreviewProvider {
 
     class MockVM: DinosaurStatsScreenViewModelProtocol {
-        var dinosaurName: String = ""
-        var dinosaurStamina: String = ""
-        var dinosaurWeight: String = ""
-        var dinosaurOxigen: String = ""
-        var dinosaurMele: String = ""
-        var dinosaurFood: String = ""
-        var dinosaurMovementSpeed: String = ""
-        var dinosaurHealth: String = ""
-        var isFormValid: Bool = false
+        var formFields = [FormField]()
+        var isFormValid = false
+        var shouldShowAlert = false
 
         func saveDinosaur() {}
-
     }
+
     static var previews: some View {
         NavigationView {
             DinosaurStatsScreen(vm: MockVM())
