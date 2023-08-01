@@ -13,14 +13,6 @@ struct DinosaurStatsScreen<ViewModel: DinosaurStatsScreenViewModelProtocol>: Vie
     @StateObject var vm: ViewModel
     @FocusState var isFocused: Field?
 
-    var buttonBackgroundColor: Color {
-        if vm.isFormValid {
-            return .uiAccentColor
-        }
-
-        return .uiAccentColor.opacity(0.5)
-    }
-
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -35,11 +27,10 @@ struct DinosaurStatsScreen<ViewModel: DinosaurStatsScreenViewModelProtocol>: Vie
                     )
                 }
 
-                RoundedButton(
-                    text: "Save",
+                ARKButton(
+                    labelText: "Save",
                     isDisabled: !vm.isFormValid,
-                    action: { vm.shouldShowAlert = true },
-                    scheme: .init(backgroundColor: buttonBackgroundColor)
+                    action: { vm.shouldShowAlert = true }
                 )
             }
             .padding()
