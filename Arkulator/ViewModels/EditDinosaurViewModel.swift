@@ -8,65 +8,52 @@
 import Foundation
 
 protocol EditDinosaurViewModelProtocol: ObservableObject {
-    var dinosaurName: String { get set }
-    var dinosaurStamina: String { get set }
-    var dinosaurWeight: String { get set }
-    var dinosaurOxigen: String { get set }
-    var dinosaurMele: String { get set }
-    var dinosaurFood: String { get set }
-    var dinosaurMovementSpeed: String { get set }
-    var dinosaurHealth: String { get set }
+    var formData: [FormField] { get set }
+    var shouldShowAlert: Bool { get set }
     var isFormValid: Bool { get }
 
     func updateDinosaur()
 }
 
 class EditDinosaurViewModel: EditDinosaurViewModelProtocol {
+    @Published var formData: [FormField] = Constants.Forms.dinoStatsForm
+    @Published var shouldShowAlert = false
 
-    @Published var dinosaurName: String
-    @Published var dinosaurStamina: String
-    @Published var dinosaurWeight: String
-    @Published var dinosaurOxigen: String
-    @Published var dinosaurMele: String
-    @Published var dinosaurFood: String
-    @Published var dinosaurMovementSpeed: String
-    @Published var dinosaurHealth: String
-    private let dinosaurId: Int64
     private let realmManager: RealmManagerProtocol
+    private let dinoId: Int64
 
     var isFormValid: Bool {
-        if !dinosaurName.isEmpty, !dinosaurStamina.isEmpty, !dinosaurWeight.isEmpty,
-           !dinosaurOxigen.isEmpty, !dinosaurMele.isEmpty, !dinosaurFood.isEmpty,
-           !dinosaurMovementSpeed.isEmpty, !dinosaurHealth.isEmpty {
-            return true
-        }
-
-        return false
+        var isFormValid = true
+        formData.forEach { isFormValid = !$0.fieldText.isEmpty && isFormValid }
+        return isFormValid
     }
 
     init(dinosaur: Dinosaur, realmManager: RealmManagerProtocol) {
-        self.dinosaurId = dinosaur.id
-        self.dinosaurName = dinosaur.name.capitalized
-        self.dinosaurStamina = String(dinosaur.stamina)
-        self.dinosaurWeight = String(dinosaur.weight)
-        self.dinosaurOxigen = String(dinosaur.oxigen)
-        self.dinosaurMele = String(dinosaur.mele)
-        self.dinosaurFood = String(dinosaur.food)
-        self.dinosaurMovementSpeed = String(dinosaur.movementSpeed)
-        self.dinosaurHealth = String(dinosaur.health)
+        self.dinoId = dinosaur.id
         self.realmManager = realmManager
+        self.formData[0].fieldText = dinosaur.name.capitalized
+        self.formData[1].fieldText = String(dinosaur.stamina)
+        self.formData[2].fieldText = String(dinosaur.weight)
+        self.formData[3].fieldText = String(dinosaur.oxigen)
+        self.formData[4].fieldText = String(dinosaur.mele)
+        self.formData[5].fieldText = String(dinosaur.food)
+        self.formData[6].fieldText = String(dinosaur.movementSpeed)
+        self.formData[7].fieldText = String(dinosaur.health)
     }
 
     func updateDinosaur() {
-        let updatedDinosaur = Dinosaur(name: dinosaurName,
-                                       stamina: Int(dinosaurStamina) ?? 0,
-                                       weight: Int(dinosaurWeight) ?? 0,
-                                       oxigen: Int(dinosaurOxigen) ?? 0,
-                                       mele: Int(dinosaurMele) ?? 0,
-                                       food: Int(dinosaurFood) ?? 0,
-                                       movementSpeed: Int(dinosaurMovementSpeed) ?? 0,
-                                       health: Int(dinosaurHealth) ?? 0)
+        let dino = Dinosaur(
+            id: dinoId,
+            name: formData[safe: 0]?.fieldText ?? "",
+            stamina: formData[safe: 1]?.fieldText.intValue ?? 0,
+            weight: formData[safe: 2]?.fieldText.intValue ?? 0,
+            oxigen: formData[safe: 3]?.fieldText.intValue ?? 0,
+            mele: formData[safe: 4]?.fieldText.intValue ?? 0,
+            food: formData[safe: 5]?.fieldText.intValue ?? 0,
+            movementSpeed: formData[safe: 6]?.fieldText.intValue ?? 0,
+            health: formData[safe: 7]?.fieldText.intValue ?? 0
+        )
 
-        updatedDinosaur.update(id: dinosaurId)
+        realmManager.save(dino)
     }
 }
