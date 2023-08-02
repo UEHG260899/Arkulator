@@ -28,11 +28,10 @@ struct EditDinosaurScreen<ViewModel: EditDinosaurViewModelProtocol>: View {
                     )
                 }
 
-                RoundedButton(
-                    text: "Save",
+                ARKButton(
+                    labelText: "Save",
                     isDisabled: !vm.isFormValid,
-                    action: { vm.shouldShowAlert = true },
-                    scheme: .init(backgroundColor: buttonBackgroundColor)
+                    action: { vm.shouldShowAlert = true }
                 )
 
             }
@@ -56,14 +55,6 @@ struct EditDinosaurScreen<ViewModel: EditDinosaurViewModelProtocol>: View {
                 CustomBackButton()
             }
         }
-    }
-
-    var buttonBackgroundColor: Color {
-        if vm.isFormValid {
-            return .uiAccentColor
-        }
-
-        return .uiAccentColor.opacity(0.5)
     }
 
 }

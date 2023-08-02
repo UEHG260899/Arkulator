@@ -17,6 +17,8 @@
 		A43BD9852A75DC8D00FE5B67 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43BD9842A75DC8D00FE5B67 /* String+Extensions.swift */; };
 		A43BD9872A75DEC500FE5B67 /* EditDInosaurScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43BD9862A75DEC500FE5B67 /* EditDInosaurScreenFactory.swift */; };
 		A45143822A68BF090073E266 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45143812A68BF090073E266 /* Array+Extensions.swift */; };
+		A4518B082A79CE4900324C1E /* ARKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4518B072A79CE4900324C1E /* ARKButton.swift */; };
+		A4518B0A2A79CF1600324C1E /* ARKButtonScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4518B092A79CF1600324C1E /* ARKButtonScheme.swift */; };
 		A45E39BA2A6C817A007FFA66 /* ARKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E39B92A6C817A007FFA66 /* ARKTextField.swift */; };
 		A45E39D72A6CA126007FFA66 /* ARKTextFieldScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45E39D62A6CA126007FFA66 /* ARKTextFieldScheme.swift */; };
 		A46B82A42873E20C00E48202 /* ArkulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B82A32873E20C00E48202 /* ArkulatorApp.swift */; };
@@ -41,13 +43,11 @@
 		A4BF81222A677431006ADAC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BF81212A677431006ADAC2 /* AppDelegate.swift */; };
 		A4BF81252A677731006ADAC2 /* MockRealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BF81242A677731006ADAC2 /* MockRealmManager.swift */; };
 		A4C61FF52874908700260646 /* DinosaurStatsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF42874908700260646 /* DinosaurStatsScreen.swift */; };
-		A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF6287497DE00260646 /* RoundedTextField.swift */; };
 		A4C61FF92874A2F900260646 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FF82874A2F900260646 /* CustomBackButton.swift */; };
 		A4C61FFD2874A7E300260646 /* EnvironmentValues+Exensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */; };
 		A4C620002874A8E700260646 /* Dinosaur.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C61FFF2874A8E700260646 /* Dinosaur.swift */; };
 		A4C620022874B68A00260646 /* DinosaurStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */; };
 		A4C64C7C28C5122A00ED89F7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C64C7B28C5122A00ED89F7 /* View+Extensions.swift */; };
-		A4C9225F29AAE439003142CD /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9225E29AAE439003142CD /* RoundedButton.swift */; };
 		A4CDFCE72A6493AC008D29B2 /* RealmManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CDFCE62A6493AC008D29B2 /* RealmManagerProtocol.swift */; };
 		A4CDFCE92A6493C4008D29B2 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CDFCE82A6493C4008D29B2 /* RealmManager.swift */; };
 		BC0A750E0886E23FC05F898A /* Pods_ArkulatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040CF7696BDFFB3CB336C5BC /* Pods_ArkulatorTests.framework */; };
@@ -77,6 +77,8 @@
 		A43BD9842A75DC8D00FE5B67 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		A43BD9862A75DEC500FE5B67 /* EditDInosaurScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDInosaurScreenFactory.swift; sourceTree = "<group>"; };
 		A45143812A68BF090073E266 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		A4518B072A79CE4900324C1E /* ARKButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKButton.swift; sourceTree = "<group>"; };
+		A4518B092A79CF1600324C1E /* ARKButtonScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKButtonScheme.swift; sourceTree = "<group>"; };
 		A45E39B92A6C817A007FFA66 /* ARKTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKTextField.swift; sourceTree = "<group>"; };
 		A45E39D62A6CA126007FFA66 /* ARKTextFieldScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKTextFieldScheme.swift; sourceTree = "<group>"; };
 		A46B82A02873E20C00E48202 /* Arkulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arkulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,13 +105,11 @@
 		A4BF81212A677431006ADAC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4BF81242A677731006ADAC2 /* MockRealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRealmManager.swift; sourceTree = "<group>"; };
 		A4C61FF42874908700260646 /* DinosaurStatsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsScreen.swift; sourceTree = "<group>"; };
-		A4C61FF6287497DE00260646 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		A4C61FF82874A2F900260646 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		A4C61FFC2874A7E300260646 /* EnvironmentValues+Exensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+Exensions.swift"; sourceTree = "<group>"; };
 		A4C61FFF2874A8E700260646 /* Dinosaur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dinosaur.swift; sourceTree = "<group>"; };
 		A4C620012874B68A00260646 /* DinosaurStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsViewModel.swift; sourceTree = "<group>"; };
 		A4C64C7B28C5122A00ED89F7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
-		A4C9225E29AAE439003142CD /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		A4CDFCE62A6493AC008D29B2 /* RealmManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerProtocol.swift; sourceTree = "<group>"; };
 		A4CDFCE82A6493C4008D29B2 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		CDD87844AF7EA3ED8CCA8C1D /* Pods-ArkulatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArkulatorTests.release.xcconfig"; path = "Target Support Files/Pods-ArkulatorTests/Pods-ArkulatorTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				A45E39D62A6CA126007FFA66 /* ARKTextFieldScheme.swift */,
+				A4518B092A79CF1600324C1E /* ARKButtonScheme.swift */,
 			);
 			path = Schemes;
 			sourceTree = "<group>";
@@ -360,11 +361,10 @@
 		A4B5228629AB0D3A006C1407 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				A4C61FF6287497DE00260646 /* RoundedTextField.swift */,
-				A4C9225E29AAE439003142CD /* RoundedButton.swift */,
 				A4C61FF82874A2F900260646 /* CustomBackButton.swift */,
 				A4B5228729AB0D50006C1407 /* FloatingButton.swift */,
 				A45E39B92A6C817A007FFA66 /* ARKTextField.swift */,
+				A4518B072A79CE4900324C1E /* ARKButton.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -634,8 +634,6 @@
 				A4CDFCE72A6493AC008D29B2 /* RealmManagerProtocol.swift in Sources */,
 				A42D54292883736F00F4FB05 /* EditDinosaurScreen.swift in Sources */,
 				A40DA8B82A70B55700191DEE /* FormField.swift in Sources */,
-				A4C9225F29AAE439003142CD /* RoundedButton.swift in Sources */,
-				A4C61FF7287497DE00260646 /* RoundedTextField.swift in Sources */,
 				A4A7977A28BADE0900613D42 /* TabsScreen.swift in Sources */,
 				A4A72A59287CF55400610C89 /* Text+Extensions.swift in Sources */,
 				A40DA8B42A70A90500191DEE /* Field.swift in Sources */,
@@ -654,6 +652,7 @@
 				A49D405E2A6F724000C7C2BF /* DinosaurStatsScreenFactory.swift in Sources */,
 				A4C620002874A8E700260646 /* Dinosaur.swift in Sources */,
 				A4C620022874B68A00260646 /* DinosaurStatsViewModel.swift in Sources */,
+				A4518B082A79CE4900324C1E /* ARKButton.swift in Sources */,
 				A43BD9872A75DEC500FE5B67 /* EditDInosaurScreenFactory.swift in Sources */,
 				A4BF81222A677431006ADAC2 /* AppDelegate.swift in Sources */,
 				A4BF811F2A677165006ADAC2 /* HomeScreenFactory.swift in Sources */,
@@ -662,6 +661,7 @@
 				A4CDFCE92A6493C4008D29B2 /* RealmManager.swift in Sources */,
 				A4C64C7C28C5122A00ED89F7 /* View+Extensions.swift in Sources */,
 				A4A72A57287CED6200610C89 /* RoundendPillButtonStyle.swift in Sources */,
+				A4518B0A2A79CF1600324C1E /* ARKButtonScheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
