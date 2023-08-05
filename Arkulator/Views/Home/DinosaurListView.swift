@@ -13,24 +13,29 @@ struct DinosaurListView: View {
     let onDelete: ((IndexSet) -> Void)
 
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                List {
-                    ForEach(dinosaurs) { dinosaur in
-                        NavigationLink {
-                            EditDinosaurScreenFactory.make(with: dinosaur)
-                        } label: {
-                            DinosaurCell(cellNumber: Int(dinosaur.id),
-                                         dinosaurName: dinosaur.name.capitalized,
-                                         requiredLevel: dinosaur.expectedLevel,
-                                         width: geometry.size.width / 15)
-                        }
+        List {
+            ForEach(dinosaurs) { dinosaur in
+                ZStack {
+                    DinosaurCell(cellNumber: Int(dinosaur.id),
+                                 dinosaurName: dinosaur.name.capitalized,
+                                 requiredLevel: dinosaur.requiredLevel)
+
+                    NavigationLink {
+                        EditDinosaurScreenFactory.make(with: dinosaur)
+                    } label: {
+                        Text("")
                     }
-                    .onDelete(perform: onDelete)
+                    .opacity(0)
                 }
-                .listStyle(.plain)
+                .listRowInsets(.init())
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.clear)
+                .padding(.horizontal)
+                .padding(.vertical, 5)
             }
+            .onDelete(perform: onDelete)
         }
+        .listStyle(.plain)
         .navigationTitle("Dinosaur List")
     }
 }
