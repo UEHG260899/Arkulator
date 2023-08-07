@@ -15,6 +15,10 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
+
+                Color("MainColor")
+                    .ignoresSafeArea()
+
                 DinosaurListView(dinosaurs: vm.dinosaurs, onDelete: vm.deleteDinosaur(at:))
 
                 NavigationLink(
@@ -26,6 +30,7 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
                 FloatingButton {
                     vm.shouldShowForm = true
                 }
+
             }
             .onAppear {
                 vm.fetchDinosaurs()

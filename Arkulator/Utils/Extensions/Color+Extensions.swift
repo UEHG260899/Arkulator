@@ -10,4 +10,5 @@ import SwiftUI
 extension Color {
     static let uiAccentColor = Color("UIAccentColor")
     static let textFieldColor = Color("TextFieldColor")
+    static let cardColor = Color("CardColor")
 }
