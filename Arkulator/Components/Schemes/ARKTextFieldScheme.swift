@@ -18,10 +18,10 @@ struct ARKTextFieldScheme {
 
     init(
         zStackAlignment: Alignment = .leading,
-        placeholderForegroundColor: Color = .accentColor,
-        placeholderBackgroundColor: Color = .white,
+        placeholderForegroundColor: Color = .textFieldColor,
+        placeholderBackgroundColor: Color = .mainColor,
         cornerRadius: CGFloat = 4,
-        strokeColor: Color = .accentColor,
+        strokeColor: Color = .textFieldColor,
         horizontalPadding: CGFloat? = nil,
         animationDuration: CGFloat = 0.1
     ) {
