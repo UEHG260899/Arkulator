@@ -41,7 +41,7 @@ struct DinosaurListView: View {
 }
 
 struct DinosaurListView_Previews: PreviewProvider {
-    static var previews: some View {
+    static var previews: some View {        
         NavigationView {
             DinosaurListView(dinosaurs: [Dinosaur](), onDelete: { _ in })
         }
