@@ -12,6 +12,7 @@ class EditDinosaurViewModelTests: XCTestCase {
 
     var sut: EditDinosaurViewModel!
     var dinosaur: Dinosaur!
+    var mockRealmManager: MockRealmManager!
 
     override func setUp() {
         super.setUp()
@@ -23,57 +24,49 @@ class EditDinosaurViewModelTests: XCTestCase {
                             food: 10,
                             movementSpeed: 10,
                             health: 10)
-        sut = EditDinosaurViewModel(dinosaur: dinosaur)
+        mockRealmManager = MockRealmManager(taskName: self.name)
+        sut = EditDinosaurViewModel(dinosaur: dinosaur, realmManager: mockRealmManager)
     }
 
     override func tearDown() {
         sut = nil
         dinosaur = nil
+        mockRealmManager = nil
         super.tearDown()
     }
 
-    func testEditDinosaurViewModelCanBeInstanciatedWithDinosaur() {
-        XCTAssertNotNil(sut)
+    func test_onInit_formDataValues_areSet_accordingToDinosaur() {
+        XCTAssertEqual(sut.formData[safe: 0]?.fieldText, dinosaur.name.capitalized)
+        XCTAssertEqual(sut.formData[safe: 1]?.fieldText, String(dinosaur.stamina))
+        XCTAssertEqual(sut.formData[safe: 2]?.fieldText, String(dinosaur.weight))
+        XCTAssertEqual(sut.formData[safe: 3]?.fieldText, String(dinosaur.oxigen))
+        XCTAssertEqual(sut.formData[safe: 4]?.fieldText, String(dinosaur.mele))
+        XCTAssertEqual(sut.formData[safe: 5]?.fieldText, String(dinosaur.food))
+        XCTAssertEqual(sut.formData[safe: 6]?.fieldText, String(dinosaur.movementSpeed))
+        XCTAssertEqual(sut.formData[safe: 7]?.fieldText, String(dinosaur.health))
     }
 
-    func testIfDinosaurNameIsAssignedWhenInstanciated() {
-        // given
-        let expectedValue = dinosaur.name.capitalized
-
-        // then
-        XCTAssertEqual(sut.dinosaurName, expectedValue)
-    }
-
-    func testIfDinosaurStatsAreAssignedWhenInstanciated() {
-        // given
-        let expectedStamina = String(dinosaur.stamina)
-        let expectedWeight = String(dinosaur.weight)
-        let expectedOxigen = String(dinosaur.oxigen)
-        let expectedMele = String(dinosaur.mele)
-        let expectedFood = String(dinosaur.food)
-        let expectedMovementSpeed = String(dinosaur.movementSpeed)
-        let expectedHealth = String(dinosaur.health)
-
-        // then
-        XCTAssertEqual(sut.dinosaurStamina, expectedStamina)
-        XCTAssertEqual(sut.dinosaurWeight, expectedWeight)
-        XCTAssertEqual(sut.dinosaurOxigen, expectedOxigen)
-        XCTAssertEqual(sut.dinosaurMele, expectedMele)
-        XCTAssertEqual(sut.dinosaurFood, expectedFood)
-        XCTAssertEqual(sut.dinosaurMovementSpeed, expectedMovementSpeed)
-        XCTAssertEqual(sut.dinosaurHealth, expectedHealth)
-    }
-
-    func testIfFormIsValidWhenInstanciated() {
+    func test_onInit_isFormValid_returnsTrue() {
         XCTAssertTrue(sut.isFormValid)
     }
 
-    func testIfFormIsNotValidWhenNotAllStatsAreSet() {
-        // given
-        sut.dinosaurName = ""
+    func test_onInit_shouldShowAlert_isFalse() {
+        XCTAssertFalse(sut.shouldShowAlert)
+    }
+
+    func test_whenOneOrMoreFormFieldsAreEmpty_isFormValid_returnsFalse() {
+        // when
+        sut.formData[0].fieldText = ""
 
         // then
         XCTAssertFalse(sut.isFormValid)
     }
 
+    func test_whenUpdateDinosaurIsCalled_callsSave_onRealmManager() {
+        // when
+        sut.updateDinosaur()
+
+        // then
+        XCTAssertTrue(mockRealmManager.calledMethods.contains(.save))
+    }
 }

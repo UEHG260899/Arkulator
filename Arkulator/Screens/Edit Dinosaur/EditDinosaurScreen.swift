@@ -7,103 +7,29 @@
 
 import SwiftUI
 
-struct EditDinosaurScreen: View {
+struct EditDinosaurScreen<ViewModel: EditDinosaurViewModelProtocol>: View {
 
-    @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) var dismiss
-    @State private var isAlertPresented = false
-    @ObservedObject var viewModel: EditDinosaurViewModel
-    @FocusState var isFocused: Bool
-
-    var textFieldShadowColor: Color {
-        if colorScheme == .light {
-            return .black
-        }
-
-        return .white
-    }
+    @StateObject var vm: ViewModel
+    @FocusState var isFocused: Field?
 
     var body: some View {
-        ScrollView {
-            VStack(spacing: 20) {
+        ZStack {
+            Color.mainColor
+                .ignoresSafeArea()
 
-                RoundedTextField(
-                    text: $viewModel.dinosaurName,
-                    isFocused: _isFocused,
-                    placeholder: "Dino name",
-                    scheme: .init(shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $viewModel.dinosaurStamina,
-                    isFocused: _isFocused,
-                    placeholder: "Stamina",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $viewModel.dinosaurWeight,
-                    isFocused: _isFocused,
-                    placeholder: "Weight",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $viewModel.dinosaurOxigen,
-                    isFocused: _isFocused,
-                    placeholder: "Oxigen",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $viewModel.dinosaurMele,
-                    isFocused: _isFocused,
-                    placeholder: "Mele",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $viewModel.dinosaurFood,
-                    isFocused: _isFocused,
-                    placeholder: "Food",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $viewModel.dinosaurMovementSpeed,
-                    isFocused: _isFocused,
-                    placeholder: "Movement Speed",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedTextField(
-                    text: $viewModel.dinosaurHealth,
-                    isFocused: _isFocused,
-                    placeholder: "Health",
-                    scheme: .init(keyboardType: .numberPad, shadow: .init(color: textFieldShadowColor))
-                )
-
-                RoundedButton(
-                    text: "Save",
-                    isDisabled: !viewModel.isFormValid,
-                    action: showAlert,
-                    scheme: .init(backgroundColor: buttonBackgroundColor)
-                )
-                .alert("Are you sure you want to save the data?", isPresented: $isAlertPresented) {
-                    Button("Yes", role: .none, action: saveDinosaur)
-                    Button("No", role: .cancel, action: {})
-                }
-
-                Spacer()
-            }
-            .padding()
+            content
         }
-        .navigationTitle(viewModel.dinosaurName.capitalized)
+        .navigationTitle(vm.formData[safe: 0]?.fieldText.capitalized ?? "")
         .navigationBarBackButtonHidden(true)
+        .alert("Are you sure you want to save the data?", isPresented: $vm.shouldShowAlert) {
+            Button("Yes", role: .none, action: saveDinosaur)
+            Button("No", role: .cancel, action: {})
+        }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
-                Button(action: { isFocused = false  }, label: {
+                Button(action: { isFocused = nil  }, label: {
                     Text("Done")
                 })
             }
@@ -114,40 +40,54 @@ struct EditDinosaurScreen: View {
         }
     }
 
-    var buttonBackgroundColor: Color {
-        if viewModel.isFormValid {
-            return .uiAccentColor
-        }
+    var content: some View {
+        ScrollView {
+            VStack(spacing: 20) {
 
-        return .uiAccentColor.opacity(0.5)
+                ForEach(vm.formData) { field in
+                    ARKTextField(
+                        text: $vm.formData.first { $0.id == field.id }!.fieldText,
+                        isFocused: _isFocused,
+                        fieldType: field.fieldType,
+                        placeholder: field.fieldLabel,
+                        scheme: field.scheme,
+                        keyboardType: field.keyboardType
+                    )
+                }
+
+                ARKButton(
+                    labelText: "Save",
+                    isDisabled: !vm.isFormValid,
+                    action: { vm.shouldShowAlert = true }
+                )
+
+            }
+            .padding()
+        }
     }
 
 }
 
-extension EditDinosaurScreen {
-    func showAlert() {
-        isAlertPresented = true
-    }
-
+private extension EditDinosaurScreen {
     func saveDinosaur() {
-        viewModel.updateDinosaur()
+        vm.updateDinosaur()
         dismiss()
     }
 }
 
 struct EditDinosaurView_Previews: PreviewProvider {
-    static var previews: some View {
-        let dinosaur = Dinosaur(name: "Hola",
-                                stamina: 1,
-                                weight: 2,
-                                oxigen: 3,
-                                mele: 4,
-                                food: 5,
-                                movementSpeed: 6,
-                                health: 7)
 
+    class MockVM: EditDinosaurViewModelProtocol {
+        var formData = [FormField]()
+        var shouldShowAlert = false
+        var isFormValid = false
+
+        func updateDinosaur() {}
+    }
+
+    static var previews: some View {
         NavigationView {
-            EditDinosaurScreen(viewModel: EditDinosaurViewModel(dinosaur: dinosaur))
+            EditDinosaurScreen(vm: MockVM())
         }
     }
 }

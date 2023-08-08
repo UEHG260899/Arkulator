@@ -28,7 +28,8 @@ class Dinosaur: Object, Identifiable {
 
     }
 
-    init(name: String,
+    init(id: Int64 = 0,
+         name: String,
          stamina: Int,
          weight: Int,
          oxigen: Int,
@@ -37,7 +38,8 @@ class Dinosaur: Object, Identifiable {
          movementSpeed: Int,
          health: Int) {
         super.init()
-        self.id = incrementID()
+        // TODO: Make it a UUID and remove autoincrement
+        self.id = id != 0 ? id : incrementID()
         self.name = name.lowercased()
         self.stamina = stamina
         self.weight = weight

@@ -8,35 +8,58 @@
 import SwiftUI
 import RealmSwift
 
-struct HomeScreen: View {
+struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
 
-    @StateObject private var viewModel = HomeScreenViewModel()
-
-    init() {
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
-    }
+    @StateObject var vm: ViewModel
 
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-                DinosaurListView(viewModel: viewModel)
+
+                Color.mainColor
+                    .ignoresSafeArea()
+
+                DinosaurListView(dinosaurs: vm.dinosaurs, onDelete: vm.deleteDinosaur(at:))
 
                 NavigationLink(
-                    destination: DinosaurStatsScreen(),
-                    isActive: $viewModel.shouldShowForm,
+                    destination: DinosaurStatsScreenFactory.make(),
+                    isActive: $vm.shouldShowForm,
                     label: {}
                 )
 
                 FloatingButton {
-                    viewModel.shouldShowForm = true
+                    vm.shouldShowForm = true
                 }
+
             }
+            .onAppear {
+                vm.fetchDinosaurs()
+            }
+        }
+        .searchable(text: $vm.queryString, prompt: Text("Search a Dino"))
+        .onChange(of: vm.queryString) { query in
+            vm.filterDinosaurs(query: query)
+        }
+        .alert("Something went wrong when trying to delete", isPresented: $vm.showError) {
+            Button("Ok", role: .none, action: {})
         }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
+
+    class MockVM: HomeScreenViewModelProtocol {
+        var dinosaurs = [Dinosaur]()
+        var queryString = ""
+        var shouldShowForm = false
+        var showError = false
+
+        func fetchDinosaurs() {}
+        func filterDinosaurs(query: String) {}
+        func deleteDinosaur(at index: IndexSet) {}
+    }
+
     static var previews: some View {
-        HomeScreen()
+        HomeScreen(vm: MockVM())
     }
 }
