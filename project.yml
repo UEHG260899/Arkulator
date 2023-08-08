@@ -41,9 +41,10 @@ targets:
           
           name: Swiftlint
     info:
-      path: Info.plist
+      path: Arkulator/SupportingFiles/Info.plist
       properties:
-        UILaunchStoryboardName: LaunchScreen
+        UILaunchStoryboardName: LaunchScreen.storyboard
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
   ArkulatorTests:
     platform: iOS
     type: bundle.unit-test
