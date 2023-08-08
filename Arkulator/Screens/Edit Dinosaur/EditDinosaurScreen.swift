@@ -14,6 +14,33 @@ struct EditDinosaurScreen<ViewModel: EditDinosaurViewModelProtocol>: View {
     @FocusState var isFocused: Field?
 
     var body: some View {
+        ZStack {
+            Color.mainColor
+                .ignoresSafeArea()
+
+            content
+        }
+        .navigationTitle(vm.formData[safe: 0]?.fieldText.capitalized ?? "")
+        .navigationBarBackButtonHidden(true)
+        .alert("Are you sure you want to save the data?", isPresented: $vm.shouldShowAlert) {
+            Button("Yes", role: .none, action: saveDinosaur)
+            Button("No", role: .cancel, action: {})
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button(action: { isFocused = nil  }, label: {
+                    Text("Done")
+                })
+            }
+
+            ToolbarItem(placement: .navigationBarLeading) {
+                CustomBackButton()
+            }
+        }
+    }
+
+    var content: some View {
         ScrollView {
             VStack(spacing: 20) {
 
@@ -36,24 +63,6 @@ struct EditDinosaurScreen<ViewModel: EditDinosaurViewModelProtocol>: View {
 
             }
             .padding()
-        }
-        .navigationTitle(vm.formData[safe: 0]?.fieldText.capitalized ?? "")
-        .navigationBarBackButtonHidden(true)
-        .alert("Are you sure you want to save the data?", isPresented: $vm.shouldShowAlert) {
-            Button("Yes", role: .none, action: saveDinosaur)
-            Button("No", role: .cancel, action: {})
-        }
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button(action: { isFocused = nil  }, label: {
-                    Text("Done")
-                })
-            }
-
-            ToolbarItem(placement: .navigationBarLeading) {
-                CustomBackButton()
-            }
         }
     }
 

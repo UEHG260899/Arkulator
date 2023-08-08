@@ -14,6 +14,33 @@ struct DinosaurStatsScreen<ViewModel: DinosaurStatsScreenViewModelProtocol>: Vie
     @FocusState var isFocused: Field?
 
     var body: some View {
+        ZStack {
+            Color.mainColor
+                .ignoresSafeArea()
+
+            content
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationTitle("Dino stats")
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button(action: { isFocused = nil }, label: {
+                    Text("Done")
+                })
+            }
+
+            ToolbarItem(placement: .navigationBarLeading) {
+                CustomBackButton()
+            }
+        }
+        .alert("Are you sure you want to save the data?", isPresented: $vm.shouldShowAlert) {
+            Button("Yes", role: .none, action: saveDinosaur)
+            Button("No", role: .cancel, action: {})
+        }
+    }
+
+    var content: some View {
         ScrollView {
             VStack(spacing: 20) {
                 ForEach(vm.formFields) { formField in
@@ -34,24 +61,6 @@ struct DinosaurStatsScreen<ViewModel: DinosaurStatsScreenViewModelProtocol>: Vie
                 )
             }
             .padding()
-        }
-        .navigationBarBackButtonHidden(true)
-        .navigationTitle("Dino stats")
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button(action: { isFocused = nil }, label: {
-                    Text("Done")
-                })
-            }
-
-            ToolbarItem(placement: .navigationBarLeading) {
-                CustomBackButton()
-            }
-        }
-        .alert("Are you sure you want to save the data?", isPresented: $vm.shouldShowAlert) {
-            Button("Yes", role: .none, action: saveDinosaur)
-            Button("No", role: .cancel, action: {})
         }
     }
 
