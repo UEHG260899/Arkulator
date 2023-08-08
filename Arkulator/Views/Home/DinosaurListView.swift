@@ -6,74 +6,44 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct DinosaurListView: View {
-    
-    @ObservedResults(Dinosaur.self) var dinosaurs
-    @ObservedObject var viewModel: HomeScreenViewModel
-    @FocusState var isFocused: Bool
-    
-    
-    var filteredResults: Results<Dinosaur> {
-        if !viewModel.queryString.isEmpty {
-            return dinosaurs.where {
-                $0.name.contains(viewModel.queryString.lowercased())
-            }
-        }
-        
-        return dinosaurs
-    }
-    
+
+    let dinosaurs: [Dinosaur]
+    let onDelete: ((IndexSet) -> Void)
+
     var body: some View {
-        
-        GeometryReader { geometry in
-            VStack {
-                RoundedTextField(placeholder: "Search a Dino",
-                                 text: $viewModel.queryString,
-                                 isFocused: _isFocused,
-                                 height: 40)
-                .padding(.horizontal)
-                List {
-                    ForEach(filteredResults) { dinosaur in
-                        NavigationLink {
-                            let editViewModel = EditDinosaurViewModel(dinosaur: dinosaur)
-                            EditDinosaurScreen(viewModel: editViewModel)
-                        } label: {
-                            DinosaurCell(cellNumber: Int(dinosaur.id),
-                                         dinosaurName: dinosaur.name.capitalized,
-                                         requiredLevel: dinosaur.expectedLevel,
-                                         width: geometry.size.width / 15)
-                        }
+        List {
+            ForEach(dinosaurs) { dinosaur in
+                ZStack {
+                    DinosaurCell(cellNumber: Int(dinosaur.id),
+                                 dinosaurName: dinosaur.name.capitalized,
+                                 requiredLevel: dinosaur.requiredLevel)
+
+                    NavigationLink {
+                        EditDinosaurScreenFactory.make(with: dinosaur)
+                    } label: {
+                        Text("")
                     }
-                    .onDelete(perform: $dinosaurs.remove)
+                    .opacity(0)
                 }
-                .listStyle(.plain)
+                .listRowInsets(.init())
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.clear)
+                .padding(.horizontal)
+                .padding(.vertical, 5)
             }
-            .navigationTitle("Dinosaur List")
+            .onDelete(perform: onDelete)
         }
-        .onAppear {
-            viewModel.shouldRefresh = true
-        }
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button {
-                    isFocused = false
-                } label: {
-                    Text("Done")
-                }
-            }
-        }
+        .listStyle(.plain)
+        .navigationTitle("Dinosaur List")
     }
 }
 
 struct DinosaurListView_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewModel = HomeScreenViewModel()
-        
+    static var previews: some View {        
         NavigationView {
-            DinosaurListView(viewModel: viewModel)
+            DinosaurListView(dinosaurs: [Dinosaur](), onDelete: { _ in })
         }
     }
 }

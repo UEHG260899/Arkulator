@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct RoundedPillButtonStyle: ButtonStyle {
-    
+
     let color: Color
-    
+
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .foregroundColor(.white)

@@ -9,17 +9,18 @@ import SwiftUI
 
 @main
 struct ArkulatorApp: App {
-    
+
     @AppStorage("colorScheme") private var colorScheme: Constants.ColorSchemes = .light
-    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     var systemColorScheme: ColorScheme? {
         if colorScheme == .light {
             return .light
         }
-                
+
         return .dark
     }
-    
+
     var body: some Scene {
         WindowGroup {
             TabsScreen()
