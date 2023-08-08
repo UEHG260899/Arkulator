@@ -19,6 +19,10 @@ settings:
 
 targets:
   Arkulator:
+    settings:
+      TARGETED_DEVICE_FAMILY: 1
+      SUPPORTS_MACCATALYST: false
+      SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: false
     platform: iOS
     type: application
     sources:
@@ -46,6 +50,10 @@ targets:
         UILaunchStoryboardName: LaunchScreen.storyboard
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
   ArkulatorTests:
+    settings:
+      TARGETED_DEVICE_FAMILY: 1
+      SUPPORTS_MACCATALYST: false
+      SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: false
     platform: iOS
     type: bundle.unit-test
     dependencies:

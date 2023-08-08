@@ -37,15 +37,15 @@
 		B1DCC3B9553105EFFEBD2E67 /* TabsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BC13A55EFE04B5FEFA45CC /* TabsScreen.swift */; };
 		B74098B45A791D7370F2E617 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ACFF971A6F72EC7ABC0BD84 /* Preview Assets.xcassets */; };
 		B9680A51DC4D048456553941 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715B2BB8CCC58FBBB78966B /* Color+Extensions.swift */; };
+		BAD3EEE0A31CBEB125432B50 /* Pods_Arkulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F3BC078A9C69CD85B17ACB /* Pods_Arkulator.framework */; };
 		BEA96F103305C12E1DDFA6F5 /* EditDInosaurScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEA665713998C7EE2BCF4D5 /* EditDInosaurScreenFactory.swift */; };
 		BF6FD5E131C5A7D7294FB511 /* DinosaurStatsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDDF188D109A90D83C46003 /* DinosaurStatsViewModelTests.swift */; };
 		CA1019D9FCC8C1C38F515BF1 /* DinosaurStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F1DB6FB32BA376AB7427E1 /* DinosaurStatsViewModel.swift */; };
+		CA140D9F6A5FF2DEA40860B6 /* Pods_ArkulatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8467B3552D76C5C701B857 /* Pods_ArkulatorTests.framework */; };
 		D3368E26EC4AF6BB243B1D7E /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD18BEFC21FED2515A32DB7 /* CustomBackButton.swift */; };
 		E9297BB5CF3AD6482332EEB1 /* HomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B979045D142A5258165361 /* HomeScreenViewModelTests.swift */; };
 		EB15F0008EAB987855DD14FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24AD3A93E049CEC4DD58C4 /* Constants.swift */; };
-		EDCC55EBA6968A7D9F36D651 /* Pods_ArkulatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8640EF7D4AFEEE8F24E185DA /* Pods_ArkulatorTests.framework */; };
 		EF641128CDDE319614C6FEEA /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A48C718E8DB4BCF92BCF8C /* HomeScreen.swift */; };
-		EF8E0D97BA95D0D1A7EF9A7D /* Pods_Arkulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D1E6DF2935BB5371A19C35 /* Pods_Arkulator.framework */; };
 		F4E93D52C46F69070001F443 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D194AD9BC41CED2BC89A2CF2 /* View+Extensions.swift */; };
 		F52B8D4FFC1E33FBF8F96C04 /* Dinosaur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D3D9457F73CA328A6BB1B /* Dinosaur.swift */; };
 		FBB58C66D56D746C01768C18 /* ARKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F199B6E927554E36BD5BEE /* ARKTextField.swift */; };
@@ -67,11 +67,11 @@
 		01023A21540CC4ACDDA64AA1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DDDF188D109A90D83C46003 /* DinosaurStatsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsViewModelTests.swift; sourceTree = "<group>"; };
 		193A7C09541FB3789C910432 /* RoundendPillButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundendPillButtonStyle.swift; sourceTree = "<group>"; };
-		22DE5197732EF26EF9FB725F /* Pods-Arkulator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arkulator.debug.xcconfig"; path = "Target Support Files/Pods-Arkulator/Pods-Arkulator.debug.xcconfig"; sourceTree = "<group>"; };
+		29998D10DA292E8B6EF3544A /* Pods-ArkulatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArkulatorTests.release.xcconfig"; path = "Target Support Files/Pods-ArkulatorTests/Pods-ArkulatorTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D7E8FF327EDD45DB071BDD5 /* DinosaurCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurCell.swift; sourceTree = "<group>"; };
 		31E5DDE49536BBB64CCF3AE0 /* SettingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListView.swift; sourceTree = "<group>"; };
-		37D1E6DF2935BB5371A19C35 /* Pods_Arkulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Arkulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4080B11CA63A5852D2B2B8A2 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		44475C333EF9D4D8EE3D3275 /* Pods-ArkulatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArkulatorTests.debug.xcconfig"; path = "Target Support Files/Pods-ArkulatorTests/Pods-ArkulatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		454781D153C63390100F1746 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45B979045D142A5258165361 /* HomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModelTests.swift; sourceTree = "<group>"; };
 		45C049CCEE050C24C4DC75A4 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
@@ -91,46 +91,46 @@
 		7DEC271EA49CD2AFEF670A69 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		81ED67E112A72E3C2F924739 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81F83F844FB06CC48C8E96C2 /* ArkulatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkulatorApp.swift; sourceTree = "<group>"; };
-		8640EF7D4AFEEE8F24E185DA /* Pods_ArkulatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArkulatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85F3BC078A9C69CD85B17ACB /* Pods_Arkulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Arkulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		864B181E2A868EF663EDF9E2 /* DinosaurStatsScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsScreenFactory.swift; sourceTree = "<group>"; };
 		8A16CAFA318823AD3305F1EB /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
-		8C6283C448860425EF72BEEE /* Pods-Arkulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arkulator.release.xcconfig"; path = "Target Support Files/Pods-Arkulator/Pods-Arkulator.release.xcconfig"; sourceTree = "<group>"; };
 		92F199B6E927554E36BD5BEE /* ARKTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKTextField.swift; sourceTree = "<group>"; };
 		9A3F77A1929CED24338B56C9 /* EditDinosaurViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDinosaurViewModel.swift; sourceTree = "<group>"; };
 		A476D141C8192A847CE05A2C /* ArkulatorTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ArkulatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A715B2BB8CCC58FBBB78966B /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		A7C844547A561EE1C841B8D6 /* DinosaurListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurListView.swift; sourceTree = "<group>"; };
 		AAD18BEFC21FED2515A32DB7 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
+		B23CB6E9FE1FCE9D1BBA7CE5 /* Pods-Arkulator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arkulator.debug.xcconfig"; path = "Target Support Files/Pods-Arkulator/Pods-Arkulator.debug.xcconfig"; sourceTree = "<group>"; };
 		B617BA6DB12A94BCC7172BB8 /* MockRealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRealmManager.swift; sourceTree = "<group>"; };
 		B9E67DF5AFF1F5CB79E5C613 /* ARKButtonScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKButtonScheme.swift; sourceTree = "<group>"; };
 		BC24AD3A93E049CEC4DD58C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C9A0FA964277078ADB9DFCBE /* HomeScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenFactory.swift; sourceTree = "<group>"; };
-		CA144F867F620B331121A6FD /* Pods-ArkulatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArkulatorTests.debug.xcconfig"; path = "Target Support Files/Pods-ArkulatorTests/Pods-ArkulatorTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CE3557FCD12989D8F12A689D /* Pods-ArkulatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArkulatorTests.release.xcconfig"; path = "Target Support Files/Pods-ArkulatorTests/Pods-ArkulatorTests.release.xcconfig"; sourceTree = "<group>"; };
 		D194AD9BC41CED2BC89A2CF2 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		DAFFB6FB09214ADCB538F324 /* ARKTextFieldScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKTextFieldScheme.swift; sourceTree = "<group>"; };
 		DE082CD19F34E8FAD878CEEE /* RealmManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerProtocol.swift; sourceTree = "<group>"; };
 		E7F1DB6FB32BA376AB7427E1 /* DinosaurStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinosaurStatsViewModel.swift; sourceTree = "<group>"; };
 		E97B07655A634C157C40A6C0 /* EditDinosaurScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDinosaurScreen.swift; sourceTree = "<group>"; };
 		EA4CE82E0BCBD2741C5C3057 /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
+		EC629C26CB47599D0EFE897E /* Pods-Arkulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Arkulator.release.xcconfig"; path = "Target Support Files/Pods-Arkulator/Pods-Arkulator.release.xcconfig"; sourceTree = "<group>"; };
+		ED8467B3552D76C5C701B857 /* Pods_ArkulatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArkulatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFEA665713998C7EE2BCF4D5 /* EditDInosaurScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDInosaurScreenFactory.swift; sourceTree = "<group>"; };
 		F31BB22E04A84E31ACABD69E /* Arkulator.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Arkulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		70811069C9D2218DBA9193FA /* Frameworks */ = {
+		995C1B45BFCD5DD49B351C10 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF8E0D97BA95D0D1A7EF9A7D /* Pods_Arkulator.framework in Frameworks */,
+				BAD3EEE0A31CBEB125432B50 /* Pods_Arkulator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E8D6011BFAC3D83894FC5EAA /* Frameworks */ = {
+		B0B5B05AF8F6BEEAF759DFF3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDCC55EBA6968A7D9F36D651 /* Pods_ArkulatorTests.framework in Frameworks */,
+				CA140D9F6A5FF2DEA40860B6 /* Pods_ArkulatorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,18 +203,6 @@
 			path = "Edit Dinosaur";
 			sourceTree = "<group>";
 		};
-		40E559815C7A23BA5B4DFA34 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				22DE5197732EF26EF9FB725F /* Pods-Arkulator.debug.xcconfig */,
-				8C6283C448860425EF72BEEE /* Pods-Arkulator.release.xcconfig */,
-				CA144F867F620B331121A6FD /* Pods-ArkulatorTests.debug.xcconfig */,
-				CE3557FCD12989D8F12A689D /* Pods-ArkulatorTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		4341A7CB17E93F488B2F0AAB /* ArkulatorTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +260,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		5689E916CEDB36D91CA8E815 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85F3BC078A9C69CD85B17ACB /* Pods_Arkulator.framework */,
+				ED8467B3552D76C5C701B857 /* Pods_ArkulatorTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5878CE48D761A06B8D5C0F55 /* EditDinosaurViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,8 +291,8 @@
 				0128CF860E6877FA625F007B /* Arkulator */,
 				4341A7CB17E93F488B2F0AAB /* ArkulatorTests */,
 				852804F0DCF3F124E6CD7298 /* Products */,
-				40E559815C7A23BA5B4DFA34 /* Pods */,
-				8C7E596324B197123172453D /* Frameworks */,
+				C09312942467B391A410B7CE /* Pods */,
+				5689E916CEDB36D91CA8E815 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -306,15 +303,6 @@
 				A476D141C8192A847CE05A2C /* ArkulatorTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		8C7E596324B197123172453D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				37D1E6DF2935BB5371A19C35 /* Pods_Arkulator.framework */,
-				8640EF7D4AFEEE8F24E185DA /* Pods_ArkulatorTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		AE7482E6A53F57FB354CF26F /* ViewModels */ = {
@@ -353,6 +341,18 @@
 				DE082CD19F34E8FAD878CEEE /* RealmManagerProtocol.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		C09312942467B391A410B7CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B23CB6E9FE1FCE9D1BBA7CE5 /* Pods-Arkulator.debug.xcconfig */,
+				EC629C26CB47599D0EFE897E /* Pods-Arkulator.release.xcconfig */,
+				44475C333EF9D4D8EE3D3275 /* Pods-ArkulatorTests.debug.xcconfig */,
+				29998D10DA292E8B6EF3544A /* Pods-ArkulatorTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		C1344870CD61CAC8E6058D42 /* General */ = {
@@ -450,9 +450,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74D300DE7DEEBC9D1E1596B8 /* Build configuration list for PBXNativeTarget "ArkulatorTests" */;
 			buildPhases = (
-				D60178A83487C8FFE6C320DB /* [CP] Check Pods Manifest.lock */,
+				B4560150689CC8B65EBFC382 /* [CP] Check Pods Manifest.lock */,
 				98AEB3E215040933FE4B9310 /* Sources */,
-				E8D6011BFAC3D83894FC5EAA /* Frameworks */,
+				B0B5B05AF8F6BEEAF759DFF3 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -468,11 +468,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80F4D5FC91A3F0BB79011C0E /* Build configuration list for PBXNativeTarget "Arkulator" */;
 			buildPhases = (
-				B83D9557BD8AC06A92E876F2 /* [CP] Check Pods Manifest.lock */,
+				64D9BAFBDD99E01E79D22C3F /* [CP] Check Pods Manifest.lock */,
 				9E7C0718FA454B2FBD171735 /* Sources */,
 				0EE07F03D3A1DBDB02B8DDE3 /* Resources */,
-				70811069C9D2218DBA9193FA /* Frameworks */,
-				4F3C9B915EFD8E78FEB84ADA /* [CP] Embed Pods Frameworks */,
+				995C1B45BFCD5DD49B351C10 /* Frameworks */,
+				75ABF6626D5A658AB2607A16 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -534,24 +534,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4F3C9B915EFD8E78FEB84ADA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Arkulator/Pods-Arkulator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Arkulator/Pods-Arkulator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Arkulator/Pods-Arkulator-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B83D9557BD8AC06A92E876F2 /* [CP] Check Pods Manifest.lock */ = {
+		64D9BAFBDD99E01E79D22C3F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -573,7 +556,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D60178A83487C8FFE6C320DB /* [CP] Check Pods Manifest.lock */ = {
+		75ABF6626D5A658AB2607A16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Arkulator/Pods-Arkulator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Arkulator/Pods-Arkulator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Arkulator/Pods-Arkulator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4560150689CC8B65EBFC382 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -664,7 +664,7 @@
 /* Begin XCBuildConfiguration section */
 		46396A050D85DD010B090AA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22DE5197732EF26EF9FB725F /* Pods-Arkulator.debug.xcconfig */;
+			baseConfigurationReference = B23CB6E9FE1FCE9D1BBA7CE5 /* Pods-Arkulator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -681,7 +681,7 @@
 		};
 		47981568453D5CACC0BE7550 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE3557FCD12989D8F12A689D /* Pods-ArkulatorTests.release.xcconfig */;
+			baseConfigurationReference = 29998D10DA292E8B6EF3544A /* Pods-ArkulatorTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = Info.plist;
@@ -692,14 +692,16 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.urielh.ArkulatorTests;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arkulator.app/Arkulator";
 			};
 			name = Release;
 		};
 		4B171D779E8C2F653CCEA131 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA144F867F620B331121A6FD /* Pods-ArkulatorTests.debug.xcconfig */;
+			baseConfigurationReference = 44475C333EF9D4D8EE3D3275 /* Pods-ArkulatorTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = Info.plist;
@@ -710,7 +712,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.urielh.ArkulatorTests;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Arkulator.app/Arkulator";
 			};
 			name = Debug;
@@ -778,7 +782,7 @@
 		};
 		92717E1FE250CF31DD9751BD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C6283C448860425EF72BEEE /* Pods-Arkulator.release.xcconfig */;
+			baseConfigurationReference = EC629C26CB47599D0EFE897E /* Pods-Arkulator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
