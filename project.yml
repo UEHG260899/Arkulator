@@ -61,4 +61,4 @@ targets:
     sources:
       ArkulatorTests
     info:
-      path: Info.plist
+      path: ArkulatorTests/Info.plist
