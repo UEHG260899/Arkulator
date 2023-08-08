@@ -16,7 +16,7 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
         NavigationView {
             ZStack(alignment: .bottom) {
 
-                Color("MainColor")
+                Color.mainColor
                     .ignoresSafeArea()
 
                 DinosaurListView(dinosaurs: vm.dinosaurs, onDelete: vm.deleteDinosaur(at:))
