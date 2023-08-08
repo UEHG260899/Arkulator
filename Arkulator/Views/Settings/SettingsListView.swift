@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct SettingsListView: View {
-    
+
     @AppStorage("colorScheme") private var colorScheme: Constants.ColorSchemes = .light
-    
+
     var body: some View {
         Form {
-            
             Section {
                 Picker("App color scheme", selection: $colorScheme) {
                     ForEach(Constants.ColorSchemes.allCases) { item in
@@ -23,8 +22,6 @@ struct SettingsListView: View {
             } header: {
                 Text("App Visualization")
             }
-
-            
         }
     }
 }
