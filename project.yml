@@ -1,0 +1,66 @@
+name: Arkulator
+
+options:
+  bundleIdPrefix: com.urielh
+  xcodeVersion: 14.2
+  deploymentTarget:
+    iOS: "15.0"
+  useTabs: false
+  postGenCommand: pod install
+
+settings:
+  base:
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: 5P4JJDT7CR
+    MARKETING_VERSION: "1.3.0"
+    BUNDLE_VERSION: "1"
+    CURRENT_PROJECT_VERSION: 1
+    SWIFT_VERSION: 5.0
+
+targets:
+  Arkulator:
+    settings:
+      TARGETED_DEVICE_FAMILY: 1
+      SUPPORTS_MACCATALYST: false
+      SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: false
+    platform: iOS
+    type: application
+    sources:
+      - Arkulator
+    scheme:
+      testTargets:
+        - ArkulatorTests
+      gatherCoverageData: true
+      coverageTargets:
+        - Arkulator
+    postCompileScripts:
+      - script: |
+          export PATH="$PATH:/opt/homebrew/bin"
+
+          if which swiftlint >/dev/null; then
+            swiftlint
+          else
+            echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+          fi
+
+        name: Swiftlint
+    info:
+      path: Arkulator/SupportingFiles/Info.plist
+      properties:
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        UILaunchStoryboardName: LaunchScreen
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIUserInterfaceStyle: Light
+  ArkulatorTests:
+    settings:
+      TARGETED_DEVICE_FAMILY: 1
+      SUPPORTS_MACCATALYST: false
+      SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: false
+    platform: iOS
+    type: bundle.unit-test
+    dependencies:
+      - target: Arkulator
+    sources:
+      ArkulatorTests
+    info:
+      path: ArkulatorTests/Info.plist
