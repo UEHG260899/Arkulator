@@ -47,8 +47,10 @@ targets:
     info:
       path: Arkulator/SupportingFiles/Info.plist
       properties:
-        UILaunchStoryboardName: LaunchScreen.storyboard
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        UILaunchStoryboardName: LaunchScreen
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIUserInterfaceStyle: Light
   ArkulatorTests:
     settings:
       TARGETED_DEVICE_FAMILY: 1
