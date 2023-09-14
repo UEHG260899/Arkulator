@@ -39,10 +39,99 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct ArkulatorWidgetEntryView: View {
+    @Environment(\.widgetFamily) var family
     var entry: Provider.Entry
+    
+    private var gridItems: [GridItem] {
+        [
+            .init(.flexible(minimum: 150, maximum: .infinity), spacing: 5),
+            .init(.flexible(minimum: 150, maximum: .infinity))
+        ]
+    }
 
     var body: some View {
-        Text(entry.date, style: .time)
+        ZStack {
+            Color("WidgetBackground")
+                .ignoresSafeArea()
+
+            switch family {
+            case .systemSmall:
+                smallWidgetDoby
+            case .systemMedium:
+                mediumWidgetBody
+            default:
+                EmptyView()
+            }
+        }
+    }
+
+    var smallWidgetDoby: some View {
+        VStack(spacing: 8) {
+            Text("🦖")
+                .font(.largeTitle)
+
+            VStack(spacing: 4) {
+                Text("Argentavis")
+                    .font(.title2)
+                Text("Lvl. 142")
+                    .font(.subheadline)
+            }
+        }
+    }
+
+    var mediumWidgetBody: some View {
+        LazyVGrid(columns: gridItems, spacing: 5) {
+            VStack {
+                Text("Argentavis")
+                    .lineLimit(1)
+                    .font(.title2)
+                Text("Lvl. 142")
+                    .font(.subheadline)
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.red)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+
+            VStack {
+                Text("Argentavis")
+                    .lineLimit(1)
+                    .font(.title2)
+                Text("Lvl. 142")
+                    .font(.subheadline)
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.red)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            
+            
+            VStack {
+                Text("Argentavis")
+                    .lineLimit(1)
+                    .font(.title2)
+                Text("Lvl. 142")
+                    .font(.subheadline)
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.red)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            
+            VStack {
+                Text("Argentavis")
+                    .lineLimit(1)
+                    .font(.title2)
+                Text("Lvl. 142")
+                    .font(.subheadline)
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.red)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding()
     }
 }
 
@@ -55,12 +144,22 @@ struct ArkulatorWidget: Widget {
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
 struct ArkulatorWidget_Previews: PreviewProvider {
+
+    static let supportedFamilies: [WidgetFamily] = [
+        .systemSmall,
+        .systemMedium
+    ]
+
     static var previews: some View {
-        ArkulatorWidgetEntryView(entry: SimpleEntry(date: Date()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        ForEach(supportedFamilies, id: \.hashValue) { family in
+            ArkulatorWidgetEntryView(entry: SimpleEntry(date: Date()))
+                .previewContext(WidgetPreviewContext(family: family))
+                .previewDisplayName(family.description)
+        }
     }
 }
