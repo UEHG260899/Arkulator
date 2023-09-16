@@ -41,13 +41,6 @@ struct SimpleEntry: TimelineEntry {
 struct ArkulatorWidgetEntryView: View {
     @Environment(\.widgetFamily) var family
     var entry: Provider.Entry
-    
-    private var gridItems: [GridItem] {
-        [
-            .init(.flexible(minimum: 150, maximum: .infinity), spacing: 5),
-            .init(.flexible(minimum: 150, maximum: .infinity))
-        ]
-    }
 
     var body: some View {
         ZStack {
@@ -56,7 +49,7 @@ struct ArkulatorWidgetEntryView: View {
 
             switch family {
             case .systemSmall:
-                smallWidgetDoby
+                SmallWidgetView()
             case .systemMedium:
                 mediumWidgetBody
             default:
@@ -65,73 +58,71 @@ struct ArkulatorWidgetEntryView: View {
         }
     }
 
-    var smallWidgetDoby: some View {
-        VStack(spacing: 8) {
-            Text("🦖")
-                .font(.largeTitle)
-
-            VStack(spacing: 4) {
-                Text("Argentavis")
-                    .font(.title2)
-                Text("Lvl. 142")
-                    .font(.subheadline)
-            }
-        }
-    }
-
     var mediumWidgetBody: some View {
-        LazyVGrid(columns: gridItems, spacing: 5) {
-            VStack {
-                Text("Argentavis")
-                    .lineLimit(1)
-                    .font(.title2)
-                Text("Lvl. 142")
-                    .font(.subheadline)
+        VStack(spacing: 5) {
+            HStack(spacing: 5) {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Spacer()
+                        Text("Argentavis")
+                        Text("Lvl 141")
+                        Spacer()
+                    }
+                    .padding(.leading)
+                    
+                    Spacer()
+                }
+                .background(Color.green)
+                .clipShape(ContainerRelativeShape())
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Spacer()
+                        Text("Argentavis")
+                        Text("Lvl 141")
+                        Spacer()
+                    }
+                    .padding(.leading)
+                    
+                    Spacer()
+                }
+                .background(Color.green)
+                .clipShape(ContainerRelativeShape())
             }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.red)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-
-            VStack {
-                Text("Argentavis")
-                    .lineLimit(1)
-                    .font(.title2)
-                Text("Lvl. 142")
-                    .font(.subheadline)
-            }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.red)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
             
-            
-            VStack {
-                Text("Argentavis")
-                    .lineLimit(1)
-                    .font(.title2)
-                Text("Lvl. 142")
-                    .font(.subheadline)
+            HStack(spacing: 5) {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Spacer()
+                        Text("Argentavis")
+                        Text("Lvl 141")
+                        Spacer()
+                    }
+                    .padding(.leading)
+                    
+                    Spacer()
+                }
+                .background(Color.green)
+                .clipShape(ContainerRelativeShape())
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Spacer()
+                        Text("Argentavis")
+                        Text("Lvl 141")
+                        Spacer()
+                    }
+                    .padding(.leading)
+                    
+                    Spacer()
+                }
+                .background(Color.green)
+                .clipShape(ContainerRelativeShape())
             }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.red)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-            
-            VStack {
-                Text("Argentavis")
-                    .lineLimit(1)
-                    .font(.title2)
-                Text("Lvl. 142")
-                    .font(.subheadline)
-            }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.red)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding()
+        .frame(maxHeight: .infinity)
+        .padding(12)
+        
     }
 }
 
