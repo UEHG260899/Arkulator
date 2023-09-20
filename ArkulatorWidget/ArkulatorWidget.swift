@@ -51,79 +51,13 @@ struct ArkulatorWidgetEntryView: View {
             case .systemSmall:
                 SmallWidgetView()
             case .systemMedium:
-                mediumWidgetBody
+                MediumWidgetView()
             default:
                 EmptyView()
             }
         }
     }
 
-    var mediumWidgetBody: some View {
-        VStack(spacing: 5) {
-            HStack(spacing: 5) {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Spacer()
-                        Text("Argentavis")
-                        Text("Lvl 141")
-                        Spacer()
-                    }
-                    .padding(.leading)
-                    
-                    Spacer()
-                }
-                .background(Color.green)
-                .clipShape(ContainerRelativeShape())
-                
-                HStack {
-                    VStack(alignment: .leading) {
-                        Spacer()
-                        Text("Argentavis")
-                        Text("Lvl 141")
-                        Spacer()
-                    }
-                    .padding(.leading)
-                    
-                    Spacer()
-                }
-                .background(Color.green)
-                .clipShape(ContainerRelativeShape())
-            }
-            
-            HStack(spacing: 5) {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Spacer()
-                        Text("Argentavis")
-                        Text("Lvl 141")
-                        Spacer()
-                    }
-                    .padding(.leading)
-                    
-                    Spacer()
-                }
-                .background(Color.green)
-                .clipShape(ContainerRelativeShape())
-                
-                HStack {
-                    VStack(alignment: .leading) {
-                        Spacer()
-                        Text("Argentavis")
-                        Text("Lvl 141")
-                        Spacer()
-                    }
-                    .padding(.leading)
-                    
-                    Spacer()
-                }
-                .background(Color.green)
-                .clipShape(ContainerRelativeShape())
-            }
-        }
-        .frame(maxHeight: .infinity)
-        .padding(12)
-        
-    }
 }
 
 struct ArkulatorWidget: Widget {
