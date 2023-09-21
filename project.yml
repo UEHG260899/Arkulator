@@ -90,4 +90,8 @@ targets:
         CFBundleShortVersionString: $(MARKETING_VERSION)
         NSExtension:
           NSExtensionPointIdentifier: "com.apple.widgetkit-extension"
+    entitlements:
+      path: ArkulatorWidget/ArkulatorWidgetExtension.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.arkulator]
     
