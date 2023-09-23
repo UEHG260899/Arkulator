@@ -18,23 +18,34 @@ struct ArkulatorWidgetProvider: TimelineProvider {
     }
 
     func placeholder(in context: Context) -> ArkulatorWidgetEntry {
-        ArkulatorWidgetEntry(date: Date(), dinosaur: Dinosaur(name: "Rex", stamina: 10, weight: 10, oxigen: 10, mele: 10, food: 10, movementSpeed: 10, health: 10))
+        ArkulatorWidgetEntry(date: Date(), dinosaurs: [.placeholder])
     }
 
     func getSnapshot(in context: Context, completion: @escaping (ArkulatorWidgetEntry) -> Void) {
-        let entry = ArkulatorWidgetEntry(date: Date(), dinosaur: Dinosaur(name: "Rex", stamina: 10, weight: 10, oxigen: 10, mele: 10, food: 10, movementSpeed: 10, health: 10))
+        let entry = ArkulatorWidgetEntry(date: Date(), dinosaurs: [.placeholder])
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<ArkulatorWidgetEntry>) -> Void) {
-        let dinosaur = realm.objects(Dinosaur.self).first
+        if context.family == .systemSmall {
+            let dinosaur = realm.objects(Dinosaur.self).first
 
-        let dinoEntry = ArkulatorWidgetEntry(date: Date(), dinosaur: dinosaur)
+            let dinoEntry = ArkulatorWidgetEntry(date: Date(), dinosaurs: [dinosaur ?? .placeholder])
+
+            let nextUpdate = Calendar.current.date(byAdding: .init(minute: 15), to: Date())!
+
+            let timeline = Timeline(entries: [dinoEntry], policy: .after(nextUpdate))
+
+            completion(timeline)
+            return
+        }
+        
+        let dinos = Array(realm.objects(Dinosaur.self))
+
+        let dinoEntry = ArkulatorWidgetEntry(date: .now, dinosaurs: dinos)
 
         let nextUpdate = Calendar.current.date(byAdding: .init(minute: 15), to: Date())!
-
         let timeline = Timeline(entries: [dinoEntry], policy: .after(nextUpdate))
-
         completion(timeline)
     }
 }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MediumWidgetView: View {
+
+    let dinosaurs: [Dinosaur]
+
     var body: some View {
         VStack(spacing: 5) {
             HStack(spacing: 5) {
@@ -77,6 +80,6 @@ struct MediumWidgetView: View {
 
 struct MediumWidgetView_Previews: PreviewProvider {
     static var previews: some View {
-        MediumWidgetView()
+        MediumWidgetView(dinosaurs: [.placeholder])
     }
 }
