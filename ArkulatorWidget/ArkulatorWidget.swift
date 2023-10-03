@@ -19,9 +19,9 @@ struct ArkulatorWidgetEntryView: View {
 
             switch family {
             case .systemSmall:
-                SmallWidgetView(dinosaur: entry.dinosaur)
+                SmallWidgetView(dinosaur: entry.dinosaurs.first)
             case .systemMedium:
-                MediumWidgetView()
+                MediumWidgetView(dinosaurs: entry.dinosaurs)
             default:
                 EmptyView()
             }
@@ -52,7 +52,7 @@ struct ArkulatorWidget_Previews: PreviewProvider {
 
     static var previews: some View {
         ForEach(supportedFamilies, id: \.hashValue) { family in
-            ArkulatorWidgetEntryView(entry: ArkulatorWidgetEntry(date: Date(), dinosaur: nil))
+            ArkulatorWidgetEntryView(entry: ArkulatorWidgetEntry(date: Date(), dinosaurs: [.placeholder]))
                 .previewContext(WidgetPreviewContext(family: family))
                 .previewDisplayName(family.description)
         }

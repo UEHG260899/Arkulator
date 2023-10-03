@@ -56,3 +56,16 @@ class Dinosaur: Object, Identifiable {
         return (realm.objects(Dinosaur.self).max(ofProperty: "id") as Int64? ?? 0) + 1
     }
 }
+
+extension Dinosaur {
+    static let placeholder = Dinosaur(
+        name: "Rex",
+        stamina: 10,
+        weight: 10,
+        oxigen: 10,
+        mele: 10,
+        food: 10,
+        movementSpeed: 10,
+        health: 10
+    )
+}

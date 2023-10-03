@@ -9,5 +9,5 @@ import WidgetKit
 
 struct ArkulatorWidgetEntry: TimelineEntry {
     let date: Date
-    let dinosaur: Dinosaur?
+    let dinosaurs: [Dinosaur]
 }
