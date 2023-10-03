@@ -27,22 +27,20 @@ struct ArkulatorWidgetProvider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<ArkulatorWidgetEntry>) -> Void) {
-        if context.family == .systemSmall {
-            let dinosaur = realm.objects(Dinosaur.self).first
 
-            let dinoEntry = ArkulatorWidgetEntry(date: Date(), dinosaurs: [dinosaur ?? .placeholder])
+        var dinoEntry: ArkulatorWidgetEntry!
+        let results = realm.objects(Dinosaur.self)
 
-            let nextUpdate = Calendar.current.date(byAdding: .init(minute: 15), to: Date())!
-
-            let timeline = Timeline(entries: [dinoEntry], policy: .after(nextUpdate))
-
-            completion(timeline)
-            return
+        switch context.family {
+        case .systemSmall:
+            let dinosaur = results.first
+            dinoEntry = ArkulatorWidgetEntry(date: .now, dinosaurs: [dinosaur ?? .placeholder])
+        case .systemMedium:
+            let dinos = Array(results.prefix(4))
+            dinoEntry = ArkulatorWidgetEntry(date: .now, dinosaurs: dinos)
+        default:
+            debugPrint("Not supported")
         }
-        
-        let dinos = Array(realm.objects(Dinosaur.self))
-
-        let dinoEntry = ArkulatorWidgetEntry(date: .now, dinosaurs: dinos)
 
         let nextUpdate = Calendar.current.date(byAdding: .init(minute: 15), to: Date())!
         let timeline = Timeline(entries: [dinoEntry], policy: .after(nextUpdate))
