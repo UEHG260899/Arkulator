@@ -32,13 +32,14 @@ struct ArkulatorWidgetEntryView: View {
 
 struct ArkulatorWidget: Widget {
     let kind: String = "ArkulatorWidget"
+    let widgetDescription = "Your dino expected level at a glance"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: ArkulatorWidgetProvider()) { entry in
             ArkulatorWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Arkulator Widget")
+        .description(widgetDescription)
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 }

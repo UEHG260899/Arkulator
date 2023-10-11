@@ -22,7 +22,17 @@ struct ArkulatorWidgetProvider: TimelineProvider {
     }
 
     func getSnapshot(in context: Context, completion: @escaping (ArkulatorWidgetEntry) -> Void) {
-        let entry = ArkulatorWidgetEntry(date: Date(), dinosaurs: [.placeholder])
+        var entry: ArkulatorWidgetEntry!
+
+        switch context.family {
+        case .systemSmall:
+            entry = ArkulatorWidgetEntry(date: .now, dinosaurs: [.placeholder])
+        case .systemMedium:
+            entry = ArkulatorWidgetEntry(date: .now, dinosaurs: Array(repeating: .placeholder, count: 4))
+        default:
+            debugPrint("Not implemented")
+        }
+
         completion(entry)
     }
 
