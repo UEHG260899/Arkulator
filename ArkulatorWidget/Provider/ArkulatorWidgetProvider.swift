@@ -52,7 +52,7 @@ struct ArkulatorWidgetProvider: TimelineProvider {
             debugPrint("Not supported")
         }
 
-        let nextUpdate = Calendar.current.date(byAdding: .init(minute: 15), to: Date())!
+        let nextUpdate = Calendar.current.date(byAdding: .init(minute: 10), to: Date())!
         let timeline = Timeline(entries: [dinoEntry], policy: .after(nextUpdate))
         completion(timeline)
     }
