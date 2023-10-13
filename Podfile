@@ -11,4 +11,8 @@ target 'Arkulator' do
   target 'ArkulatorTests' do
     inherit! :search_paths
   end
+
+  target 'ArkulatorWidgetExtension' do
+    inherit! :search_paths
+  end
 end

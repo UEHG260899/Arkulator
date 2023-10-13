@@ -51,6 +51,12 @@ targets:
         UILaunchStoryboardName: LaunchScreen
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         UIUserInterfaceStyle: Light
+    entitlements:
+      path: Arkulator/Arkulator.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.arkulator]
+    dependencies:
+      - target: ArkulatorWidgetExtension
   ArkulatorTests:
     settings:
       TARGETED_DEVICE_FAMILY: 1
@@ -64,3 +70,28 @@ targets:
       ArkulatorTests
     info:
       path: ArkulatorTests/Info.plist
+  ArkulatorWidgetExtension:
+    settings:
+      TARGETED_DEVICE_FAMILY: 1
+      SUPPORTS_MACCATALYST: false
+      SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: false
+      PRODUCT_BUNDLE_IDENTIFIER: com.urielh.Arkulator.ArkulatorWidget
+    platform: iOS
+    type: app-extension
+    subtype: widgetkit-extension
+    sources:
+      ArkulatorWidget
+    dependencies:
+      - sdk: SwiftUI.framework
+      - sdk: WidgetKit.framework
+    info:
+      path: ArkulatorWidget/Info.plist
+      properties:
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: "com.apple.widgetkit-extension"
+    entitlements:
+      path: ArkulatorWidget/ArkulatorWidgetExtension.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.arkulator]
+    
