@@ -88,6 +88,7 @@ targets:
       path: ArkulatorWidget/Info.plist
       properties:
         CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleDisplayName : "Arkulator"
         NSExtension:
           NSExtensionPointIdentifier: "com.apple.widgetkit-extension"
     entitlements:
