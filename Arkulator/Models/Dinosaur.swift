@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class Dinosaur: Object, Identifiable {
-    @Persisted(primaryKey: true) var id: Int64
+    @Persisted(primaryKey: true) var id: UUID
     @Persisted var name: String
     @Persisted var stamina: Int
     @Persisted var weight: Int
@@ -28,7 +28,7 @@ class Dinosaur: Object, Identifiable {
 
     }
 
-    init(id: Int64 = 0,
+    init(id: UUID = UUID(),
          name: String,
          stamina: Int,
          weight: Int,
@@ -38,8 +38,7 @@ class Dinosaur: Object, Identifiable {
          movementSpeed: Int,
          health: Int) {
         super.init()
-        // TODO: Make it a UUID and remove autoincrement
-        self.id = id != 0 ? id : incrementID()
+        self.id = id
         self.name = name.lowercased()
         self.stamina = stamina
         self.weight = weight
@@ -59,22 +58,22 @@ class Dinosaur: Object, Identifiable {
         }
     }
 
-    func update(id: Int64) {
-        let realm = try! Realm()
-        let realmDinosaur = realm.objects(Dinosaur.self).where { $0.id == id }.first!
-
-        try! realm.write({
-            realmDinosaur.name = self.name
-            realmDinosaur.stamina = self.stamina
-            realmDinosaur.weight = self.weight
-            realmDinosaur.oxigen = self.oxigen
-            realmDinosaur.mele = self.mele
-            realmDinosaur.food = self.food
-            realmDinosaur.movementSpeed = self.movementSpeed
-            realmDinosaur.health = self.health
-            realmDinosaur.expectedLevel = self.requiredLevel
-        })
-    }
+//    func update(id: Int64) {
+//        let realm = try! Realm()
+//        let realmDinosaur = realm.objects(Dinosaur.self).where { $0.id == id }.first!
+//
+//        try! realm.write({
+//            realmDinosaur.name = self.name
+//            realmDinosaur.stamina = self.stamina
+//            realmDinosaur.weight = self.weight
+//            realmDinosaur.oxigen = self.oxigen
+//            realmDinosaur.mele = self.mele
+//            realmDinosaur.food = self.food
+//            realmDinosaur.movementSpeed = self.movementSpeed
+//            realmDinosaur.health = self.health
+//            realmDinosaur.expectedLevel = self.requiredLevel
+//        })
+//    }
 
     private func incrementID() -> Int64 {
         let realm = try! Realm()
