@@ -19,7 +19,10 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
                 Color.mainColor
                     .ignoresSafeArea()
 
-                DinosaurListView(dinosaurs: vm.dinosaurs, onDelete: vm.deleteDinosaur(at:))
+                DinosaurListView(
+                    dinosaurs: vm.dinosaurs,
+                    onDelete: vm.deleteDinosaur(at:)
+                )
 
                 NavigationLink(
                     destination: DinosaurStatsScreenFactory.make(),
@@ -43,6 +46,7 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
         .alert("Something went wrong when trying to delete", isPresented: $vm.showError) {
             Button("Ok", role: .none, action: {})
         }
+        .animation(.easeIn, value: vm.dinosaurs)
     }
 }
 
