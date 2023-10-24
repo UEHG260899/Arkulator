@@ -16,7 +16,7 @@ struct DinosaurListView: View {
         List {
             ForEach(dinosaurs) { dinosaur in
                 ZStack {
-                    DinosaurCell(cellNumber: Int(dinosaur.id),
+                    DinosaurCell(cellNumber: Int.random(in: 0..<10),
                                  dinosaurName: dinosaur.name.capitalized,
                                  requiredLevel: dinosaur.requiredLevel)
 
