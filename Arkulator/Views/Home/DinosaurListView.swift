@@ -16,9 +16,10 @@ struct DinosaurListView: View {
         List {
             ForEach(dinosaurs) { dinosaur in
                 ZStack {
-                    DinosaurCell(cellNumber: Int.random(in: 0..<10),
-                                 dinosaurName: dinosaur.name.capitalized,
-                                 requiredLevel: dinosaur.requiredLevel)
+                    DinosaurCell(
+                        dinosaurName: dinosaur.name.capitalized,
+                        requiredLevel: dinosaur.requiredLevel
+                    )
 
                     NavigationLink {
                         EditDinosaurScreenFactory.make(with: dinosaur)
