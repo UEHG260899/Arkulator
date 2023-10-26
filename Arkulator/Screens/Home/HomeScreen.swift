@@ -11,6 +11,7 @@ import RealmSwift
 struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
 
     @StateObject var vm: ViewModel
+    @State private var presentingTest = false
 
     var body: some View {
         NavigationView {
@@ -43,9 +44,11 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
         .onChange(of: vm.queryString) { query in
             vm.filterDinosaurs(query: query)
         }
-        .alert("Something went wrong when trying to delete", isPresented: $vm.showError) {
-            Button("Ok", role: .none, action: {})
-        }
+        .arkulatorAlert(
+            title: "Something went wrong when trying to delete",
+            cancelButtonText: "Ok",
+            isPresented: $vm.showError
+        )
         .animation(.easeIn, value: vm.dinosaurs)
     }
 }
