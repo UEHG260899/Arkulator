@@ -11,7 +11,6 @@ import RealmSwift
 struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
 
     @StateObject var vm: ViewModel
-    @State private var presentingTest = false
 
     var body: some View {
         NavigationView {
