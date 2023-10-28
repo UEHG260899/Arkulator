@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class Dinosaur: Object, Identifiable {
-    @Persisted(primaryKey: true) var id: Int64
+    @Persisted(primaryKey: true) var id: UUID
     @Persisted var name: String
     @Persisted var stamina: Int
     @Persisted var weight: Int
@@ -28,7 +28,7 @@ class Dinosaur: Object, Identifiable {
 
     }
 
-    init(id: Int64 = 0,
+    init(id: UUID = .init(),
          name: String,
          stamina: Int,
          weight: Int,
@@ -38,8 +38,7 @@ class Dinosaur: Object, Identifiable {
          movementSpeed: Int,
          health: Int) {
         super.init()
-        // TODO: Make it a UUID and remove autoincrement
-        self.id = id != 0 ? id : incrementID()
+        self.id = id
         self.name = name.lowercased()
         self.stamina = stamina
         self.weight = weight
@@ -49,11 +48,6 @@ class Dinosaur: Object, Identifiable {
         self.movementSpeed = movementSpeed
         self.health = health
         self.expectedLevel = requiredLevel
-    }
-
-    private func incrementID() -> Int64 {
-        let realm = try! Realm()
-        return (realm.objects(Dinosaur.self).max(ofProperty: "id") as Int64? ?? 0) + 1
     }
 }
 

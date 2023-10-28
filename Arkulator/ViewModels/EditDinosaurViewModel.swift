@@ -20,7 +20,7 @@ class EditDinosaurViewModel: EditDinosaurViewModelProtocol {
     @Published var shouldShowAlert = false
 
     private let realmManager: RealmManagerProtocol
-    private let dinoId: Int64
+    private let dinoId: UUID
 
     var isFormValid: Bool {
         var isFormValid = true
