@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension View {
+
     @ViewBuilder
     func tintColor(_ color: Color) -> some View {
         if #available(iOS 15, *) {
@@ -24,6 +25,36 @@ extension View {
             content(self)
         } else {
             self
+        }
+    }
+
+    /// Generates an alert
+    /// - Parameters:
+    ///   - title: Alert´s title
+    ///   - description: Alert´s description
+    ///   - cancelButtonText: Text to display on the cancel button
+    ///   - acceptButtonText: Text to display on the accept button (If empty no accept button will appear)
+    ///   - isPresented: Binding property tht shows/hides the alert
+    ///   - onAcceptClicked: Action to be executed when accept button gets tapped
+    /// - Returns: a View
+    func arkulatorAlert(
+        title: String,
+        description: String? = nil,
+        cancelButtonText: String,
+        acceptButtonText: String? = nil,
+        isPresented: Binding<Bool>,
+        onAcceptClicked: (() -> Void)? = nil
+    ) -> some View {
+        ZStack {
+            self
+            ArkulatorAlert(
+                title: title,
+                description: description,
+                cancelButtonText: cancelButtonText,
+                acceptButtonText: acceptButtonText,
+                isPresented: isPresented,
+                onAcceptClicked: onAcceptClicked
+            )
         }
     }
 }
