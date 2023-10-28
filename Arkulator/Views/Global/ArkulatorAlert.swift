@@ -23,7 +23,7 @@ struct ArkulatorAlert: View {
 
             Color.black
                 .opacity(0.5)
-                .ignoresSafeArea(edges: .top)
+                .ignoresSafeArea()
 
             VStack(spacing: 0) {
                 VStack(spacing: 2) {
