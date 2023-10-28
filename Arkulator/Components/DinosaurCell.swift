@@ -9,17 +9,13 @@ import SwiftUI
 
 struct DinosaurCell: View {
 
-    let cellNumber: Int
     let dinosaurName: String
     let requiredLevel: Int
 
     var body: some View {
         HStack(alignment: .center) {
-            Image(systemName: "\(cellNumber).circle.fill")
-                .resizable()
-                .aspectRatio(1, contentMode: .fit)
-                .frame(width: 24)
-                .foregroundColor(.uiAccentColor)
+            Text("🏝️")
+                .font(.title)
 
             VStack(alignment: .leading) {
                 Text("Dino: \(dinosaurName)")
@@ -43,7 +39,6 @@ struct DinosaurCell_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(devices, id: \.self) { device in
             DinosaurCell(
-                cellNumber: 1,
                 dinosaurName: "Argentavis",
                 requiredLevel: 120
             )
