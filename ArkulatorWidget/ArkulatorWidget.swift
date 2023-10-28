@@ -14,9 +14,6 @@ struct ArkulatorWidgetEntryView: View {
 
     var body: some View {
         ZStack {
-            Color("WidgetBackground")
-                .ignoresSafeArea()
-
             switch family {
             case .systemSmall:
                 SmallWidgetView(dinosaur: entry.dinosaurs.first)
@@ -26,6 +23,10 @@ struct ArkulatorWidgetEntryView: View {
                 EmptyView()
             }
         }
+        .widgetBackground(
+            Color("WidgetBackground")
+                .ignoresSafeArea()
+        )
     }
 
 }
@@ -41,6 +42,7 @@ struct ArkulatorWidget: Widget {
         .configurationDisplayName("Arkulator Widget")
         .description(widgetDescription)
         .supportedFamilies([.systemSmall, .systemMedium])
+        .contentMarginsDisabled()
     }
 }
 

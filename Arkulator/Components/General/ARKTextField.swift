@@ -32,6 +32,7 @@ struct ARKTextField: View {
             TextField("", text: $text)
                 .focused($isFocused, equals: fieldType)
                 .keyboardType(keyboardType)
+                .autocorrectionDisabled()
 
             Text(placeholder)
                 .foregroundColor(scheme.placeholderForegroundColor)
