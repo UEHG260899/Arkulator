@@ -57,6 +57,8 @@ struct DinosaurStatsScreen<ViewModel: DinosaurStatsScreenViewModelProtocol>: Vie
                     )
                 }
 
+                ARKPicker()
+
                 ARKButton(
                     labelText: "Save",
                     isDisabled: !vm.isFormValid,
