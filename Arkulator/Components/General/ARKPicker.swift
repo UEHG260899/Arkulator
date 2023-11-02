@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ARKPicker: View {
 
-    @State private var selectedMap: ArkMap = .island
+    @Binding var selectedMap: ArkMap
 
     var body: some View {
         HStack {
@@ -32,5 +32,5 @@ struct ARKPicker: View {
 }
 
 #Preview {
-    ARKPicker()
+    ARKPicker(selectedMap: .constant(.island))
 }

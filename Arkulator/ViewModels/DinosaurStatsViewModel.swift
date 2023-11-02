@@ -10,6 +10,7 @@ import RealmSwift
 
 protocol DinosaurStatsScreenViewModelProtocol: ObservableObject {
     var formFields: [FormField] { get set }
+    var dinoMap: ArkMap { get set }
     var isFormValid: Bool { get }
     var shouldShowAlert: Bool { get set }
 
@@ -18,6 +19,7 @@ protocol DinosaurStatsScreenViewModelProtocol: ObservableObject {
 
 class DinosaurStatsViewModel: DinosaurStatsScreenViewModelProtocol {
     @Published var formFields = Constants.Forms.dinoStatsForm
+    @Published var dinoMap: ArkMap = .island
     @Published var shouldShowAlert = false
 
     var isFormValid: Bool {
@@ -43,7 +45,7 @@ class DinosaurStatsViewModel: DinosaurStatsScreenViewModelProtocol {
                                 food: formData[safe: 5]?.intValue ?? 0,
                                 movementSpeed: formData[safe: 6]?.intValue ?? 0,
                                 health: formData[safe: 7]?.intValue ?? 0,
-                                map: .island)
+                                map: dinoMap)
 
         realmManager.save(dinosaur)
     }

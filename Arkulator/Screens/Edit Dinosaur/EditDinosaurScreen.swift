@@ -58,7 +58,7 @@ struct EditDinosaurScreen<ViewModel: EditDinosaurViewModelProtocol>: View {
                     )
                 }
 
-                ARKPicker()
+                ARKPicker(selectedMap: .constant(.island))
 
                 ARKButton(
                     labelText: "Save",
