@@ -18,7 +18,7 @@ struct ARKPicker: View {
 
             Picker("", selection: $selectedMap) {
                 ForEach(ArkMap.allCases) { map in
-                    Text(map.stringRepresentation.capitalized)
+                    Text(map.rawValue)
                 }
             }
         }

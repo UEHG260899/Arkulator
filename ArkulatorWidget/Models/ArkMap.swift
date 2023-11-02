@@ -1,8 +1,8 @@
 //
 //  ArkMap.swift
-//  Arkulator
+//  ArkulatorWidgetExtension
 //
-//  Created by Uriel Hernandez Gonzalez on 31/10/23.
+//  Created by Uriel Hernandez Gonzalez on 01/11/23.
 //
 
 import Foundation

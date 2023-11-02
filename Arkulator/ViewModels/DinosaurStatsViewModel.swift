@@ -33,15 +33,6 @@ class DinosaurStatsViewModel: DinosaurStatsScreenViewModelProtocol {
     }
 
     func saveDinosaur() {
-//        let newDinosaur = Dinosaur(name: dinosaurName,
-//                                   stamina: Int(dinosaurStamina) ?? 0,
-//                                   weight: Int(dinosaurWeight) ?? 0,
-//                                   oxigen: Int(dinosaurOxigen) ?? 0,
-//                                   mele: Int(dinosaurMele) ?? 0,
-//                                   food: Int(dinosaurFood) ?? 0,
-//                                   movementSpeed: Int(dinosaurMovementSpeed) ?? 0,
-//                                   health: Int(dinosaurHealth) ?? 0)
-//        newDinosaur.save()
         let formData = formFields.map(\.fieldText)
 
         let dinosaur = Dinosaur(name: formData[safe: 0] ?? "",
@@ -51,7 +42,8 @@ class DinosaurStatsViewModel: DinosaurStatsScreenViewModelProtocol {
                                 mele: formData[safe: 4]?.intValue ?? 0,
                                 food: formData[safe: 5]?.intValue ?? 0,
                                 movementSpeed: formData[safe: 6]?.intValue ?? 0,
-                                health: formData[safe: 7]?.intValue ?? 0)
+                                health: formData[safe: 7]?.intValue ?? 0,
+                                map: .island)
 
         realmManager.save(dinosaur)
     }

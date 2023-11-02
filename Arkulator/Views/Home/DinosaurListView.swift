@@ -18,7 +18,8 @@ struct DinosaurListView: View {
                 ZStack {
                     DinosaurCell(
                         dinosaurName: dinosaur.name.capitalized,
-                        requiredLevel: dinosaur.requiredLevel
+                        requiredLevel: dinosaur.requiredLevel,
+                        map: dinosaur.map.rawValue
                     )
 
                     NavigationLink {

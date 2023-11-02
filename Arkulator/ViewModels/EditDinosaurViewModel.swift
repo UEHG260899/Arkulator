@@ -51,7 +51,8 @@ class EditDinosaurViewModel: EditDinosaurViewModelProtocol {
             mele: formData[safe: 4]?.fieldText.intValue ?? 0,
             food: formData[safe: 5]?.fieldText.intValue ?? 0,
             movementSpeed: formData[safe: 6]?.fieldText.intValue ?? 0,
-            health: formData[safe: 7]?.fieldText.intValue ?? 0
+            health: formData[safe: 7]?.fieldText.intValue ?? 0,
+            map: .island
         )
 
         realmManager.save(dino)
