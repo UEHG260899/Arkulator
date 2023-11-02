@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import RealmSwift
 
-enum ArkMap: Int, CaseIterable, Identifiable {
+// TODO: See if we can delete the Type
+enum ArkMap: Int, Identifiable, PersistableEnum {
     case island
     case scorchedEarth
     case aberration
-    case extintion
+    case extinction
     case genesisPt1
     case genesisPt2
 
@@ -25,8 +27,8 @@ enum ArkMap: Int, CaseIterable, Identifiable {
             "Scorched Earth"
         case .aberration:
             "Aberration"
-        case .extintion:
-            "Extintion"
+        case .extinction:
+            "Extinction"
         case .genesisPt1:
             "Genesis Pt. 1"
         case .genesisPt2:
