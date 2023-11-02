@@ -17,11 +17,16 @@ struct DinosaurCell: View {
             Text("🏝️")
                 .font(.title)
 
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 5) {
                 Text("Dino: \(dinosaurName)")
                     .font(.title2)
-                Text("Lvl: \(requiredLevel)")
-                    .font(.caption)
+
+                VStack(alignment: .leading) {
+                    Text("Lvl: \(requiredLevel)")
+                        .font(.subheadline)
+                    Text("Map: The Island")
+                        .font(.subheadline)
+                }
             }
 
             Spacer()

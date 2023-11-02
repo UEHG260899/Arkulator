@@ -58,6 +58,8 @@ struct EditDinosaurScreen<ViewModel: EditDinosaurViewModelProtocol>: View {
                     )
                 }
 
+                ARKPicker()
+
                 ARKButton(
                     labelText: "Save",
                     isDisabled: !vm.isFormValid,
