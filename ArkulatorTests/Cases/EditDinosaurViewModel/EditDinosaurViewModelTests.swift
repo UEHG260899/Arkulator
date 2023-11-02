@@ -23,7 +23,8 @@ class EditDinosaurViewModelTests: XCTestCase {
                             mele: 10,
                             food: 10,
                             movementSpeed: 10,
-                            health: 10)
+                            health: 10,
+                            map: .island)
         mockRealmManager = MockRealmManager(taskName: self.name)
         sut = EditDinosaurViewModel(dinosaur: dinosaur, realmManager: mockRealmManager)
     }

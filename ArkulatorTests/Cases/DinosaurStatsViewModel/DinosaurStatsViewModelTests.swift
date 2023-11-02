@@ -37,6 +37,14 @@ class DinosaurStatsViewModelTests: XCTestCase {
         XCTAssertFalse(sut.shouldShowAlert)
     }
 
+    func test_onInit_dinoMap_isSetToIsland() {
+        // given
+        let expectedValue = ArkMap.island.rawValue
+
+        // then
+        XCTAssertEqual(sut.dinoMap.rawValue, expectedValue)
+    }
+
     func test_whenSomeFormFieldsAreEmpty_isFormValidStillReturnsFalse() {
         // when
         let mockData: [FormField] = [
