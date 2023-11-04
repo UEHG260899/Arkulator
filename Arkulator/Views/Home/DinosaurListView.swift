@@ -39,6 +39,13 @@ struct DinosaurListView: View {
         }
         .listStyle(.plain)
         .navigationTitle("Dinosaur List")
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                HomeFilterButton { selectedMap in
+                    print(selectedMap)
+                }
+            }
+        }
     }
 }
 
