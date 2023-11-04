@@ -19,7 +19,7 @@ struct DinosaurListView: View {
                     DinosaurCell(
                         dinosaurName: dinosaur.name.capitalized,
                         requiredLevel: dinosaur.requiredLevel,
-                        map: dinosaur.map.rawValue
+                        map: dinosaur.map
                     )
 
                     NavigationLink {

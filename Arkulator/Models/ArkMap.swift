@@ -17,4 +17,21 @@ enum ArkMap: String, Identifiable, PersistableEnum {
     case genesisPt2 = "Genesis Pt. 2"
 
     var id: Self { self }
+
+    var symbol: String {
+        switch self {
+        case .island:
+            "🏝️"
+        case .scorchedEarth:
+            "🏜️"
+        case .aberration:
+            "👹"
+        case .extinction:
+            "☠️"
+        case .genesisPt1:
+            "🌊"
+        case .genesisPt2:
+            "🚀"
+        }
+    }
 }
