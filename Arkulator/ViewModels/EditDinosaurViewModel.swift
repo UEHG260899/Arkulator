@@ -9,6 +9,7 @@ import Foundation
 
 protocol EditDinosaurViewModelProtocol: ObservableObject {
     var formData: [FormField] { get set }
+    var dinoMap: ArkMap { get set }
     var shouldShowAlert: Bool { get set }
     var isFormValid: Bool { get }
 
@@ -17,6 +18,7 @@ protocol EditDinosaurViewModelProtocol: ObservableObject {
 
 class EditDinosaurViewModel: EditDinosaurViewModelProtocol {
     @Published var formData: [FormField] = Constants.Forms.dinoStatsForm
+    @Published var dinoMap: ArkMap = .island
     @Published var shouldShowAlert = false
 
     private let realmManager: RealmManagerProtocol
@@ -39,6 +41,7 @@ class EditDinosaurViewModel: EditDinosaurViewModelProtocol {
         self.formData[5].fieldText = String(dinosaur.food)
         self.formData[6].fieldText = String(dinosaur.movementSpeed)
         self.formData[7].fieldText = String(dinosaur.health)
+        self.dinoMap = dinosaur.map
     }
 
     func updateDinosaur() {
@@ -52,7 +55,7 @@ class EditDinosaurViewModel: EditDinosaurViewModelProtocol {
             food: formData[safe: 5]?.fieldText.intValue ?? 0,
             movementSpeed: formData[safe: 6]?.fieldText.intValue ?? 0,
             health: formData[safe: 7]?.fieldText.intValue ?? 0,
-            map: .island
+            map: dinoMap
         )
 
         realmManager.save(dino)
