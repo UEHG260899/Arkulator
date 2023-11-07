@@ -11,10 +11,11 @@ struct DinosaurCell: View {
 
     let dinosaurName: String
     let requiredLevel: Int
+    let map: ArkMap
 
     var body: some View {
         HStack(alignment: .center) {
-            Text("🏝️")
+            Text(map.symbol)
                 .font(.title)
 
             VStack(alignment: .leading, spacing: 5) {
@@ -24,7 +25,7 @@ struct DinosaurCell: View {
                 VStack(alignment: .leading) {
                     Text("Lvl: \(requiredLevel)")
                         .font(.subheadline)
-                    Text("Map: The Island")
+                    Text("Map: \(map.rawValue)")
                         .font(.subheadline)
                 }
             }
@@ -45,7 +46,8 @@ struct DinosaurCell_Previews: PreviewProvider {
         ForEach(devices, id: \.self) { device in
             DinosaurCell(
                 dinosaurName: "Argentavis",
-                requiredLevel: 120
+                requiredLevel: 120,
+                map: .island
             )
             .previewDevice(PreviewDevice(rawValue: device))
             .previewDisplayName(device)

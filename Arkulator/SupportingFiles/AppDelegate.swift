@@ -26,14 +26,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         if FileManager.default.fileExists(atPath: defaultRealm.path) {
             do {
                 _ = try FileManager.default.replaceItemAt(realmURL!, withItemAt: defaultRealm)
-                config = Realm.Configuration(fileURL: realmURL, schemaVersion: 1) { [weak self] migration, oldSchemaVersion in
+                config = Realm.Configuration(fileURL: realmURL, schemaVersion: 2) { [weak self] migration, oldSchemaVersion in
                     self?.migrateOldId(migration, schemaVersion: oldSchemaVersion)
                 }
             } catch {
                 print("Error info: \(error)")
             }
         } else {
-            config = Realm.Configuration(fileURL: realmURL, schemaVersion: 1) { [weak self] migration, oldSchemaVersion in
+            config = Realm.Configuration(fileURL: realmURL, schemaVersion: 2) { [weak self] migration, oldSchemaVersion in
                 self?.migrateOldId(migration, schemaVersion: oldSchemaVersion)
             }
         }
@@ -43,9 +43,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 
     private func migrateOldId(_ migration: Migration, schemaVersion: UInt64) {
-        if schemaVersion < 1 {
-            migration.enumerateObjects(ofType: Dinosaur.className()) { _, newObject in
+        migration.enumerateObjects(ofType: Dinosaur.className()) { _, newObject in
+            switch schemaVersion {
+            case 0:
                 newObject!["id"] = UUID()
+            case 1:
+                newObject!["map"] = ArkMap.island
+            default:
+                print("Not supported")
             }
         }
     }

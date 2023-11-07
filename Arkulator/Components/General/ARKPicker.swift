@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ARKPicker: View {
 
-    @State private var selectedMap: ArkMap = .island
+    @Binding var selectedMap: ArkMap
 
     var body: some View {
         HStack {
@@ -18,7 +18,7 @@ struct ARKPicker: View {
 
             Picker("", selection: $selectedMap) {
                 ForEach(ArkMap.allCases) { map in
-                    Text(map.stringRepresentation.capitalized)
+                    Text(map.rawValue)
                 }
             }
         }
@@ -32,5 +32,5 @@ struct ARKPicker: View {
 }
 
 #Preview {
-    ARKPicker()
+    ARKPicker(selectedMap: .constant(.island))
 }

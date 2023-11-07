@@ -57,7 +57,7 @@ struct DinosaurStatsScreen<ViewModel: DinosaurStatsScreenViewModelProtocol>: Vie
                     )
                 }
 
-                ARKPicker()
+                ARKPicker(selectedMap: $vm.dinoMap)
 
                 ARKButton(
                     labelText: "Save",
@@ -84,6 +84,7 @@ struct DinosaurStatsView_Previews: PreviewProvider {
 
     class MockVM: DinosaurStatsScreenViewModelProtocol {
         var formFields = [FormField]()
+        var dinoMap: ArkMap = .island
         var isFormValid = false
         var shouldShowAlert = false
 
