@@ -180,4 +180,15 @@ class HomeScreenViewModelTests: XCTestCase {
         XCTAssertTrue(mockRealmManager.calledMethods.contains(.delete))
         XCTAssertTrue(mockRealmManager.calledMethods.contains(.fetch))
     }
+
+    func test_whenFilterByMapIsCalled_callsFetchByMapOnRealmManager() {
+        // given
+        mockRealmManager.saveObjects(mockDinosaurs)
+
+        // when
+        sut.filerBy(map: .island)
+
+        // then
+        XCTAssertTrue(mockRealmManager.calledMethods.contains(.fetchMap))
+    }
 }

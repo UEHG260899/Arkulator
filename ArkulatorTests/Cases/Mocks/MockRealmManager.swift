@@ -17,6 +17,7 @@ class MockRealmManager: RealmManagerProtocol {
         static let save = CalledMethods(rawValue: 1 << 0)
         static let fetch = CalledMethods(rawValue: 1 << 1)
         static let delete = CalledMethods(rawValue: 1 << 2)
+        static let fetchMap = CalledMethods(rawValue: 1 << 3)
     }
 
     private let realm: Realm
@@ -43,6 +44,11 @@ class MockRealmManager: RealmManagerProtocol {
     func fetch<T: Object>(type: T.Type) -> Results<T> {
         calledMethods.insert(.fetch)
         return realm.objects(type)
+    }
+
+    func fetch<T: Object>(type: T.Type, map: ArkMap) -> Results<T> {
+        calledMethods.insert(.fetchMap)
+        return realm.objects(type).filter("map = %@", map.rawValue)
     }
 
     func delete<T: Object>(_ object: T) {

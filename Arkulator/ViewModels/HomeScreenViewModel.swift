@@ -16,6 +16,7 @@ protocol HomeScreenViewModelProtocol: ObservableObject {
 
     func fetchDinosaurs()
     func filterDinosaurs(query: String)
+    func filerBy(map: ArkMap)
     func deleteDinosaur(at index: IndexSet)
 }
 
@@ -49,6 +50,12 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol {
     private func setDinosaurs() {
         let cachedDinosaurs = realmManager.fetch(type: Dinosaur.self)
         dinosaurs = Array(cachedDinosaurs)
+    }
+
+    func filerBy(map: ArkMap) {
+        // TODO: Join this implementation with the setDinosaursFunction (send map as parameter)
+        let results = realmManager.fetch(type: Dinosaur.self, map: map)
+        dinosaurs = Array(results)
     }
 
     func deleteDinosaur(at index: IndexSet) {
