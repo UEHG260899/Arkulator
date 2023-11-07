@@ -13,13 +13,6 @@ struct HomeFilterButton: View {
 
     var body: some View {
         Menu {
-            Button {
-                // TODO: Add an All map option without displaying it in the picker
-                onMapSelected(.island)
-            } label: {
-                Text("All")
-            }
-
             ForEach(ArkMap.allCases) { map in
                 Button {
                     onMapSelected(map)

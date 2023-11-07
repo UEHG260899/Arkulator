@@ -11,7 +11,7 @@ struct DinosaurListView: View {
 
     let dinosaurs: [Dinosaur]
     let onDelete: ((IndexSet) -> Void)
-    let onMapSelected : ((ArkMap) -> Void)
+    let onMapSelected: ((ArkMap) -> Void)
 
     var body: some View {
         List {

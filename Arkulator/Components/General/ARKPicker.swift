@@ -17,7 +17,7 @@ struct ARKPicker: View {
                 .foregroundStyle(Color.textFieldColor)
 
             Picker("", selection: $selectedMap) {
-                ForEach(ArkMap.allCases) { map in
+                ForEach(ArkMap.choosableMaps) { map in
                     Text(map.rawValue)
                 }
             }

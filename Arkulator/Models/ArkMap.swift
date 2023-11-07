@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 enum ArkMap: String, Identifiable, PersistableEnum {
+    case all = "All"
     case island = "The Island"
     case scorchedEarth = "Scorched Earth"
     case aberration = "Aberration"
@@ -32,6 +33,12 @@ enum ArkMap: String, Identifiable, PersistableEnum {
             "🌊"
         case .genesisPt2:
             "🚀"
+        default:
+            ""
         }
     }
+}
+
+extension ArkMap {
+    static let choosableMaps = ArkMap.allCases.filter { $0 != .all }
 }
