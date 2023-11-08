@@ -9,19 +9,29 @@ import SwiftUI
 
 struct HomeFilterButton: View {
 
+    @AppStorage("selectedMap") private var selectedMap: ArkMap = .all
     let onMapSelected: ((ArkMap) -> Void)
 
     var body: some View {
         Menu {
             ForEach(ArkMap.allCases) { map in
                 Button {
-                    onMapSelected(map)
+                    selectedMap = map
                 } label: {
-                    Text(map.rawValue)
+                    itemLabel(for: map)
                 }
             }
         } label: {
             Image(systemName: "line.3.horizontal.decrease.circle")
+        }
+    }
+
+    @ViewBuilder
+    private func itemLabel(for map: ArkMap) -> some View {
+        if selectedMap == map {
+            Label(map.rawValue, systemImage: "checkmark")
+        } else {
+            Text(map.rawValue)
         }
     }
 }
