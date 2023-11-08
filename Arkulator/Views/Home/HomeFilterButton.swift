@@ -17,6 +17,7 @@ struct HomeFilterButton: View {
             ForEach(ArkMap.allCases) { map in
                 Button {
                     selectedMap = map
+                    onMapSelected(map)
                 } label: {
                     itemLabel(for: map)
                 }

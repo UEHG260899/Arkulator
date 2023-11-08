@@ -53,9 +53,13 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol {
     }
 
     func filerBy(map: ArkMap) {
-        // TODO: Join this implementation with the setDinosaursFunction (send map as parameter)
-        let results = realmManager.fetch(type: Dinosaur.self, map: map)
-        dinosaurs = Array(results)
+        guard map != .all else {
+            fetchDinosaurs()
+            return
+        }
+
+        let filteredDinos = realmManager.fetch(type: Dinosaur.self, map: map)
+        dinosaurs = Array(filteredDinos)
     }
 
     func deleteDinosaur(at index: IndexSet) {
