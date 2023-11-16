@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeFilterButton: View {
 
-    @AppStorage("selectedMap") private var selectedMap: ArkMap = .all
+    @State private var selectedMap: ArkMap = .all
     let onMapSelected: ((ArkMap) -> Void)
 
     var body: some View {
@@ -24,6 +24,9 @@ struct HomeFilterButton: View {
             }
         } label: {
             Image(systemName: "line.3.horizontal.decrease.circle")
+        }
+        .onAppear {
+            selectedMap = .all
         }
     }
 
