@@ -11,6 +11,7 @@ struct DinosaurListView: View {
 
     let dinosaurs: [Dinosaur]
     let onDelete: ((IndexSet) -> Void)
+    let onMapSelected: ((ArkMap) -> Void)
 
     var body: some View {
         List {
@@ -41,9 +42,7 @@ struct DinosaurListView: View {
         .navigationTitle("Dinosaur List")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                HomeFilterButton { selectedMap in
-                    print(selectedMap)
-                }
+                HomeFilterButton(onMapSelected: onMapSelected)
             }
         }
     }
@@ -52,7 +51,11 @@ struct DinosaurListView: View {
 struct DinosaurListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DinosaurListView(dinosaurs: [Dinosaur](), onDelete: { _ in })
+            DinosaurListView(
+                dinosaurs: [Dinosaur](),
+                onDelete: { _ in },
+                onMapSelected: {_ in}
+            )
         }
     }
 }

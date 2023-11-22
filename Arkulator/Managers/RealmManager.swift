@@ -26,6 +26,10 @@ struct RealmManager: RealmManagerProtocol {
         return realm.objects(type)
     }
 
+    func fetch<T: Object>(type: T.Type, map: ArkMap) -> Results<T> {
+        return realm.objects(type).filter("map = %@", map.rawValue)
+    }
+
     func delete<T: Object>(_ object: T) {
         try! realm.write {
             realm.delete(object)
