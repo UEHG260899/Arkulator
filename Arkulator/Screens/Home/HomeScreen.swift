@@ -21,7 +21,8 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
 
                 DinosaurListView(
                     dinosaurs: vm.dinosaurs,
-                    onDelete: vm.deleteDinosaur(at:)
+                    onDelete: vm.deleteDinosaur(at:),
+                    onMapSelected: vm.filerBy(map:)
                 )
 
                 NavigationLink(
@@ -62,6 +63,7 @@ struct HomeView_Previews: PreviewProvider {
 
         func fetchDinosaurs() {}
         func filterDinosaurs(query: String) {}
+        func filerBy(map: ArkMap) {}
         func deleteDinosaur(at index: IndexSet) {}
     }
 

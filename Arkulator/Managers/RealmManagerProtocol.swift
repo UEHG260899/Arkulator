@@ -11,5 +11,6 @@ import RealmSwift
 protocol RealmManagerProtocol {
     func save<T: Object>(_ object: T)
     func fetch<T: Object>(type: T.Type) -> Results<T>
+    func fetch<T: Object>(type: T.Type, map: ArkMap) -> Results<T>
     func delete<T: Object>(_ object: T)
 }

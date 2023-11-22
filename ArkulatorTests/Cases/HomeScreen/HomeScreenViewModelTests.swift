@@ -14,9 +14,42 @@ class HomeScreenViewModelTests: XCTestCase {
     var mockRealmManager: MockRealmManager!
 
     let mockDinosaurs: [Dinosaur] = [
-        .init(id: 1, name: "Argie", stamina: 10, weight: 10, oxigen: 10, mele: 10, food: 10, movementSpeed: 10, health: 10),
-        .init(id: 2, name: "Spyino", stamina: 20, weight: 20, oxigen: 20, mele: 20, food: 20, movementSpeed: 20, health: 20),
-        .init(id: 3, name: "Anky", stamina: 39, weight: 39, oxigen: 39, mele: 39, food: 39, movementSpeed: 39, health: 39)
+        .init(
+            id: UUID(),
+            name: "Argie",
+            stamina: 10,
+            weight: 10,
+            oxigen: 10,
+            mele: 10,
+            food: 10,
+            movementSpeed: 10,
+            health: 10,
+            map: .island
+        ),
+        .init(
+            id: UUID(),
+            name: "Spyino",
+            stamina: 20,
+            weight: 20,
+            oxigen: 20,
+            mele: 20,
+            food: 20,
+            movementSpeed: 20,
+            health: 20,
+            map: .island
+        ),
+        .init(
+            id: UUID(),
+            name: "Anky",
+            stamina: 39,
+            weight: 39,
+            oxigen: 39,
+            mele: 39,
+            food: 39,
+            movementSpeed: 39,
+            health: 39,
+            map: .island
+        )
     ]
 
     override func setUp() {
@@ -57,7 +90,7 @@ class HomeScreenViewModelTests: XCTestCase {
 
     func test_whenFetchDinosaursIsCalled_andThereAreDinosaursInCache_vmDinosaursGetUpdated() {
         // given
-        let mockDinosaur = Dinosaur(name: "Argie", stamina: 10, weight: 10, oxigen: 10, mele: 10, food: 10, movementSpeed: 10, health: 10)
+        let mockDinosaur = Dinosaur(name: "Argie", stamina: 10, weight: 10, oxigen: 10, mele: 10, food: 10, movementSpeed: 10, health: 10, map: .island)
         mockRealmManager.save(mockDinosaur)
 
         // when
@@ -146,5 +179,27 @@ class HomeScreenViewModelTests: XCTestCase {
         // then
         XCTAssertTrue(mockRealmManager.calledMethods.contains(.delete))
         XCTAssertTrue(mockRealmManager.calledMethods.contains(.fetch))
+    }
+
+    func test_whenFilterByMapIsCalled_callsFetchOnRealmManager_ifMapIsSetToAll() {
+        // given
+        mockRealmManager.saveObjects(mockDinosaurs)
+
+        // when
+        sut.filerBy(map: .all)
+
+        // then
+        XCTAssertTrue(mockRealmManager.calledMethods.contains(.fetch))
+    }
+
+    func test_whenFilterByMapIsCalled_callsFetchByMapOnRealmManager_ifMapIsDifferentFromAll() {
+        // given
+        mockRealmManager.saveObjects(mockDinosaurs)
+
+        // when
+        sut.filerBy(map: .island)
+
+        // then
+        XCTAssertTrue(mockRealmManager.calledMethods.contains(.fetchMap))
     }
 }
