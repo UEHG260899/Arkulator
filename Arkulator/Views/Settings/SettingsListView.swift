@@ -22,6 +22,15 @@ struct SettingsListView: View {
             } header: {
                 Text("App Visualization")
             }
+
+            Section {
+                NavigationLink(destination: FaqsView()) {
+                    Text("FAQ´s")
+                }
+            } header: {
+                Text("Information")
+            }
+
         }
     }
 }

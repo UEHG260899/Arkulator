@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+typealias FaqsArray = Constants.Faqs
+
 struct Constants {
 
     enum ColorSchemes: String, CaseIterable, Identifiable {
@@ -28,6 +30,27 @@ struct Constants {
             .init(fieldType: .dinoFood, fieldLabel: "Food", keyboardType: .numberPad),
             .init(fieldType: .dinoMovementSpeed, fieldLabel: "Movement Speed", keyboardType: .numberPad),
             .init(fieldType: .dinoHealth, fieldLabel: "Health", keyboardType: .numberPad)
+        ]
+    }
+
+    enum Faqs {
+        static var questions = [
+            Faq(
+                question: "What are those emojis on the left side of the dino info?",
+                answer: "Those are the visual representations of the map a Dino is registered in."
+            ),
+            Faq(
+                question: "Where can I see which emoji corresponds to which map?",
+                answer: "\(ArkMap.island.symbol): The Island\n \(ArkMap.scorchedEarth.symbol): Scorched Earth\n \(ArkMap.aberration.symbol): Aberration\n \(ArkMap.extinction.symbol): Extinction\n \(ArkMap.genesisPt1.symbol): Genesis Pt. 1\n \(ArkMap.genesisPt2.symbol): Genesis Pt. 2"
+            ),
+            Faq(
+                question: "I don´t see any of the DLC maps, are you planning to include them?",
+                answer: "In the future, yes."
+            ),
+            Faq(
+                question: "The widgets take to long to update, can I change the refresh time?",
+                answer: "Currently working on it."
+            )
         ]
     }
 }
