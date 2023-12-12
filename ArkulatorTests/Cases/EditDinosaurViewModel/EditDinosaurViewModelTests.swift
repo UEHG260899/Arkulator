@@ -23,7 +23,8 @@ class EditDinosaurViewModelTests: XCTestCase {
                             mele: 10,
                             food: 10,
                             movementSpeed: 10,
-                            health: 10)
+                            health: 10,
+                            map: .aberration)
         mockRealmManager = MockRealmManager(taskName: self.name)
         sut = EditDinosaurViewModel(dinosaur: dinosaur, realmManager: mockRealmManager)
     }
@@ -52,6 +53,14 @@ class EditDinosaurViewModelTests: XCTestCase {
 
     func test_onInit_shouldShowAlert_isFalse() {
         XCTAssertFalse(sut.shouldShowAlert)
+    }
+
+    func test_onInit_setsCorrectMap_accordingToDinosaur() {
+        // Given
+        let expectedMap = ArkMap.aberration.rawValue
+
+        // Then
+        XCTAssertEqual(sut.dinoMap.rawValue, expectedMap)
     }
 
     func test_whenOneOrMoreFormFieldsAreEmpty_isFormValid_returnsFalse() {

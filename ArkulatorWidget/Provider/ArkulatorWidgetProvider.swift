@@ -13,10 +13,15 @@ struct ArkulatorWidgetProvider: TimelineProvider {
     private var realm: Realm {
         let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.arkulator")
         let realmUrl = container?.appendingPathComponent("default.realm")
-        let config = Realm.Configuration(fileURL: realmUrl, schemaVersion: 1) { migration, oldSchemaVersion in
-            if oldSchemaVersion < 1 {
-                migration.enumerateObjects(ofType: Dinosaur.className()) { _, newObject in
+        let config = Realm.Configuration(fileURL: realmUrl, schemaVersion: 2) { migration, oldSchemaVersion in
+            migration.enumerateObjects(ofType: Dinosaur.className()) { _, newObject in
+                switch oldSchemaVersion {
+                case 0:
                     newObject!["id"] = UUID()
+                case 1:
+                    newObject!["map"] = ArkMap.island
+                default:
+                    print("Not supported")
                 }
             }
         }
