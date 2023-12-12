@@ -57,4 +57,8 @@ extension View {
             )
         }
     }
+
+    func isHidden(_ condition: Bool) -> some View {
+        modifier(Hidable(isShowing: condition))
+    }
 }
