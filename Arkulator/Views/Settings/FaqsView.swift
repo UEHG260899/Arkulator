@@ -9,36 +9,12 @@ import SwiftUI
 
 struct FaqsView: View {
 
-    @State private var AllFaqs = FaqsArray.questions
+    @State private var allFAQS = FAQSArray.questions
 
     var body: some View {
         ScrollView {
-            ForEach(Array(FaqsArray.questions.enumerated()), id: \.element) { index, faq in
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack {
-                        Text(faq.question)
-                            .fontWeight(.medium)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-
-                        Button {
-                            withAnimation {
-                                AllFaqs[index].isShowingAnser.toggle()
-                            }
-                        } label: {
-                            Image(systemName: buttonImage(if: AllFaqs[index].isShowingAnser))
-                        }
-                    }
-
-                    Text(faq.answer)
-                        .font(.subheadline)
-                        .multilineTextAlignment(.leading)
-                        .isHidden(AllFaqs[index].isShowingAnser)
-                }
-                .padding()
-                .background(Color.cardColor)
-                .clipShape(RoundedRectangle(cornerRadius: 4))
-                .padding(.horizontal)
-                .padding(.top, 5)
+            ForEach($allFAQS, id: \.self) { $faq in
+                FAQCell(faq: $faq)
             }
         }
         .navigationBarBackButtonHidden()
