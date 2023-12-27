@@ -19,6 +19,7 @@ class Dinosaur: Object, Identifiable {
     @Persisted var movementSpeed: Int
     @Persisted var health: Int
     @Persisted var expectedLevel: Int
+    @Persisted var map: ArkMap
 
     var requiredLevel: Int {
         return stamina + weight + oxigen + mele + food + movementSpeed + health + 1
@@ -36,7 +37,9 @@ class Dinosaur: Object, Identifiable {
          mele: Int,
          food: Int,
          movementSpeed: Int,
-         health: Int) {
+         health: Int,
+         map: ArkMap
+    ) {
         super.init()
         self.id = id
         self.name = name.lowercased()
@@ -48,6 +51,7 @@ class Dinosaur: Object, Identifiable {
         self.movementSpeed = movementSpeed
         self.health = health
         self.expectedLevel = requiredLevel
+        self.map = map
     }
 }
 
@@ -60,6 +64,7 @@ extension Dinosaur {
         mele: 10,
         food: 10,
         movementSpeed: 10,
-        health: 10
+        health: 10,
+        map: .island
     )
 }
