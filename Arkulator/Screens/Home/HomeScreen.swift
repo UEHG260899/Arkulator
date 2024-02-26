@@ -13,7 +13,6 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
     @StateObject var vm: ViewModel
 
     var body: some View {
-        NavigationView {
             ZStack(alignment: .bottom) {
 
                 Color.mainColor
@@ -39,17 +38,16 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
             .onAppear {
                 vm.fetchDinosaurs()
             }
-        }
-        .searchable(text: $vm.queryString, prompt: Text("Search a Dino"))
-        .onChange(of: vm.queryString) { query in
-            vm.filterDinosaurs(query: query)
-        }
-        .arkulatorAlert(
-            title: "Something went wrong when trying to delete",
-            cancelButtonText: "Ok",
-            isPresented: $vm.showError
-        )
-        .animation(.easeIn, value: vm.dinosaurs)
+            .searchable(text: $vm.queryString, prompt: Text("Search a Dino"))
+            .onChange(of: vm.queryString) { query in
+                vm.filterDinosaurs(query: query)
+            }
+            .arkulatorAlert(
+                title: "Something went wrong when trying to delete",
+                cancelButtonText: "Ok",
+                isPresented: $vm.showError
+            )
+            .animation(.easeIn, value: vm.dinosaurs)
     }
 }
 
