@@ -5,6 +5,7 @@
 //  Created by Uriel Hernandez Gonzalez on 16/07/22.
 //
 
+import SwiftUI
 import XCTest
 @testable import Arkulator
 
@@ -61,6 +62,24 @@ class EditDinosaurViewModelTests: XCTestCase {
 
         // Then
         XCTAssertEqual(sut.dinoMap.rawValue, expectedMap)
+    }
+
+    func test_onInit_setsCorrectNavbarVisibility() {
+        // Given
+        let expectedVisibility = Visibility.visible
+
+        // Then
+        XCTAssertEqual(sut.navbarVisibility, expectedVisibility)
+    }
+
+    func test_whenShouldShowModalIsTrue_thenNavbarVisibility_isHidden() {
+        // Given
+        let expectedVisibility = Visibility.hidden
+
+        // When
+        sut.shouldShowAlert = true
+
+        XCTAssertEqual(sut.navbarVisibility, expectedVisibility)
     }
 
     func test_whenOneOrMoreFormFieldsAreEmpty_isFormValid_returnsFalse() {
