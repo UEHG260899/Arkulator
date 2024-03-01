@@ -4,7 +4,7 @@ options:
   bundleIdPrefix: com.urielh
   xcodeVersion: 15.0.1
   deploymentTarget:
-    iOS: "15.0"
+    iOS: "16.0"
   useTabs: false
   postGenCommand: pod install
 
