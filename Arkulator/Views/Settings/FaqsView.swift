@@ -24,6 +24,7 @@ struct FaqsView: View {
                 CustomBackButton()
             }
         }
+        .background(Color.mainColor)
     }
 
     private func buttonImage(if isShowingAnswer: Bool) -> String {

@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+private enum Scheme {
+    static let mainSpacing = 0.0
+    static let spacingBetweenTexts = 2.0
+    static let textsPadding = 20.0
+    static let buttonsMaxHeight = 44.0
+    static let alertBackground = Material.ultraThickMaterial
+    static let alertCornerRadius = 14.0
+    static let alertWidth = 270.0
+    static let alertAnimation = Animation.linear(duration: 0.15)
+}
+
 struct ArkulatorAlert: View {
 
     let title: String
@@ -18,6 +29,14 @@ struct ArkulatorAlert: View {
 
     @State private var opacity = 0.0
 
+    private var alertDescription: String {
+        description ?? ""
+    }
+
+    private var acceptButtonDescription: String {
+        acceptButtonText ?? ""
+    }
+
     var body: some View {
         ZStack {
 
@@ -25,26 +44,24 @@ struct ArkulatorAlert: View {
                 .opacity(0.5)
                 .ignoresSafeArea()
 
-            VStack(spacing: 0) {
-                VStack(spacing: 2) {
+            VStack(spacing: Scheme.mainSpacing) {
+                VStack(spacing: Scheme.spacingBetweenTexts) {
                     Text(title)
                         .font(.body)
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.center)
 
-                    if let description {
-                        Text(description)
-                            .font(.footnote)
-                            .fontWeight(.regular)
-                            .multilineTextAlignment(.center)
-                    }
+                    Text(alertDescription)
+                        .font(.footnote)
+                        .fontWeight(.regular)
+                        .multilineTextAlignment(.center)
+                        .isShowing(if: !alertDescription.isEmpty)
                 }
-                .padding(20)
+                .padding(Scheme.textsPadding)
 
                 Divider()
 
                 HStack {
-
                     Button {
                         isPresented = false
                     } label: {
@@ -56,29 +73,29 @@ struct ArkulatorAlert: View {
 
                     Divider()
 
-                    if let acceptButtonText {
-                        Button {
-                            onAcceptClicked?()
-                        } label: {
-                            Text(acceptButtonText)
-                                .font(.body)
-                                .fontWeight(.semibold)
-                                .frame(maxWidth: .infinity, alignment: .center)
-                        }
+                    Button {
+                        onAcceptClicked?()
+                    } label: {
+                        Text(acceptButtonDescription)
+                            .font(.body)
+                            .fontWeight(.semibold)
+                            .frame(maxWidth: .infinity, alignment: .center)
                     }
-
+                    .isShowing(if: !acceptButtonDescription.isEmpty)
                 }
-                .frame(maxHeight: 44)
+                .frame(maxHeight: Scheme.buttonsMaxHeight)
+
             }
-            .background(.ultraThickMaterial)
-            .cornerRadius(14)
-            .frame(width: 270)
+            .background(Scheme.alertBackground)
+            .cornerRadius(Scheme.alertCornerRadius)
+            .frame(width: Scheme.alertWidth)
+
         }
         .opacity(opacity)
         .onChange(of: isPresented) { newValue in
             opacity = newValue ? 1 : 0
         }
-        .animation(.linear(duration: 0.15), value: opacity)
+        .animation(Scheme.alertAnimation, value: opacity)
     }
 }
 

@@ -9,15 +9,13 @@ import SwiftUI
 
 struct SettingsScreen: View {
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.mainColor
-                    .ignoresSafeArea()
-
-                SettingsListView()
-            }
-            .navigationTitle("Settings")
+        ZStack {
+            Color.mainColor
+                .ignoresSafeArea()
+            
+            SettingsListView()
         }
+        .navigationTitle("Settings")
     }
 }
 

@@ -11,17 +11,21 @@ struct TabsScreen: View {
     var body: some View {
         TabView {
 
-            HomeScreenFactory.make()
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
-                .tag(0)
+            NavigationStack {
+                HomeScreenFactory.make()
+            }
+            .tabItem {
+                Label("Home", systemImage: "house")
+            }
+            .tag(0)
 
-            SettingsScreen()
-                .tabItem {
-                    Label("Settings", systemImage: "gear")
-                }
-                .tag(1)
+            NavigationStack {
+                SettingsScreen()
+            }
+            .tabItem {
+                Label("Settings", systemImage: "gear")
+            }
+            .tag(1)
 
         }
         .accentColor(.uiAccentColor)

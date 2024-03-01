@@ -32,7 +32,7 @@ struct EditDinosaurScreen<ViewModel: EditDinosaurViewModelProtocol>: View {
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
-                Button(action: { isFocused = nil  }, label: {
+                Button(action: { isFocused = nil }, label: {
                     Text("Done")
                 })
             }
@@ -41,6 +41,8 @@ struct EditDinosaurScreen<ViewModel: EditDinosaurViewModelProtocol>: View {
                 CustomBackButton()
             }
         }
+        .toolbar(vm.navbarVisibility, for: .navigationBar)
+        .animation(.linear, value: vm.navbarVisibility)
     }
 
     var content: some View {
@@ -87,6 +89,7 @@ struct EditDinosaurView_Previews: PreviewProvider {
         var dinoMap: ArkMap = .island
         var shouldShowAlert = false
         var isFormValid = false
+        var navbarVisibility: Visibility = .visible
 
         func updateDinosaur() {}
     }

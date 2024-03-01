@@ -30,7 +30,7 @@ struct FAQCell: View {
             Text(faq.answer)
                 .font(.subheadline)
                 .multilineTextAlignment(.leading)
-                .isHidden(faq.isShowingAnswer)
+                .isShowing(if: faq.isShowingAnswer)
         }
         .padding()
         .background(Color.cardColor)

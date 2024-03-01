@@ -13,7 +13,6 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
     @StateObject var vm: ViewModel
 
     var body: some View {
-        NavigationView {
             ZStack(alignment: .bottom) {
 
                 Color.mainColor
@@ -25,12 +24,6 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
                     onMapSelected: vm.filerBy(map:)
                 )
 
-                NavigationLink(
-                    destination: DinosaurStatsScreenFactory.make(),
-                    isActive: $vm.shouldShowForm,
-                    label: {}
-                )
-
                 FloatingButton {
                     vm.shouldShowForm = true
                 }
@@ -39,17 +32,18 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
             .onAppear {
                 vm.fetchDinosaurs()
             }
-        }
-        .searchable(text: $vm.queryString, prompt: Text("Search a Dino"))
-        .onChange(of: vm.queryString) { query in
-            vm.filterDinosaurs(query: query)
-        }
-        .arkulatorAlert(
-            title: "Something went wrong when trying to delete",
-            cancelButtonText: "Ok",
-            isPresented: $vm.showError
-        )
-        .animation(.easeIn, value: vm.dinosaurs)
+            .searchable(text: $vm.queryString, prompt: Text("Search a Dino"))
+            .onChange(of: vm.queryString) { query in
+                vm.filterDinosaurs(query: query)
+            }
+            .navigationDestination(isPresented: $vm.shouldShowForm, destination: DinosaurStatsScreenFactory.make)
+            .arkulatorAlert(
+                title: "Something went wrong when trying to delete",
+                cancelButtonText: "Ok",
+                isPresented: $vm.showError
+            )
+            .toolbar(vm.navbarVisibility, for: .navigationBar)
+            .animation(.easeIn, value: vm.dinosaurs)
     }
 }
 
@@ -60,6 +54,7 @@ struct HomeView_Previews: PreviewProvider {
         var queryString = ""
         var shouldShowForm = false
         var showError = false
+        var navbarVisibility: Visibility = .visible
 
         func fetchDinosaurs() {}
         func filterDinosaurs(query: String) {}
