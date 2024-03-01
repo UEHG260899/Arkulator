@@ -32,6 +32,11 @@ struct SettingsListView: View {
             }
 
         }
+        .if(colorScheme == .dark) { view in
+            view
+                .scrollContentBackground(.hidden)
+                .background(Color.mainColor)
+        }
     }
 }
 

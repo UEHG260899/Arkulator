@@ -11,7 +11,7 @@ struct TabsScreen: View {
     var body: some View {
         TabView {
 
-            NavigationView {
+            NavigationStack {
                 HomeScreenFactory.make()
             }
             .tabItem {
@@ -19,7 +19,7 @@ struct TabsScreen: View {
             }
             .tag(0)
 
-            NavigationView {
+            NavigationStack {
                 SettingsScreen()
             }
             .tabItem {

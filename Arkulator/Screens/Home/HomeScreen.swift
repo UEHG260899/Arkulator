@@ -24,12 +24,6 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
                     onMapSelected: vm.filerBy(map:)
                 )
 
-                NavigationLink(
-                    destination: DinosaurStatsScreenFactory.make(),
-                    isActive: $vm.shouldShowForm,
-                    label: {}
-                )
-
                 FloatingButton {
                     vm.shouldShowForm = true
                 }
@@ -42,6 +36,7 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
             .onChange(of: vm.queryString) { query in
                 vm.filterDinosaurs(query: query)
             }
+            .navigationDestination(isPresented: $vm.shouldShowForm, destination: DinosaurStatsScreenFactory.make)
             .arkulatorAlert(
                 title: "Something went wrong when trying to delete",
                 cancelButtonText: "Ok",
