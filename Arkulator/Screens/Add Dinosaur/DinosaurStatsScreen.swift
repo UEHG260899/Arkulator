@@ -41,6 +41,8 @@ struct DinosaurStatsScreen<ViewModel: DinosaurStatsScreenViewModelProtocol>: Vie
             isPresented: $vm.shouldShowAlert,
             onAcceptClicked: saveDinosaur
         )
+        .toolbar(vm.navbarVisibility, for: .navigationBar)
+        .animation(.linear, value: vm.navbarVisibility)
     }
 
     var content: some View {
@@ -87,6 +89,7 @@ struct DinosaurStatsView_Previews: PreviewProvider {
         var dinoMap: ArkMap = .island
         var isFormValid = false
         var shouldShowAlert = false
+        var navbarVisibility: Visibility = .visible
 
         func saveDinosaur() {}
     }

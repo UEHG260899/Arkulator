@@ -47,6 +47,7 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
                 cancelButtonText: "Ok",
                 isPresented: $vm.showError
             )
+            .toolbar(vm.navbarVisibility, for: .navigationBar)
             .animation(.easeIn, value: vm.dinosaurs)
     }
 }
@@ -58,6 +59,7 @@ struct HomeView_Previews: PreviewProvider {
         var queryString = ""
         var shouldShowForm = false
         var showError = false
+        var navbarVisibility: Visibility = .visible
 
         func fetchDinosaurs() {}
         func filterDinosaurs(query: String) {}

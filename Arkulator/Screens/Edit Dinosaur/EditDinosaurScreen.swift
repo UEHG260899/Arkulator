@@ -32,7 +32,7 @@ struct EditDinosaurScreen<ViewModel: EditDinosaurViewModelProtocol>: View {
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
-                Button(action: { isFocused = nil  }, label: {
+                Button(action: { isFocused = nil }, label: {
                     Text("Done")
                 })
             }
