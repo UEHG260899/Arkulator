@@ -22,7 +22,7 @@ class EditDinosaurViewModel: EditDinosaurViewModelProtocol {
     @Published var dinoMap: ArkMap = .island
     @Published var shouldShowAlert = false
 
-    private let realmManager: RealmManagerProtocol
+    private let storageManager: StorageManagerProtocol
     private let dinoId: UUID
 
     var isFormValid: Bool {
@@ -35,9 +35,9 @@ class EditDinosaurViewModel: EditDinosaurViewModelProtocol {
         shouldShowAlert ? .hidden : .visible
     }
 
-    init(dinosaur: Dinosaur, realmManager: RealmManagerProtocol) {
+    init(dinosaur: Dinosaur, realmManager: StorageManagerProtocol) {
         self.dinoId = dinosaur.id
-        self.realmManager = realmManager
+        self.storageManager = realmManager
         self.formData[0].fieldText = dinosaur.name.capitalized
         self.formData[1].fieldText = String(dinosaur.stamina)
         self.formData[2].fieldText = String(dinosaur.weight)
@@ -63,6 +63,6 @@ class EditDinosaurViewModel: EditDinosaurViewModelProtocol {
             map: dinoMap
         )
 
-        realmManager.save(dino)
+        storageManager.save(dino)
     }
 }

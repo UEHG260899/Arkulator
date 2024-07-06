@@ -33,10 +33,10 @@ class DinosaurStatsViewModel: DinosaurStatsScreenViewModelProtocol {
         shouldShowAlert ? .hidden : .visible
     }
 
-    private let realmManager: RealmManagerProtocol
+    private let storageManager: StorageManagerProtocol
 
-    init(realmManager: RealmManagerProtocol) {
-        self.realmManager = realmManager
+    init(realmManager: StorageManagerProtocol) {
+        self.storageManager = realmManager
     }
 
     func saveDinosaur() {
@@ -52,6 +52,6 @@ class DinosaurStatsViewModel: DinosaurStatsScreenViewModelProtocol {
                                 health: formData[safe: 7]?.intValue ?? 0,
                                 map: dinoMap)
 
-        realmManager.save(dinosaur)
+        storageManager.save(dinosaur)
     }
 }

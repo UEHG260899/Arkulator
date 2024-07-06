@@ -1,5 +1,5 @@
 //
-//  RealmManagerProtocol.swift
+//  StorageManagerProtocol.swift
 //  Arkulator
 //
 //  Created by Uriel Hernandez Gonzalez on 16/07/23.
@@ -8,9 +8,9 @@
 import Foundation
 import RealmSwift
 
-protocol RealmManagerProtocol {
+protocol StorageManagerProtocol {
     func save<T: Object>(_ object: T)
-    func fetch<T: Object>(type: T.Type) -> Results<T>
-    func fetch<T: Object>(type: T.Type, map: ArkMap) -> Results<T>
+    func fetch<T: Object>(type: T.Type) -> [T]
+    func fetch<T: Object>(type: T.Type, map: ArkMap) -> [T]
     func delete<T: Object>(_ object: T)
 }

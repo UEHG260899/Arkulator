@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-struct RealmManager: RealmManagerProtocol {
+struct RealmManager: StorageManagerProtocol {
     private let realm = try! Realm()
 
     func save<T: Object>(_ object: T) {
@@ -22,12 +22,12 @@ struct RealmManager: RealmManagerProtocol {
         }
     }
 
-    func fetch<T: Object>(type: T.Type) -> Results<T> {
-        return realm.objects(type)
+    func fetch<T: Object>(type: T.Type) -> [T] {
+        return Array(realm.objects(type))
     }
 
-    func fetch<T: Object>(type: T.Type, map: ArkMap) -> Results<T> {
-        return realm.objects(type).filter("map = %@", map.rawValue)
+    func fetch<T: Object>(type: T.Type, map: ArkMap) -> [T] {
+        return Array(realm.objects(type).filter("map = %@", map.rawValue))
     }
 
     func delete<T: Object>(_ object: T) {

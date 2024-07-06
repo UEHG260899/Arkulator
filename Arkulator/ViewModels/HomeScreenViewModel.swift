@@ -32,10 +32,10 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol {
         showError ? .hidden : .visible
     }
 
-    private let realmManager: RealmManagerProtocol
+    private let storageManager: StorageManagerProtocol
 
-    init(realmManager: RealmManagerProtocol) {
-        self.realmManager = realmManager
+    init(realmManager: StorageManagerProtocol) {
+        self.storageManager = realmManager
     }
 
     func fetchDinosaurs() {
@@ -53,7 +53,7 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol {
     }
 
     private func setDinosaurs() {
-        let cachedDinosaurs = realmManager.fetch(type: Dinosaur.self)
+        let cachedDinosaurs = storageManager.fetch(type: Dinosaur.self)
         dinosaurs = Array(cachedDinosaurs)
     }
 
@@ -63,8 +63,8 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol {
             return
         }
 
-        let filteredDinos = realmManager.fetch(type: Dinosaur.self, map: map)
-        dinosaurs = Array(filteredDinos)
+        let filteredDinos = storageManager.fetch(type: Dinosaur.self, map: map)
+        dinosaurs = filteredDinos
     }
 
     func deleteDinosaur(at index: IndexSet) {
@@ -74,7 +74,7 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol {
             return
         }
 
-        realmManager.delete(dinosaur)
+        storageManager.delete(dinosaur)
         fetchDinosaurs()
     }
 
