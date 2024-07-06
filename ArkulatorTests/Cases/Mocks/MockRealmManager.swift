@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 @testable import Arkulator
 
-class MockRealmManager: RealmManagerProtocol {
+class MockRealmManager: StorageManagerProtocol {
 
     struct CalledMethods: OptionSet {
         let rawValue: Int
@@ -41,14 +41,14 @@ class MockRealmManager: RealmManagerProtocol {
         }
     }
 
-    func fetch<T: Object>(type: T.Type) -> Results<T> {
+    func fetch<T: Object>(type: T.Type) -> [T] {
         calledMethods.insert(.fetch)
-        return realm.objects(type)
+        return Array(realm.objects(type))
     }
 
-    func fetch<T: Object>(type: T.Type, map: ArkMap) -> Results<T> {
+    func fetch<T: Object>(type: T.Type, map: ArkMap) -> [T] {
         calledMethods.insert(.fetchMap)
-        return realm.objects(type).filter("map = %@", map.rawValue)
+        return Array(realm.objects(type).filter("map = %@", map.rawValue))
     }
 
     func delete<T: Object>(_ object: T) {
