@@ -12,7 +12,7 @@ struct SettingsScreen: View {
         ZStack {
             Color.mainColor
                 .ignoresSafeArea()
-            
+
             SettingsListView()
         }
         .navigationTitle("Settings")

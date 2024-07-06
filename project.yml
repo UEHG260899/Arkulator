@@ -6,16 +6,20 @@ options:
   deploymentTarget:
     iOS: "16.0"
   useTabs: false
-  postGenCommand: pod install
 
 settings:
   base:
     CODE_SIGN_STYLE: Automatic
     DEVELOPMENT_TEAM: 5P4JJDT7CR
-    MARKETING_VERSION: "1.5.2"
+    MARKETING_VERSION: "1.5.3"
     BUNDLE_VERSION: "1"
     CURRENT_PROJECT_VERSION: 1
     SWIFT_VERSION: 5.0
+
+packages:
+  RealmSwift:
+    url: https://github.com/realm/realm-swift
+    version: 10.30.0
 
 targets:
   Arkulator:
@@ -57,6 +61,8 @@ targets:
         com.apple.security.application-groups: [group.com.arkulator]
     dependencies:
       - target: ArkulatorWidgetExtension
+      - package: RealmSwift
+
   ArkulatorTests:
     settings:
       TARGETED_DEVICE_FAMILY: 1
@@ -66,6 +72,7 @@ targets:
     type: bundle.unit-test
     dependencies:
       - target: Arkulator
+      - package: RealmSwift
     sources:
       ArkulatorTests
     info:
@@ -82,6 +89,7 @@ targets:
     sources:
       ArkulatorWidget
     dependencies:
+      - package: RealmSwift
       - sdk: SwiftUI.framework
       - sdk: WidgetKit.framework
     info:
