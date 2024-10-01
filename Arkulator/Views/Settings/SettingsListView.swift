@@ -10,8 +10,6 @@ import SwiftUI
 struct SettingsListView: View {
 
     @AppStorage("colorScheme") private var colorScheme: Constants.ColorSchemes = .light
-    @AppStorage("widgetRefreshTime", store: UserDefaults(suiteName: "group.com.arkulator"))
-    private var widgetRefreshTime = 10
 
     var body: some View {
         Form {
@@ -23,19 +21,6 @@ struct SettingsListView: View {
                 }
             } header: {
                 Text("App Visualization")
-            }
-
-            Section {
-                Picker("Widget refresh time (In minutes)", selection: $widgetRefreshTime) {
-                    Text("5")
-                        .tag(5)
-                    Text("10")
-                        .tag(10)
-                    Text("15")
-                        .tag(15)
-                }
-            } header: {
-                Text("Widgets")
             }
 
             Section {
