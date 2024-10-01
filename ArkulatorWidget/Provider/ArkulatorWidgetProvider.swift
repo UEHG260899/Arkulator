@@ -28,6 +28,8 @@ struct ArkulatorWidgetProvider: TimelineProvider {
         return try! Realm(configuration: config)
     }
 
+    private let userDefaults = UserDefaults(suiteName: "group.com.arkulator")
+
     func placeholder(in context: Context) -> ArkulatorWidgetEntry {
         ArkulatorWidgetEntry(date: Date(), dinosaurs: [.placeholder])
     }
@@ -63,7 +65,8 @@ struct ArkulatorWidgetProvider: TimelineProvider {
             debugPrint("Not supported")
         }
 
-        let nextUpdate = Calendar.current.date(byAdding: .init(minute: 10), to: Date())!
+        let storedUpdate = userDefaults?.integer(forKey: "widgetRefreshTime")
+        let nextUpdate = Calendar.current.date(byAdding: .init(minute: storedUpdate ?? 10), to: Date())!
         let timeline = Timeline(entries: [dinoEntry], policy: .after(nextUpdate))
         completion(timeline)
     }

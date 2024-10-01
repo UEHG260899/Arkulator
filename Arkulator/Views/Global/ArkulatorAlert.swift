@@ -92,7 +92,7 @@ struct ArkulatorAlert: View {
 
         }
         .opacity(opacity)
-        .onChange(of: isPresented) { newValue in
+        .onChange(of: isPresented) { _, newValue in
             opacity = newValue ? 1 : 0
         }
         .animation(Scheme.alertAnimation, value: opacity)
