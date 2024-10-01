@@ -6,6 +6,7 @@ options:
   deploymentTarget:
     iOS: "17.0"
   useTabs: false
+  postGenCommand: "open Arkulator.xcodeproj"
 
 settings:
   base:
