@@ -37,9 +37,6 @@ struct FAQCell: View {
         .clipShape(RoundedRectangle(cornerRadius: 4))
         .padding(.horizontal)
         .padding(.top, 5)
-        .onChange(of: faq.isShowingAnswer) {
-            print($0)
-        }
     }
 
     var buttonImage: String {

@@ -4,7 +4,7 @@ options:
   bundleIdPrefix: com.urielh
   xcodeVersion: 15.0.1
   deploymentTarget:
-    iOS: "16.0"
+    iOS: "17.0"
   useTabs: false
 
 settings:
@@ -15,6 +15,7 @@ settings:
     BUNDLE_VERSION: "1"
     CURRENT_PROJECT_VERSION: 1
     SWIFT_VERSION: 5.0
+#    SWIFT_STRICT_CONCURRENCY: "complete"
 
 packages:
   RealmSwift:
