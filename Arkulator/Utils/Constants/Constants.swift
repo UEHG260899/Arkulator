@@ -41,11 +41,7 @@ struct Constants {
             ),
             FAQ(
                 question: "Where can I see which emoji corresponds to which map?",
-                answer: "\(ArkMap.island.symbol): The Island\n \(ArkMap.scorchedEarth.symbol): Scorched Earth\n \(ArkMap.aberration.symbol): Aberration\n \(ArkMap.extinction.symbol): Extinction\n \(ArkMap.genesisPt1.symbol): Genesis Pt. 1\n \(ArkMap.genesisPt2.symbol): Genesis Pt. 2"
-            ),
-            FAQ(
-                question: "I don´t see any of the DLC maps, are you planning to include them?",
-                answer: "In the future, yes."
+                answer: "\(ArkMap.island.symbol): The Island\n \(ArkMap.scorchedEarth.symbol): Scorched Earth\n \(ArkMap.aberration.symbol): Aberration\n \(ArkMap.extinction.symbol): Extinction\n \(ArkMap.genesisPt1.symbol): Genesis Pt. 1\n \(ArkMap.genesisPt2.symbol): Genesis Pt. 2\n \(ArkMap.theCenter.symbol): The Center\n \(ArkMap.ragnarok.symbol): Ragnarok\n \(ArkMap.valguero.symbol): Valguero\n \(ArkMap.crystalIsles.symbol): Crystal Isles\n \(ArkMap.lostIsland.symbol): Lost Island\n \(ArkMap.fjordur.symbol): Fjordur"
             ),
             FAQ(
                 question: "The widgets take to long to update, can I change the refresh time?",
