@@ -33,7 +33,7 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
                 vm.fetchDinosaurs()
             }
             .searchable(text: $vm.queryString, prompt: Text("Search a Dino"))
-            .onChange(of: vm.queryString) { query in
+            .onChange(of: vm.queryString) { _, query in
                 vm.filterDinosaurs(query: query)
             }
             .navigationDestination(isPresented: $vm.shouldShowForm, destination: DinosaurStatsScreenFactory.make)
