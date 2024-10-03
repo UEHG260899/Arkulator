@@ -45,7 +45,7 @@ struct Constants {
             ),
             FAQ(
                 question: "The widgets take to long to update, can I change the refresh time?",
-                answer: "Currently working on it."
+                answer: "This won´t be implemented. iOS has a widget refresh limit per day. Even though I made it work in my development environment, on a physical device was inconsistent."
             )
         ]
     }
