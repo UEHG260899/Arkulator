@@ -34,13 +34,10 @@ struct DinosaurStatsScreen<ViewModel: DinosaurStatsScreenViewModelProtocol>: Vie
                 CustomBackButton()
             }
         }
-        .arkulatorAlert(
-            title: "Are you sure you want to save the data?",
-            cancelButtonText: "No",
-            acceptButtonText: "Yes",
-            isPresented: $vm.shouldShowAlert,
-            onAcceptClicked: saveDinosaur
-        )
+        .alert("Are you sure you want to save the data?", isPresented: $vm.shouldShowAlert) {
+            Button("No", action: {})
+            Button("Yes", action: saveDinosaur)
+        }
         .toolbar(vm.navbarVisibility, for: .navigationBar)
         .animation(.linear, value: vm.navbarVisibility)
     }

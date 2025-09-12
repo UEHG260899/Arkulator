@@ -22,13 +22,10 @@ struct EditDinosaurScreen<ViewModel: EditDinosaurViewModelProtocol>: View {
         }
         .navigationTitle(vm.formData[safe: 0]?.fieldText.capitalized ?? "")
         .navigationBarBackButtonHidden(true)
-        .arkulatorAlert(
-            title: "Are you sure you want to save the data?",
-            cancelButtonText: "No",
-            acceptButtonText: "Yes",
-            isPresented: $vm.shouldShowAlert,
-            onAcceptClicked: saveDinosaur
-        )
+        .alert("Are you sure you want to save the data?", isPresented: $vm.shouldShowAlert) {
+            Button("No", action: {})
+            Button("Yes", action: saveDinosaur)
+        }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
