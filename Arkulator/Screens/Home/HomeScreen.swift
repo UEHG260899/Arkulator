@@ -37,11 +37,9 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
                 vm.filterDinosaurs(query: query)
             }
             .navigationDestination(isPresented: $vm.shouldShowForm, destination: DinosaurStatsScreenFactory.make)
-            .arkulatorAlert(
-                title: "Something went wrong when trying to delete",
-                cancelButtonText: "Ok",
-                isPresented: $vm.showError
-            )
+            .alert("Something went wrong when trying to delete.", isPresented: $vm.showError) {
+                Button("Ok", role: .destructive, action: {})
+            }
             .toolbar(vm.navbarVisibility, for: .navigationBar)
             .animation(.easeIn, value: vm.dinosaurs)
     }
