@@ -13,7 +13,6 @@ protocol DinosaurStatsScreenViewModelProtocol: ObservableObject {
     var dinoMap: ArkMap { get set }
     var isFormValid: Bool { get }
     var shouldShowAlert: Bool { get set }
-    var navbarVisibility: Visibility { get }
 
     func saveDinosaur()
 }
@@ -27,10 +26,6 @@ class DinosaurStatsViewModel: DinosaurStatsScreenViewModelProtocol {
         var isValid = true
         formFields.forEach { isValid = !$0.fieldText.isEmpty && isValid }
         return isValid
-    }
-
-    var navbarVisibility: Visibility {
-        shouldShowAlert ? .hidden : .visible
     }
 
     private let storageManager: StorageManagerProtocol

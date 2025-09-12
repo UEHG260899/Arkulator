@@ -37,12 +37,9 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
                 vm.filterDinosaurs(query: query)
             }
             .navigationDestination(isPresented: $vm.shouldShowForm, destination: DinosaurStatsScreenFactory.make)
-            .arkulatorAlert(
-                title: "Something went wrong when trying to delete",
-                cancelButtonText: "Ok",
-                isPresented: $vm.showError
-            )
-            .toolbar(vm.navbarVisibility, for: .navigationBar)
+            .alert("Something went wrong when trying to delete.", isPresented: $vm.showError) {
+                Button("Ok", role: .destructive, action: {})
+            }
             .animation(.easeIn, value: vm.dinosaurs)
     }
 }
@@ -54,7 +51,6 @@ struct HomeView_Previews: PreviewProvider {
         var queryString = ""
         var shouldShowForm = false
         var showError = false
-        var navbarVisibility: Visibility = .visible
 
         func fetchDinosaurs() {}
         func filterDinosaurs(query: String) {}

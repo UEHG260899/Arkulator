@@ -34,15 +34,10 @@ struct DinosaurStatsScreen<ViewModel: DinosaurStatsScreenViewModelProtocol>: Vie
                 CustomBackButton()
             }
         }
-        .arkulatorAlert(
-            title: "Are you sure you want to save the data?",
-            cancelButtonText: "No",
-            acceptButtonText: "Yes",
-            isPresented: $vm.shouldShowAlert,
-            onAcceptClicked: saveDinosaur
-        )
-        .toolbar(vm.navbarVisibility, for: .navigationBar)
-        .animation(.linear, value: vm.navbarVisibility)
+        .alert("Are you sure you want to save the data?", isPresented: $vm.shouldShowAlert) {
+            Button("No", action: {})
+            Button("Yes", action: saveDinosaur)
+        }
     }
 
     var content: some View {
@@ -89,7 +84,6 @@ struct DinosaurStatsView_Previews: PreviewProvider {
         var dinoMap: ArkMap = .island
         var isFormValid = false
         var shouldShowAlert = false
-        var navbarVisibility: Visibility = .visible
 
         func saveDinosaur() {}
     }

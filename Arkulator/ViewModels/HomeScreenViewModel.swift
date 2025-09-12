@@ -13,7 +13,6 @@ protocol HomeScreenViewModelProtocol: ObservableObject {
     var queryString: String { get set }
     var shouldShowForm: Bool { get set }
     var showError: Bool { get set }
-    var navbarVisibility: Visibility { get }
 
     func fetchDinosaurs()
     func filterDinosaurs(query: String)
@@ -28,9 +27,6 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol {
     @Published var shouldShowForm = false
     @Published var showError = false
 
-    var navbarVisibility: Visibility {
-        showError ? .hidden : .visible
-    }
 
     private let storageManager: StorageManagerProtocol
 
