@@ -27,10 +27,8 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol {
     @Published var shouldShowForm = false
     @Published var showError = false
     
-    private var storedDinos: [Dinosaur] = [Dinosaur]()
-
-
     private let storageManager: StorageManagerProtocol
+    private var storedDinos: [Dinosaur] = [Dinosaur]()
 
     init(realmManager: StorageManagerProtocol) {
         self.storageManager = realmManager
