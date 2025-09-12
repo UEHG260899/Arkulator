@@ -21,6 +21,7 @@ struct UIDinosaur: Identifiable, Equatable {
     let map: ArkMap
 }
 
+// Put in an extension to preserve memberwise initializer
 extension UIDinosaur {
     init(from dinosaur: Dinosaur) {
         self.id = dinosaur.id
