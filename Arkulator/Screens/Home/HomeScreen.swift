@@ -10,7 +10,7 @@ import RealmSwift
 
 struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
 
-    @StateObject var vm: ViewModel
+    @State var vm: ViewModel
 
     var body: some View {
             ZStack(alignment: .bottom) {

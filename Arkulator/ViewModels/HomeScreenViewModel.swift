@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-import RealmSwift
 
-protocol HomeScreenViewModelProtocol: ObservableObject {
+protocol HomeScreenViewModelProtocol {
     var dinosaurs: [UIDinosaur] { get set }
     var queryString: String { get set }
     var shouldShowForm: Bool { get set }
@@ -20,14 +19,17 @@ protocol HomeScreenViewModelProtocol: ObservableObject {
     func deleteDinosaur(at index: IndexSet)
 }
 
-class HomeScreenViewModel: HomeScreenViewModelProtocol {
+@Observable
+final class HomeScreenViewModel: HomeScreenViewModelProtocol {
 
-    @Published var dinosaurs = [UIDinosaur]()
-    @Published var queryString = ""
-    @Published var shouldShowForm = false
-    @Published var showError = false
+    var dinosaurs = [UIDinosaur]()
+    var queryString = ""
+    var shouldShowForm = false
+    var showError = false
 
     private let storageManager: StorageManagerProtocol
+
+    @ObservationIgnored
     private var storedDinos: [Dinosaur] = [Dinosaur]()
 
     init(realmManager: StorageManagerProtocol) {
