@@ -19,7 +19,7 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
                     .ignoresSafeArea()
 
                 DinosaurListView(
-                    dinosaurs: vm.dinosaurs,
+                    dinosaurs: vm.dinosaurs.map { Dinosaur(from: $0) },
                     onDelete: vm.deleteDinosaur(at:),
                     onMapSelected: vm.filerBy(map:)
                 )
@@ -47,7 +47,7 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
 struct HomeView_Previews: PreviewProvider {
 
     class MockVM: HomeScreenViewModelProtocol {
-        var dinosaurs = [Dinosaur]()
+        var dinosaurs = [UIDinosaur]()
         var queryString = ""
         var shouldShowForm = false
         var showError = false

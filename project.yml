@@ -21,7 +21,7 @@ settings:
 packages:
   RealmSwift:
     url: https://github.com/realm/realm-swift
-    version: 10.30.0
+    version: 10.49.0
 
 targets:
   Arkulator:
