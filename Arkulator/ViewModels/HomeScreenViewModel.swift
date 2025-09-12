@@ -15,7 +15,7 @@ protocol HomeScreenViewModelProtocol {
 
     func fetchDinosaurs()
     func filterDinosaurs(query: String)
-    func filerBy(map: ArkMap)
+    func filterBy(map: ArkMap)
     func deleteDinosaur(at index: IndexSet)
 }
 
@@ -57,7 +57,7 @@ final class HomeScreenViewModel: HomeScreenViewModelProtocol {
         self.storedDinos = cachedDinosaurs
     }
 
-    func filerBy(map: ArkMap) {
+    func filterBy(map: ArkMap) {
         guard map != .all else {
             fetchDinosaurs()
             return
