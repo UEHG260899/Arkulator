@@ -19,7 +19,9 @@ struct UIDinosaur: Identifiable, Equatable {
     let health: Int
     let expectedLevel: Int
     let map: ArkMap
+}
 
+extension UIDinosaur {
     init(from dinosaur: Dinosaur) {
         self.id = dinosaur.id
         self.name = dinosaur.name.lowercased()
@@ -33,5 +35,4 @@ struct UIDinosaur: Identifiable, Equatable {
         self.expectedLevel = stamina + weight + oxigen + mele + food + movementSpeed + health + 1
         self.map = dinosaur.map
     }
-
 }

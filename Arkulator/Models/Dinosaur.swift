@@ -53,19 +53,19 @@ final class Dinosaur: Object, Identifiable {
         self.map = map
     }
 
-    init(from: UIDinosaur) {
+    init(from uiDino: UIDinosaur) {
         super.init()
-        self.id = from.id
-        self.name = from.name.lowercased()
-        self.stamina = from.stamina
-        self.weight = from.weight
-        self.oxigen = from.oxigen
-        self.mele = from.mele
-        self.food = from.food
-        self.movementSpeed = from.movementSpeed
-        self.health = from.health
+        self.id = uiDino.id
+        self.name = uiDino.name.lowercased()
+        self.stamina = uiDino.stamina
+        self.weight = uiDino.weight
+        self.oxigen = uiDino.oxigen
+        self.mele = uiDino.mele
+        self.food = uiDino.food
+        self.movementSpeed = uiDino.movementSpeed
+        self.health = uiDino.health
         self.expectedLevel = requiredLevel
-        self.map = from.map
+        self.map = uiDino.map
     }
 
 }
