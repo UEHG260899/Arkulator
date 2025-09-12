@@ -8,7 +8,6 @@
 import SwiftUI
 import RealmSwift
 
-// TODO: Fix the issue where the list doesnt update when updating a dino
 struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
 
     @StateObject var vm: ViewModel

@@ -26,7 +26,7 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol {
     @Published var queryString = ""
     @Published var shouldShowForm = false
     @Published var showError = false
-    
+
     private let storageManager: StorageManagerProtocol
     private var storedDinos: [Dinosaur] = [Dinosaur]()
 
