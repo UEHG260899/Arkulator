@@ -12,7 +12,6 @@ protocol EditDinosaurViewModelProtocol: ObservableObject {
     var dinoMap: ArkMap { get set }
     var shouldShowAlert: Bool { get set }
     var isFormValid: Bool { get }
-    var navbarVisibility: Visibility { get }
 
     func updateDinosaur()
 }
@@ -29,10 +28,6 @@ class EditDinosaurViewModel: EditDinosaurViewModelProtocol {
         var isFormValid = true
         formData.forEach { isFormValid = !$0.fieldText.isEmpty && isFormValid }
         return isFormValid
-    }
-
-    var navbarVisibility: Visibility {
-        shouldShowAlert ? .hidden : .visible
     }
 
     init(dinosaur: Dinosaur, realmManager: StorageManagerProtocol) {

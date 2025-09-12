@@ -81,25 +81,6 @@ class HomeScreenViewModelTests: XCTestCase {
         XCTAssertFalse(sut.showError)
     }
 
-    func test_onInit_navbarVisibility_isVisible() {
-        // Given
-        let expectedVisibility: Visibility = .visible
-
-        // Then
-        XCTAssertEqual(sut.navbarVisibility, expectedVisibility)
-    }
-
-    func test_whenShowErrorIsTrue_navbarVisibility_isHidden() {
-        // given
-        let expectedVisibility: Visibility = .hidden
-
-        // when
-        sut.showError = true
-
-        // then
-        XCTAssertEqual(sut.navbarVisibility, expectedVisibility)
-    }
-
     func test_whenFetchDinosaursIsCalled_itCallsFetch_onRealmManager() {
         // when
         sut.fetchDinosaurs()

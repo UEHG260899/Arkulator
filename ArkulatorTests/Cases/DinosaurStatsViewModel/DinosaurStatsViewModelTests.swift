@@ -46,25 +46,6 @@ class DinosaurStatsViewModelTests: XCTestCase {
         XCTAssertEqual(sut.dinoMap.rawValue, expectedValue)
     }
 
-    func test_onInit_navbarVisibility_isSetToVisible() {
-        // Given
-        let expectedVisibility: Visibility = .visible
-
-        // Then
-        XCTAssertEqual(sut.navbarVisibility, expectedVisibility)
-    }
-
-    func test_whenShouldShowAlert_isSetToTrue_navbarVisibilityIsHidden() {
-        // Given
-        let expectedVisibility: Visibility = .hidden
-
-        // When
-        sut.shouldShowAlert = true
-
-        // Then
-        XCTAssertEqual(sut.navbarVisibility, expectedVisibility)
-    }
-
     func test_whenSomeFormFieldsAreEmpty_isFormValidStillReturnsFalse() {
         // when
         let mockData: [FormField] = [

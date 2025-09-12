@@ -40,7 +40,6 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
             .alert("Something went wrong when trying to delete.", isPresented: $vm.showError) {
                 Button("Ok", role: .destructive, action: {})
             }
-            .toolbar(vm.navbarVisibility, for: .navigationBar)
             .animation(.easeIn, value: vm.dinosaurs)
     }
 }
@@ -52,7 +51,6 @@ struct HomeView_Previews: PreviewProvider {
         var queryString = ""
         var shouldShowForm = false
         var showError = false
-        var navbarVisibility: Visibility = .visible
 
         func fetchDinosaurs() {}
         func filterDinosaurs(query: String) {}
