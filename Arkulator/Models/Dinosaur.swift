@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class Dinosaur: Object, Identifiable {
+final class Dinosaur: Object, Identifiable {
     @Persisted(primaryKey: true) var id: UUID
     @Persisted var name: String
     @Persisted var stamina: Int
@@ -51,6 +51,21 @@ class Dinosaur: Object, Identifiable {
         self.health = health
         self.expectedLevel = requiredLevel
         self.map = map
+    }
+
+    init(from: UIDinosaur) {
+        super.init()
+        self.id = from.id
+        self.name = from.name.lowercased()
+        self.stamina = from.stamina
+        self.weight = from.weight
+        self.oxigen = from.oxigen
+        self.mele = from.mele
+        self.food = from.food
+        self.movementSpeed = from.movementSpeed
+        self.health = from.health
+        self.expectedLevel = requiredLevel
+        self.map = from.map
     }
 
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import RealmSwift
 
 protocol HomeScreenViewModelProtocol: ObservableObject {
-    var dinosaurs: [Dinosaur] { get set }
+    var dinosaurs: [UIDinosaur] { get set }
     var queryString: String { get set }
     var shouldShowForm: Bool { get set }
     var showError: Bool { get set }
@@ -22,10 +22,12 @@ protocol HomeScreenViewModelProtocol: ObservableObject {
 
 class HomeScreenViewModel: HomeScreenViewModelProtocol {
 
-    @Published var dinosaurs = [Dinosaur]()
+    @Published var dinosaurs = [UIDinosaur]()
     @Published var queryString = ""
     @Published var shouldShowForm = false
     @Published var showError = false
+    
+    private var storedDinos: [Dinosaur] = [Dinosaur]()
 
 
     private let storageManager: StorageManagerProtocol
@@ -50,7 +52,9 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol {
 
     private func setDinosaurs() {
         let cachedDinosaurs = storageManager.fetch(type: Dinosaur.self)
-        dinosaurs = Array(cachedDinosaurs)
+        let uiDinosaurs = cachedDinosaurs.map { UIDinosaur(from: $0) }
+        self.dinosaurs = uiDinosaurs
+        self.storedDinos = cachedDinosaurs
     }
 
     func filerBy(map: ArkMap) {
@@ -60,11 +64,12 @@ class HomeScreenViewModel: HomeScreenViewModelProtocol {
         }
 
         let filteredDinos = storageManager.fetch(type: Dinosaur.self, map: map)
-        dinosaurs = filteredDinos
+        let filteredUIDinos = filteredDinos.map { UIDinosaur(from: $0) }
+        self.dinosaurs = filteredUIDinos
     }
 
     func deleteDinosaur(at index: IndexSet) {
-        guard let dinosaur = dinosaurs[safe: index.first ?? 0] else {
+        guard let dinosaur = storedDinos[safe: index.first ?? 0] else {
             showError = true
             fetchDinosaurs()
             return
