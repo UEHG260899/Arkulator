@@ -10,7 +10,7 @@ import SwiftUI
 struct EditDinosaurScreen<ViewModel: EditDinosaurViewModelProtocol>: View {
 
     @Environment(\.dismiss) var dismiss
-    @StateObject var vm: ViewModel
+    @State var vm: ViewModel
     @FocusState var isFocused: Field?
 
     var body: some View {

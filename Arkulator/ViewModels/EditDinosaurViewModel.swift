@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol EditDinosaurViewModelProtocol: ObservableObject {
+protocol EditDinosaurViewModelProtocol {
     var formData: [FormField] { get set }
     var dinoMap: ArkMap { get set }
     var shouldShowAlert: Bool { get set }
@@ -16,13 +16,15 @@ protocol EditDinosaurViewModelProtocol: ObservableObject {
     func updateDinosaur()
 }
 
+@Observable
 class EditDinosaurViewModel: EditDinosaurViewModelProtocol {
-    @Published var formData: [FormField] = Constants.Forms.dinoStatsForm
-    @Published var dinoMap: ArkMap = .island
-    @Published var shouldShowAlert = false
 
     private let storageManager: StorageManagerProtocol
     private let dinoId: UUID
+
+    var formData: [FormField] = Constants.Forms.dinoStatsForm
+    var dinoMap: ArkMap = .island
+    var shouldShowAlert = false
 
     var isFormValid: Bool {
         var isFormValid = true
