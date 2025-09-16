@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-protocol DinosaurStatsScreenViewModelProtocol: ObservableObject {
+protocol DinosaurStatsScreenViewModelProtocol {
     var formFields: [FormField] { get set }
     var dinoMap: ArkMap { get set }
     var isFormValid: Bool { get }
@@ -17,10 +17,11 @@ protocol DinosaurStatsScreenViewModelProtocol: ObservableObject {
     func saveDinosaur()
 }
 
+@Observable
 class DinosaurStatsViewModel: DinosaurStatsScreenViewModelProtocol {
-    @Published var formFields = Constants.Forms.dinoStatsForm
-    @Published var dinoMap: ArkMap = .island
-    @Published var shouldShowAlert = false
+    var formFields = Constants.Forms.dinoStatsForm
+    var dinoMap: ArkMap = .island
+    var shouldShowAlert = false
 
     var isFormValid: Bool {
         var isValid = true

@@ -10,7 +10,7 @@ import RealmSwift
 
 struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
 
-    @StateObject var vm: ViewModel
+    @State var vm: ViewModel
 
     var body: some View {
             ZStack(alignment: .bottom) {
@@ -21,7 +21,7 @@ struct HomeScreen<ViewModel: HomeScreenViewModelProtocol>: View {
                 DinosaurListView(
                     dinosaurs: vm.dinosaurs.map { Dinosaur(from: $0) },
                     onDelete: vm.deleteDinosaur(at:),
-                    onMapSelected: vm.filerBy(map:)
+                    onMapSelected: vm.filterBy(map:)
                 )
 
                 FloatingButton {
@@ -54,7 +54,7 @@ struct HomeView_Previews: PreviewProvider {
 
         func fetchDinosaurs() {}
         func filterDinosaurs(query: String) {}
-        func filerBy(map: ArkMap) {}
+        func filterBy(map: ArkMap) {}
         func deleteDinosaur(at index: IndexSet) {}
     }
 

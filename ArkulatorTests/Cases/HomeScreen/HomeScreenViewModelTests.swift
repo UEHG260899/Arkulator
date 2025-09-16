@@ -187,7 +187,7 @@ class HomeScreenViewModelTests: XCTestCase {
         mockRealmManager.saveObjects(mockDinosaurs)
 
         // when
-        sut.filerBy(map: .all)
+        sut.filterBy(map: .all)
 
         // then
         XCTAssertTrue(mockRealmManager.calledMethods.contains(.fetch))
@@ -198,7 +198,7 @@ class HomeScreenViewModelTests: XCTestCase {
         mockRealmManager.saveObjects(mockDinosaurs)
 
         // when
-        sut.filerBy(map: .island)
+        sut.filterBy(map: .island)
 
         // then
         XCTAssertTrue(mockRealmManager.calledMethods.contains(.fetchMap))
