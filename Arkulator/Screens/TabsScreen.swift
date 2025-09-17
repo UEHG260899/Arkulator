@@ -10,22 +10,17 @@ import SwiftUI
 struct TabsScreen: View {
     var body: some View {
         TabView {
+            Tab("Home", systemImage: "house") {
+                NavigationStack {
+                    HomeScreenFactory.make()
+                }
+            }
 
-            NavigationStack {
-                HomeScreenFactory.make()
+            Tab("Settings", systemImage: "gear") {
+                NavigationStack {
+                    SettingsScreen()
+                }
             }
-            .tabItem {
-                Label("Home", systemImage: "house")
-            }
-            .tag(0)
-
-            NavigationStack {
-                SettingsScreen()
-            }
-            .tabItem {
-                Label("Settings", systemImage: "gear")
-            }
-            .tag(1)
 
         }
         .accentColor(.uiAccentColor)
